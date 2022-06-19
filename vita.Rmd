@@ -1,0 +1,86 @@
+---
+title: "Curriculum Vitae"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+<table cellspacing="3" cellpadding="2" border="0" style="text-align: left; width: 100%; vertical-align: top;">
+<tbody>
+<tr>
+<td><br></td>
+<td><br></td>
+</tr>
+<tr>
+<td width="20%" style="vertical-align: top;">**Current Position**</td>
+<td width="80%">Full Professor at the [Department of Philosophy](http://www.uib.no/en/fof#), University of Bergen, Norway.</td>
+<tr>
+<td><br></td>
+<td><br></td>
+</tr>
+</tr>
+<tr>
+<td width="20%" style="vertical-align: top;">Previous Positions</td>
+<td width="80%">SNSF Professor at the [Department of Philosophy](http://www.unige.ch/lettres/philo/), University of Geneva, Switzerland, (2014-2017).</td>
+</tr>
+<tr>
+<td></td>
+<td width="80%"><br> Juniorprofessor at the [Institute of Cognitive Science](http://cogsci.uni-osnabrueck.de/), University of Osnabrück, Germany, (2012-2014).</td>
+</tr>
+<tr>
+<td></td>
+<td width="80%"><br> Postdoctoral Research Associate and Lecturer at the [Dept. of Philosophy](http://www.unikonstanz.de/philosophie/), University of Konstanz, Germany, (2009-2012).</td>
+</tr>
+<tr>
+<td></td>
+<td width="80%"><br> Visiting Scholar at the Institut d'Histoire et de Philosophie des Sciences et des Techniques, University of Paris 1, France, (spring 2010).</td>
+</tr>
+<tr>
+<td></td>
+<td width="80%"><br> Postdoctoral Research Associate and Lecturer at the [Dept. of Philosophy](http://www.philosophie.unibe.ch/content/index_ger.html), University of Bern, Switzerland, (2008-2009).</td>
+</tr>
+<tr>
+<td></td>
+<td width="80%"><br> Visiting Fellow at the [Center for Philosophy of Science](http://www.pitt.edu/%7Epittcntr/), University of Pittsburgh, USA, (2007-2008).</td>
+</tr>
+<tr>
+<td></td>
+<td width="80%"><br> Lecturer, Department of Philosophy, University of Bern, Switzerland, (2003-2007).</td>
+</tr>
+<tr>
+<td></td>
+<td width="80%"><br> Research and Teaching Assistant, Department of Philosophy, University of Bern, Switzerland, (2001-2003).</td>
+</tr>
+<tr>
+<td><br></td>
+<td><br></td>
+</tr>
+<tr>
+<td width="20%" style="vertical-align: top;">Education</td>
+<td width="80%">Ph.D. (Philosophy): University of Bern (2005);<br>
+M.A. (Philosophy): University of Bern (2001);<br>
+Studies in Philosophy, History, and German: Universities of Bern, Freiburg, and Konstanz (Germany) (1995-2000).</td>
+</tr>
+<tr>
+<td><br></td>
+<td><br></td>
+</tr>
+<td width="20%" style="vertical-align: top;">Fellowship, Grants</td>
+<td width="80%">[FRIPRO project](https://www.uib.no/en/cna/146141/fripro-project-granted), Research Council of Norway (2021);<br>
+[Toppforskprogrammet](http://www.uib.no/forskning/91071/toppforskprogrammet), Universitetet i Bergen / Trond Mohn Foundation (2017);<br>
+[SNSF Professorship](http://www.snf.ch/en/funding/careers/snsf-professorships/Pages/default.aspx#) from the Swiss National Science Foundation (2013);<br>
+Visiting Fellowship at the University of Pittsburgh (2007);<br>
+Fellowship for Prospective Researchers from the Swiss National Science Foundation (2007);<br>
+Ph.D. Grant from the Swiss National Science Foundation for a research project on regularity theories of causation (2001-2003);<br>
+Diverse travel grants from the University of Bern and from the Swiss National Science Foundation.</td>
+</tbody>
+</table>
+
+
+
+
+
+

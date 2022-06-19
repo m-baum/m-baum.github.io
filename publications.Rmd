@@ -1,0 +1,216 @@
+---
+title: "Publications"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+</br>
+
+### Articles (peer-reviewed)
+* M. Baumgartner and C. Falk  (2021), <a href="https://doi.org/10.1080/00273171.2021.1971510">Configurational Causal Modeling and Logic Regression</a>, <em>Multivariate Behavioral Research</em>. <a href="docs/CNA_LR_final.pdf">[penultimate draft]</a>; <a href="docs/replication_material.zip">[replication material]</a>
+
+* M. Baumgartner (2021), <a href="https://doi.org/10.1007/s11135-021-01157-z">Qualitative Comparative Analysis and Robust Sufficiency</a>, <em>Quality \& Quantity</em>, doi: 10.1007/s11135-021-01157-z <a href="docs/rob_suff.pdf">[penultimate draft]</a>
+
+* M. Baumgartner and M. Ambühl  (2021), <a href="https://doi.org/10.1177/0049124121995554">Optimizing Consistency and Coverage in Configurational Causal Modeling</a>, <em> Sociological Methods &amp; Research</em>. doi: 10.1177/0049124121995554 <a href="docs/ConCovOpt.pdf">[penultimate draft]</a>; <a href="docs/replication_ConCovOpt.R">Replication material</a>.
+
+* V.P. Parkkinen and M. Baumgartner (2021), <a href="https://doi.org/10.1177/0049124120986200">Robustness and Model Selection in Configurational Causal Modeling</a>, <em> Sociological Methods &amp; Research</em>. doi: 10.1177/0049124120986200 <a href="docs/robustness.pdf">[penultimate draft]</a>
+
+* L. Casini and M. Baumgartner (2021), The PC Algorithm and the Inference to Constitution, <em>The British Journal for the Philosophy of Science</em>. doi: 10.1086/714820. <a href="docs/rep_material_BJPS2018-395.zip">Online supplementary material</a>; <a href="docs/PC_final.pdf">[penultimate draft]</a>
+
+* R.G. Whitaker, N. Sperber, M. Baumgartner, et al. (2020) <a href="https://implementationscience.biomedcentral.com/articles/10.1186/s13012-020-01070-3"> Coincidence analysis: a new method for causal inference in implementation science</a>, <em> Implementation Science</em> 15, 108 (2020). https://doi.org/10.1186/s13012-020-01070-3
+
+
+* M. Baumgartner and M. Ambühl (2020), <a href="https://doi.org/10.1017/psrm.2018.45">Causal Modeling with Multi-Value and Fuzzy-Set Coincidence Analysis</a>, <em>Political Science Research and Methods</em> 8, 526-542, doi: 10.1017/psrm.2018.45. Replication material at https://doi.org/10.7910/DVN/YIEAF1; <a href="docs/fscna.pdf">[penultimate
+                  draft]</a> 
+
+* M. Baumgartner and A. Thiem (2020), <a href="https://doi.org/10.1177/0049124117701487">Often Trusted But Never (Properly) Tested: Evaluating Qualitative Comparative Analysis</a>, <em>Sociological Methods &amp; Research</em> 49, 279–311, doi: 10.1177/0049124117701487.
+
+* M. Baumgartner and C. Falk (2019), Boolean Difference-Making: A Modern Regularity Theory of Causation, <em>The British Journal for the Philosophy of Science</em>, doi: 10.1093/bjps/axz047. <a href="docs/replicateBDM.R">Online supplementary material</a>; <a href="docs/bool_diffVfinal.pdf">[penultimate draft]</a>
+
+
+* M. Baumgartner, L. Casini, and B. Krickel (2018), <a href="https://rdcu.be/3GlM">Horizontal Surgicality and Mechanistic Constitution</a>, <em>Erkenntnis</em>,  doi: 10.1007/s10670-018-0033-5. <a href="docs/HSMC.pdf">[penultimate
+                  draft]</a>
+
+* M. Baumgartner (2018), <a href="http://www.tandfonline.com/doi/full/10.1080/00048402.2017.1328451">The
+                  Inherent Empirical Underdetermination of Mental Causation</a>,
+                <em>The Australasian Journal of Philosophy</em> 96, 335-350, doi:
+                10.1080/00048402.2017.1328451.
+
+* M. Baumgartner and W. Wilutzky (2017), <a href="http://www.tandfonline.com/doi/full/10.1080/09515089.2017.1355453">Is
+                  It Possible to Experimentally Determine the Extension of
+                  Cognition?</a>, <em>Philosophical Psychology</em> 30, 1104-1125, doi: 10.1080/09515089.2017.1355453. <a href="docs/extended.pdf">[penultimate
+                  draft]</a>
+
+
+* M. Baumgartner and L. Casini (2017), <a href="http://dx.doi.org/10.1086/690716">An Abductive Theory of Constitution</a>, <em>Philosophy of Science</em> 84, 214-233, doi: 10.1086/690716 <a href="docs/BC_NDC.pdf">[penultimate draft]</a>
+
+* M. Baumgartner and A. Thiem (2017), <a href="https://doi.org/10.1177/0049124115610351">Model Ambiguities in Configurational Comparative Research</a>, <em>Sociological Methods &amp; Research</em> 46, 954-987, doi: 10.1177/0049124115610351.
+
+
+* A. Thiem and M. Baumgartner (2016), <a href="https://doi.org/10.1177/0081175016654736">Modeling Causal Irrelevance in Evaluations of Configurational Comparative Methods</a>, <em>Sociological Methodology</em> 46, 345-357, doi: 10.1177/0081175016654736.
+
+* A. Thiem and M. Baumgartner (2016), <a href="http://cps.sagepub.com/content/49/6/801">Back to Square One: A Reply to Munck, Paine and Schneider</a>, <em>Comparative Political Studies</em> 49, 801-806.
+
+
+
+* A. Thiem, M. Baumgartner and D. Bol (2016), <a href="http://cps.sagepub.com/content/49/6/742">Still Lost in Translation! A Correction of Three Misunderstandings Between Configurational Comparativists and Regressional Analysts</a>, <em>Comparative Political Studies</em> 49, 742-774.
+
+
+
+* M. Baumgartner and A. Gebharter (2016), <a href="https://doi.org/10.1093/bjps/axv003">Constitutive Relevance, Mutual Manipulability, and Fat-Handedness</a>, <em>The British Journal for the Philosophy of Science</em> 67, 731-756. <a href="docs/Mechanisms.pdf">[penultimate draft]</a>
+
+
+
+* M. Baumgartner and A. Thiem (2015), <a href="http://journal.r-project.org/archive/2015-1/baumgartner-thiem.pdf">Identifying Complex Causal Dependencies in Configurational Data with Coincidence Analysis</a>, <em>The R Journal</em> 7, 176-184. <a href="docs/RJwrapper.pdf">[penultimate draft]</a>
+
+
+* M. Baumgartner (2015), <a href="http://link.springer.com/article/10.1007%2Fs11135-014-0026-7">Parsimony and Causality</a>, <em>Quality &amp; Quantity</em> 49, 839-856. <a href="docs/parsimony.pdf">[penultimate draft]</a>
+
+
+* M. Baumgartner (2014), <a href="http://link.springer.com/article/10.1007%2Fs11229-013-0331-z">Exhibiting Interpretational and Representational Validity</a>, <em>Synthese</em> 191, 1349-1373. <a href="docs/int_rep_val.pdf">[penultimate draft]</a>
+
+
+* M. Baumgartner and R. Epple (2014), <a href="http://smr.sagepub.com/content/43/2/280">A Coincidence Analysis of a Causal Chain: The Swiss Minaret Vote</a>, <em>Sociological Methods &amp; Research</em> 43, 280-312. <a href="docs/minaret.pdf">[penultimate draft]</a>
+
+
+
+* M. Baumgartner (2013), <a href="http://link.springer.com/article/10.1007%2Fs10670-013-9438-3">A Regularity Theoretic Approach to Actual Causation</a>, <em>Erkenntnis</em> 78, 85-109. <a href="docs/regul_actual.pdf">[penultimate draft]</a>
+
+
+
+* M. Baumgartner and I. Drouet (2013), <a href="http://link.springer.com/article/10.1007%2Fs13194-012-0063-9">Identifying Intervention Variables</a>, <em>European Journal for Philosophy of Science</em> 3, 183-205. <a href="docs/ident_int.pdf">[penultimate draft]</a>
+
+
+* M. Baumgartner (2013), <a href="http://onlinelibrary.wiley.com/doi/10.1111/1746-8361.12008/abstract">Rendering Interventionism and Non-Reductive Physicalism Compatible</a>, <em>Dialectica</em> 67, 1-27. <a href="docs/compatible.pdf">[penultimate draft]</a>
+
+
+
+* M. Baumgartner (2013), <a href="http://dx.doi.org/10.1177/1525822X12462527">Detecting Causal Chains in Small-<i>N</i> Data</a>, <em>Field Methods</em> 25, 3-24. <a href="docs/small_chain.pdf">[penultimate draft]</a>
+
+* M. Baumgartner and L. Glynn (2013), <a href="http://link.springer.com/article/10.1007%2Fs10670-013-9441-8">Introduction to Special Issue of <em>Erkenntnis</em> on 'Actual Causation'</a>, <i>Erkenntnis</i> 78, 1-8. 
+                
+* M. Baumgartner (2012), <a href="https://doi.org/10.1007/s11406-012-9369-2"> The Logical Form of Interventionism</a>, <em>Philosophia</em> 40, 751-761. <a href="docs/interlog.pdf">[penultimate draft]</a>
+
+
+* U. Hofmann and M. Baumgartner (2011), <a href="http://www.ehu.es/ojs/index.php/THEORIA/article/view/988">Determinism and the Method of Difference</a>, <em>Theoria</em> 26, 155-176.
+
+
+* M. Baumgartner (2010), <a href="https://www.jstor.org/stable/40925849">Shallow
+Analysis and the Slingshot Argument</a>, <i>Journal of Philosophical Logic</i> 39, 531-556. <a href="docs/shallow.pdf">[penultimate draft]</a>
+
+
+* M. Baumgartner (2010), <a href="http://dx.doi.org/10.1080/00455091.2010.10716727">Interventionism
+and Epiphenomenalism</a>, <i>Canadian Journal of Philosophy</i> 40, 359-383. <a href="docs/inter_epi.pdf">[penultimate draft]</a>
+
+
+* T. Lampert and M. Baumgartner (2010), <a href="https://doi.org/10.1163/18756735-90000872">The Problem of Validity Proofs</a>, <i>Grazer Philosophische Studien</i> 80, 79-109. <a href="docs/validity3.pdf">[penultimate draft]</a>
+
+* M. Baumgartner (2010), <a href="https://www.jstor.org/stable/20642283 ">Causal Slingshots</a>, <i>Erkenntnis</i> 72, 111-133. <a href="docs/sling2.pdf">[penultimate draft]</a>
+
+
+* M. Baumgartner (2009), <a href="https://doi.org/10.1007/s11229-008-9348-0">Uncovering
+Deterministic Causal Structures: A Boolean Approach</a>, <i>Synthese</i> 170, 71-96. <a href="http://rdcu.be/ugSn">[Springer Nature SharedIt]</a> <a href="docs/det_kluw2.pdf">[penultimate draft]</a> 
+                  
+* M. Baumgartner (2009), <a href="https://www.jstor.org/stable/24706266 ">Interdefining Causation and Intervention</a>, <i>Dialectica</i> 63, 175-194. <a href="docs/inter.pdf">[penultimate draft]</a> 
+                  
+* M. Baumgartner (2009), <a href="http://www.tandfonline.com/doi/abs/10.1080/02698590903006909">Interventionist
+Causal Exclusion and Non-reductive Physicalism</a>, <i>International Studies in the Philosophy of Science</i> 23, 161-178. <a href="docs/exclusion.pdf">[penultimate draft]</a> 
+                  
+* M. Baumgartner (2009), <a href="http://smr.sagepub.com/cgi/content/abstract/38/1/71">Inferring
+Causal Complexity</a>, <i>Sociological Methods &amp; Research</i> 38, 71-101. <a href="docs/qca.pdf">[penultimate draft]</a>
+                
+* M. Baumgartner (2008), <a href="https://doi.org/10.1007/s11406-007-9114-4">Regularity
+Theories Reassessed</a>, <i>Philosophia</i> 36, 327-354. <a href="docs/regul_recon_fin.pdf">[penultimate draft]</a> 
+                  
+* M. Baumgartner (2008), <a href="https://doi.org/10.1007/s10670-008-9113-2">The
+Causal Chain Problem</a>, <i>Erkenntnis</i> 69, 201-226. <a href="http://rdcu.be/ugSm">[Springer Nature SharedIt]</a> <a href="docs/chain_problem.pdf">[penultimate draft]</a> 
+                  
+* M. Baumgartner and T. Lampert (2008), <a href="https://doi.org/10.1007/s11229-007-9218-1">Adequate Formalization</a>, <i>Synthese</i> 164, 93-115. <a href="docs/def_form.pdf">[penultimate draft]</a>
+
+</br>
+
+### Articles (invited)
+
+* M. Baumgartner (2020), <a href="docs/causation.pdf">*Causation*</a>, in: The SAGE Handbook of Political Science, ed. by D. Berg-Schlosser, B. Badie, and L. Morlino, London: SAGE, pp. 305--321.
+
+
+* M. Baumgartner and M. Ambühl (2019), cna: An R Package for Configurational Causal Inference and Modeling. R package vignette: The Comprehensive R Archive Network. https://cran.r-project.org/web/packages/cna/vignettes/cna_vignette.pdf.
+
+* A. Thiem and M. Baumgartner (2016), <a href="http://alrik-thiem.net/data/documents/glossary.pdf">Glossary
+                  for Configurational Comparative Methods</a>, Version 1.0. In:
+                Thiem, Alrik. <span style="font-style: italic;">QCApro:
+                  Professional Functionality for Performing and Evaluating
+                  Qualitative Comparative Analysis</span>, R Package Version
+                1.1-0. URL: http://cran.r-project.org/package=QCApro.
+
+* M. Baumgartner (2010), <a href="docs/reason_log.pdf">Informal
+                  Reasoning and Logical Formalization</a>, in: <i>Ding und
+                  Begriff</i>, ed. by S. Conrad and S. Imhof, Ontos Verlag,
+                Frankfurt. 
+                
+* M. Baumgartner (2007), Probleme einer theoretischen Analyse der
+                Kausalrelation, in: N. Kersten u. U. Rose, Kausales Schliessen
+                auf der Grundlage von Beobachtungsstudien, BAUA, Dortmund,
+                16-34. 
+                
+* M. Baumgartner (2006), 'Kausalität', in: Neues Handbuch
+                philosophischer Grundbegriffe, hg. v. Armin G. Wildfeuer und
+                Petra Kolmer, Karl Alber. <br />
+</br>
+
+### Software
+
+* V.P. Parkkinen and M. Baumgartner (2022). **frscore**: Functions for Calculating
+  Fit-Robustness of CNA-Solutions. R package version 0.1.1.
+  URL: <a href="http://cran.r-project.org/package=frscore">http://cran.r-project.org/package=frscore</a>
+
+* M. Ambuehl and M. Baumgartner. (2021), **cnaOpt**: Optimizing Consistency and Coverage in Configurational Causal Modeling. R package version 0.5.0.
+                URL: <a href="http://cran.r-project.org/package=cnaOpt">http://cran.r-project.org/package=cnaOpt</a>.
+
+
+* M. Ambuehl and M. Baumgartner. (2021), **cna**: Causal
+                Modeling with Coincidence Analysis. R package version 3.3.0.
+                URL: <a href="http://cran.r-project.org/package=cna">http://cran.r-project.org/package=cna</a>.
+
+
+                
+</br>
+
+### Monographs
+
+* M. Baumgartner and G. Grasshoff, <i>Kausalität und kausales Schliessen. Eine Einführung mit interaktiven Übungen</i>, Bern Studies in the History and Philosophy of Science, Bern, 2004. 
+               
+* M. Baumgartner, <a href="docs/ext_reg.pdf"><i>Complex Causal Structures. Extensions of a Regularity Theory of Causation</i></a>, PhD-thesis, University of Bern, 2006.
+
+</br>
+
+### Special Journal Issue
+
+* M. Baumgartner and L. Glynn (eds.) (2013), <i>Actual Causation</i>,
+                special issue of <em>Erkenntnis</em>, vol. 78, issue 1
+                supplement.
+
+</br>
+
+### Book Reviews
+
+* M. Baumgartner (2017), <a href="https://link.springer.com/article/10.1007/s11016-017-0230-x">Reasons
+                  Without Argument. Review of "Reasons Why" by Bradford Skow</a>,
+                <i>Metascience</i>. <a href="http://rdcu.be/ughk">[Springer
+                  Nature SharedIt]</a>
+
+* M. Baumgartner (2017), <a href="http://www.tandfonline.com/doi/full/10.1080/00048402.2016.1276206">Review
+                  of "Ockham's Razors. A User's Manual" by Elliott Sober</a>, <i>The
+                  Australasian Journal of Philosophy</i>. <a href="docs/razors.pdf">[penultimate
+                  draft]</a>
+
+* M. Baumgartner (2010), <a href="http://www.springerlink.com/content/e330112873856120">Measuring
+                  and Governing</a>, Review of "The Law-Governed Universe" by
+                John T. Roberts, <i>Metascience</i>. <a href="docs/roberts_gov.pdf">[penultimate
+                  draft]</a>
+
+* M. Baumgartner and T. Lampert (2004), ‘Die richtige Formel.
+                Philosophische Probleme der logischen Formalisierung’ of G.
+                Brun, <i>Erkenntnis</i> 60.3, pp. 417-421. 

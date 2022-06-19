@@ -1,0 +1,26 @@
+name: Michael Baumgartner
+navbar:
+  title: Michael Baumgartner
+  right:
+  - text: Home
+    href: index.html
+  - text: Vita
+    href: vita.html
+  - text: Publications
+    href: publications.html
+  - text: Talks
+    href: talks.html
+  - text: Research
+    href: research.html
+  - text: Teaching
+    href: teach.html
+  - text: CNA
+    href: cna.html
+output:
+  html_document:
+    theme: sandstone
+    css: basic.css
+    lib_dir: site_docs
+    self_contained: no
+output_dir: _site
+

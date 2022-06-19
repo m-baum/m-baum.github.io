@@ -1,0 +1,102 @@
+---
+title: "Teaching"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+<br>
+
+### University of Bergen
+
+May/June. 2022: [*Introduction to Causal Data Analysis and Modeling with Coincidence Analysis*](https://www.uib.no/en/cna/149512/introduction-causal-data-analysis-and-modeling-coincidence-analysis)
+
+<br>
+
+
+### Indianapolis (Regenstrief Institute) 
+
+Aug. 2021: [*Introduction to Causal Modeling with Coincidence Analysis*](docs/course_outlineCNA.pdf)
+
+Sept. 2020: [*Configurational Causal Data Analysis*](https://www.eventbrite.com/e/sept-21-25-intensive-two-courses-in-configurational-comparative-methods-tickets-109016380930)
+
+Sept. 2017: [*Configurational Research with Qualitative Comparative Analysis (QCA) and Coincidence Analysis (CNA)*](docs/course_page.png), [*Outline*](docs/course_outline.pdf)
+
+<br>
+
+### Geneva (2014-2017)
+
+Semestre de printemps 17: *The Philosophy of the Social Sciences* 
+
+Semestre d'automne 16/17: *The Bounds of Cognition/Mind* 
+
+Semestre d'automne 15/16: *General Philosophy of Science* 
+
+Semestre d'automne 15/16: [*Configurational Research with QCA and CNA*](docs/course_outline_geneva.pdf)
+
+Semestre d'automne 14/15: *Philosophie de la causalité* 
+
+<br>
+
+### Osnabrück (2012-2014)
+
+Wintersemester 13/14: *Seminar on Philosophy of Mathematics*
+
+Wintersemester 13/14: *Lecture on Foundations of Logic*
+
+Sommersemester 13: *Seminar on [The Core Debates in the Philosophy of Science](docs/programm_core.pdf)* 
+
+Sommersemester 13: *Seminar on [Thought Experiments](docs/programm_thou_os.pdf)* 
+
+Wintersemester 12/13: *Lecture on Foundations of Logic* 
+
+Sommersemester 12: *Seminar on [Determinism](docs/programm_det_os.pdf) *
+
+Sommersemester 12: *Introduction to the Philosophy of Mind* 
+
+<br>
+
+#### Konstanz (2009-2012)
+
+Methods Workshop 16: [*Configurational Research with QCA and CNA*](docs/course_outline_konstanz.pdf)
+
+Proseminar/Wintersemester 11/12: *Die Sprachphilosophie von Paul Grice* 
+
+Proseminar/Wintersemester 10/11: *Gilbert Ryle: The Concept of Mind*
+
+Hauptseminar/Wintersemester 10/11: *Kausalität*
+
+Proseminar/Sommersemester 10: *Gedankenexperimente*
+
+Proseminar/Wintersemester 09/10: *Wissenschaftlicher Realismus und Anti-Realismus*
+
+<br>
+
+#### Bern (2003-2008)
+
+Proseminar: *Gedankenexperimente*
+
+Einfuehrungskurs: *Kausalitaet und kausales Schliessen*
+
+Proseminar/Lektuerekurs: *Mills System of Logic und seine Kritiker*
+
+Proseminar/Lektuerekurs: *[Wissenschaftstheoretische Probleme und Positionen im Englischen Empirismus](docs/programm_emp.pdf)*
+
+Proseminar/Lektuerekurs: *Realismus vs. Anti-Realismus: Bas van Fraassen The Scientific Image*
+
+Proseminar: *Die Kontroverse um Karl Poppers Wissenschaftsphilosophie* 
+
+Einfuehrungskurs: *Logik mit Uebungen*
+
+Proseminar/Einfuehrungskurs: *Determinismus* 
+
+Hauptseminar: *Geist-Koerper Interaktion* 
+
+Proseminar: [*Naturgesetze*](docs/programm_nat.pdf)
+
+<br>
+
+To download English descriptions of the courses at the University of Bern, click [*here*](docs/bern2003-2008_mb.pdf).
+

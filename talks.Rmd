@@ -1,0 +1,22 @@
+---
+title: "Talks"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+ library(knitr)
+options(knitr.table.format = "html")
+library(kableExtra)
+```
+
+</br>
+
+## 
+
+```{r, echo = FALSE, message = FALSE, warning=FALSE}
+talk <- read.csv(file="talks.csv", header = FALSE, sep = ",")
+colnames(talk) <- c("Date", "Topic/Location")
+kable(talk) %>%
+  kable_styling(c("striped", "bordered"),full_width = FALSE)
+```

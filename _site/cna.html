@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>cna.knit</title>
+
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="basic.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Michael Baumgartner</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="vita.html">Vita</a>
+</li>
+<li>
+  <a href="publications.html">Publications</a>
+</li>
+<li>
+  <a href="talks.html">Talks</a>
+</li>
+<li>
+  <a href="research.html">Research</a>
+</li>
+<li>
+  <a href="teach.html">Teaching</a>
+</li>
+<li>
+  <a href="cna.html">CNA</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<style>
+#banner {
+  position: absolute;
+  top: 60px;
+  left: 0px;
+  right: 0px;
+  width: 100%;
+  height: 250px;
+  margin:auto;
+  text-align:center;
+  z-index: -1;
+}
+
+</style>
+</head>
+<p><img id="banner" src="docs/head_cna3.png" alt="Banner Image" /></p>
+<p><br /> <br /> <br /> <br /> <br /> <br /> <br> <br> <br> <br> <br>
+<br> <br> <br></p>
+</p>
+<hr />
+<div id="coincidence-analysis-cna" class="section level1">
+<h1>Coincidence Analysis (CNA)</h1>
+<p><font size="4"> <em>Coincidence Analysis</em> (CNA) is a
+configurational comparative method (CCM) of causal inference and data
+analysis that is custom-built for multi-outcome structures.</p>
+<br>
+<div class="boxed">
+This page presents some relevant literature on CNA and will inform about
+new developments, seminars, workshops etc. For more see the
+<a href="https://www.uib.no/en/cna">official CNA website</a> at the
+University of Bergen.
+</div>
+<p></font> <br> <br></p>
+<!-- ### Job -->
+<!-- **New job in the Coincidence Analysis project** (any scientist with a distinct interest in causal modeling is very welcome to apply) -->
+<!-- The Department of Philosophy at the University of Bergen is inviting applications for a 3-year post doctor position. We are looking for a scientist with a specific interest in methodological questions and causal modeling and data analysis in particular. The position is connected to the project "Boolean Causal Modeling with Coincidence Analysis". Further information about the project can be found here: https://www.uib.no/en/cna/. The successful applicant must hold a PhD or an equivalent degree in a scientific discipline relevant for the application of Boolean methods, e.g. social/political science, economics, biology, medicine or psychology. Applicants should have a solid track record of peer-review publishing in their home discipline and a pronounced interest in interdisciplinary work. The successful applicant will be encouraged to integrate her/his ongoing research into the context of this project and to seek collaborations in her/his discipline at the University of Bergen. The preferred starting date is 1 February 2020, but a later date might be possible. An additional 4. year with teaching is negotiable as well. For more information and details on how to apply, please, go to -->
+<!-- https://www.jobbnorge.no/en/available-jobs/job/177227/postdoctoral-fellowship-in-causal-modeling -->
+<p><br></p>
+<div id="training" class="section level3">
+<h3>Training</h3>
+<div id="previous" class="section level4">
+<h4>previous</h4>
+<ul>
+<li>Bergen (in-person), May 30 - June 2, 2022, <a
+href="https://www.uib.no/en/cna/149512/introduction-causal-data-analysis-and-modeling-coincidence-analysis"><em>Introduction
+to Causal Data Analysis and Modeling with Coincidence
+Analysis</em></a></li>
+<li>Indianapolis (via Zoom), Aug. 3-5, 2021, <a
+href="docs/course_outlineCNA.pdf"><em>Introduction to Causal Modeling
+with Coincidence Analysis</em></a></li>
+<li>Indianapolis (via Zoom), 2020, <a
+href="docs/course_outline_advanced.pdf"><em>Advanced Topics in
+Configurational Causal Data Analysis</em></a></li>
+<li>Indianapolis (via Zoom), 2020, <a
+href="docs/course_outline_beginner.pdf"><em>Beginners’ Introduction to
+Configurational Causal Data Analysis</em></a></li>
+<li>Arlington, 2019: <a
+href="http://compasss.org/event/pre-conference-workshop-on-coincidence-analysis-12th-annual-conference-on-the-science-of-dissemination-implementation-in-health/"><em>Coincidence
+Analysis (CNA) Workshop at the D&amp;I Conference</em></a></li>
+<li>Indianapolis, 2017: <a
+href="docs/course_outline.pdf"><em>Configurational Research with QCA and
+CNA</em></a></li>
+<li>Konstanz, 2016: <a
+href="docs/course_outline_konstanz.pdf"><em>Configurational Research
+with QCA and CNA</em></a></li>
+<li>Geneva, 2015: <a
+href="docs/course_outline_geneva.pdf"><em>Configurational Research with
+QCA and CNA</em></a></li>
+</ul>
+<p><br></p>
+</div>
+</div>
+<div id="software" class="section level3">
+<h3>Software</h3>
+<div id="base-package-cna" class="section level4">
+<h4>Base package <strong>cna</strong></h4>
+<p>The <strong>cna</strong> package provides all the base
+functionalities required to analyze data by means of CNA.</p>
+<ul>
+<li>On 12/17/2021, version 3.3.0 of the <strong>cna</strong> R-package
+has been released on <a
+href="https://cran.r-project.org/package=cna">CRAN</a>.</li>
+<li>On 06/14/2021, version 3.2.0 of the <strong>cna</strong> R-package
+has been released on <a
+href="https://cran.r-project.org/package=cna">CRAN</a>.</li>
+<li>On 05/28/2021, version 3.1.0 of the <strong>cna</strong> R-package
+has been released on <a
+href="https://cran.r-project.org/package=cna">CRAN</a>.</li>
+<li>On 11/06/2020, update 3.0.1 has been released on <a
+href="https://cran.r-project.org/package=cna">CRAN</a>.</li>
+<li>On 09/13/2020, version 3.0.0 of the <strong>cna</strong> R-package
+has been released on <a
+href="https://cran.r-project.org/package=cna">CRAN</a>.</li>
+<li>On 05/20/2020, update 2.2.3 has been released on <a
+href="https://cran.r-project.org/package=cna">CRAN</a>.</li>
+<li>On 06/12/2019, update 2.2.2 has been released on <a
+href="https://cran.r-project.org/package=cna">CRAN</a>.</li>
+<li>On 08/09/2019, update 2.2.1 has been released on <a
+href="https://cran.r-project.org/package=cna">CRAN</a>.</li>
+<li>On 04/13/2019, update 2.2.0 has been released on <a
+href="https://cran.r-project.org/package=cna">CRAN</a>.</li>
+<li>On 06/13/2018, update 2.1.1 has been released on <a
+href="https://cran.r-project.org/package=cna">CRAN</a>.</li>
+<li>On 06/01/2018, version 2.1.0 of the <strong>cna</strong> R-package
+has been released on <a
+href="https://cran.r-project.org/package=cna">CRAN</a>.</li>
+</ul>
+</div>
+<div id="add-on-package-cnaopt" class="section level4">
+<h4>Add-on package <strong>cnaOpt</strong></h4>
+<p>The <strong>cnaOpt</strong> package provides various functions for
+optimizing consistency and coverage scores of models of configurational
+comparative methods as CNA and QCA.</p>
+<ul>
+<li>On 12/17/2021, update 0.5.0 has been released on <a
+href="https://cran.r-project.org/package=cnaOpt">CRAN</a>.</li>
+<li>On 09/14/2020, update 0.2.0 has been released on <a
+href="https://cran.r-project.org/package=cnaOpt">CRAN</a>.</li>
+<li>On 09/12/2019, update 0.1.1 has been released on <a
+href="https://cran.r-project.org/package=cnaOpt">CRAN</a>.</li>
+<li>On 21/10/2019, version 0.1.0 of the <strong>cnaOpt</strong>
+R-package has been released on <a
+href="https://cran.r-project.org/package=cnaOpt">CRAN</a>.</li>
+</ul>
+</div>
+<div id="add-on-package-frscore" class="section level4">
+<h4>Add-on package <strong>frscore</strong></h4>
+<p>The <strong>frscore</strong> package provides functions for
+calculating the robustness of CNA/CCM models.</p>
+<ul>
+<li>On 01/10/2022, update 0.1.1 has been released on <a
+href="https://cran.r-project.org/package=frscore">CRAN</a>.</li>
+<li>On 07/22/2021, version 0.1.0 of the <strong>frscore</strong>
+R-package has been released on <a
+href="https://cran.r-project.org/package=frscore">CRAN</a>.</li>
+</ul>
+<p><br></p>
+</div>
+</div>
+<div id="literature" class="section level3">
+<h3><a
+href="https://www.zotero.org/groups/4567107/coincidence.analysis/library">Literature</a></h3>
+<div id="methodological" class="section level4">
+<h4>Methodological</h4>
+<p>The details of the most recent version of CNA, which is implemented
+in the <strong>cna</strong> package, are described here:</p>
+<ul>
+<li><p>M. Baumgartner and M. Ambühl (2021), cna: An R Package for
+Configurational Causal Inference and Modeling. R package vignette: The
+Comprehensive R Archive Network. <a
+href="https://cran.r-project.org/web/packages/cna/vignettes/cna_vignette.pdf"
+class="uri">https://cran.r-project.org/web/packages/cna/vignettes/cna_vignette.pdf</a>.</p></li>
+<li><p>M. Baumgartner and M. Ambühl (2020),
+<a href="https://doi.org/10.1017/psrm.2018.45">Causal Modeling with
+Multi-Value and Fuzzy-Set Coincidence Analysis</a>, <em>Political
+Science Research and Methods</em> 8, 526-542, doi: 10.1017/psrm.2018.45.
+Replication material at <a href="https://doi.org/10.7910/DVN/YIEAF1"
+class="uri">https://doi.org/10.7910/DVN/YIEAF1</a>;
+<a href="docs/fscna.pdf">[penultimate draft]</a></p></li>
+</ul>
+<p>The following paper provides a theoretical introduction the functions
+of the <strong>cnaOpt</strong> package:</p>
+<ul>
+<li>M. Baumgartner and M. Ambühl (2021),
+<a href="https://doi.org/10.1177/0049124121995554">Optimizing
+Consistency and Coverage in Configurational Causal Modeling</a>, <em>
+Sociological Methods &amp; Research</em>.
+<a href="docs/ConCovOpt.pdf">[penultimate draft]</a>;
+<a href="docs/replication_ConCovOpt.R">Replication material</a>.</li>
+</ul>
+<p>The following paper introduces the robustness measure implemented in
+the <strong>frscore</strong> package:</p>
+<ul>
+<li>V.P. Parkkinen and M. Baumgartner (2021),
+<a href="https://doi.org/10.1177/0049124120986200">Robustness and Model
+Selection in Configurational Causal Modeling</a>, <em> Sociological
+Methods &amp; Research</em>. <a href="docs/robustness.pdf">[penultimate
+draft]</a></li>
+</ul>
+<p>Older CNA versions are introduced/discussed here:</p>
+<ul>
+<li><p>M. Baumgartner and A. Thiem (2015),
+<a href="http://journal.r-project.org/archive/2015-1/baumgartner-thiem.pdf">Identifying
+Complex Causal Dependencies in Configurational Data with Coincidence
+Analysis</a>, <em>The R Journal</em> 7, 176-184.
+<a href="docs/RJwrapper.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner (2013),
+<a href="http://dx.doi.org/10.1177/1525822X12462527">Detecting Causal
+Chains in Small-<i>N</i> Data</a>, <em>Field Methods</em> 25, 3-24.
+<a href="docs/small_chain.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner (2009),
+<a href="http://www.springerlink.com/content/x0487831qk67h455/">Uncovering
+Deterministic Causal Structures: A Boolean Approach</a>, <i>Synthese</i>
+170, 71-96. <a href="http://rdcu.be/ugSn">[Springer Nature SharedIt]</a>
+<a href="docs/det_kluw2.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner (2009),
+<a href="http://smr.sagepub.com/cgi/content/abstract/38/1/71">Inferring
+Causal Complexity</a>, <i>Sociological Methods &amp; Research</i> 38,
+71-101. <a href="docs/qca.pdf">[penultimate draft]</a></p></li>
+</ul>
+</div>
+<div id="applied" class="section level4">
+<h4>Applied</h4>
+<ul>
+<li><p>Gwayi-Chore, MC., Aruldas, K., Avokpaho, E. et al. (2022),
+<a href="https://doi.org/10.1186/s12913-022-08080-5">Defining optimal
+implementation packages for delivering community-wide mass drug
+administration for soil-transmitted helminths with high coverage</a>.
+<em> BMC Health Serv Res</em> 22, 792. doi:
+10.1186/s12913-022-08080-5</p></li>
+<li><p>Miech EJ, Perkins AJ, Zhang Y, Myers LJ, Sico JJ, Daggy J,
+Bravata DM (2022),
+<a href="https://bmjopen.bmj.com/content/12/6/e061469"> Pairing
+regression and configurational analysis in health services research:
+modelling outcomes in an observational cohort using a split-sample
+design</a>. <em>BMJ Open</em>; 12:e061469. doi:
+10.1136/bmjopen-2022-061469</p></li>
+<li><p>Rich JA, Miech EJ, Bilal U, Corbin TJ (2022),
+<a href="https://doi.org/10.1186/s12889-022-13414-3"> How education and
+racial segregation intersect in neighborhoods with persistently low
+COVID-19 vaccination rates in Philadelphia</a>, <em>BMC Public
+Health</em> 22, 1044, doi: 10.1186/s12889-022-13414-3</p></li>
+<li><p>Mulrooney M, Smith M, Sobieraj D, Shipley B, Miech E. (2022),
+<a href="https://www.japha.org/article/S1544-3191(22)00091-7/fulltext">
+Factors Influencing Primary Care Organization Commitment to Technical
+Assistance Services for Clinical Pharmacist Integration Using
+Configurational Comparative Methods</a>. <em>Journal of the American
+Pharmacists Association</em>, doi: 10.1016/j.japh.2022.03.019.</p></li>
+<li><p>Davis MM, Schneider JL, Petrik AF, Miech EJ, Younger B, Escaron
+AL, Rivelli JS, Thompson JH, Nyongesa D, Coronado GD (2022),
+<a href="https://pubmed.ncbi.nlm.nih.gov/35346927/">Clinic Factors
+Associated With Mailed Fecal Immunochemical Test (FIT) Completion: The
+Difference-Making Role of Support Staff</a>. <em>Ann Fam Med</em>.
+20(2):123-129. doi: 10.1370/afm.2772.</p></li>
+<li><p>Rattray, Nicholas, Edward J. Miech, Gala True, Diana Natividad,
+Brian Laws, Richard M. Frankel, and Marina Kukla (2022),
+<a href="https://doi.org/10.1177/15586898211059616"> Modeling
+Contingency in Veteran Community: A Mixed Approach</a>, <em>Journal of
+Mixed Methods Research</em>, doi: 10.1177/15586898211059616.</p></li>
+<li><p>Edianto, Achmed, Gregory Trencher, and Kazuyo Matsubae (2022),
+<a href="https://doi.org/10.1016/j.esd.2021.12.004">Why Do Some
+Countries Receive More International Financing for Coal-Fired Power
+Plants than Renewables? Influencing Factors in 23 Countries</a>,
+<em>Energy for Sustainable Development</em>, 66: 177–88, doi:
+10.1016/j.esd.2021.12.004.</p></li>
+<li><p>Winchester, B., Cragun, D., Redlinger-Grosse, K., et al.,
+Zierhut, H. (2022),
+<a href="https://onlinelibrary.wiley.com/doi/10.1002/jgc4.1554">Application
+of motivational interviewingstrategies with the extended parallel
+process model to improve risk communication for parents of children with
+familial hypercholesterolemia</a>, <em>Journal of Genetic
+Counseling</em>, doi: 10.1002/jgc4.1554.</p></li>
+<li><p>Yakovchenko V, Morgan TR, Miech EJ, et al., Rogal SS. (2022)
+<a href="https://aasldpubs.onlinelibrary.wiley.com/doi/abs/10.1002/hep.32395">Core
+implementation strategies for improving cirrhosis care in the Veterans
+Health Administration</a>, <em>Hepatology</em>, 2022 Feb 6. doi:
+10.1002/hep.32395</p></li>
+<li><p>Knott CL, Miech EJ, Slade J, Woodard N, Robinson-Shaneman BJ, Huq
+M. (2022)
+<a href="https://doi.org/10.1007/s43477-021-00033-0">Evaluation of
+Organizational Capacity in the Implementation of a Church-Based Cancer
+Education Program</a>. <em>Glob Implement Res Appl</em>. doi:
+10.1007/s43477-021-00033-0</p></li>
+<li><p>Dy SM, Acton RM, Yuan CT, Hsu YJ, Lai AY, Marsteller J, Ye FC,
+McGee N, Kharrazi H, Mahabare D, Kim J, Gurses AP, Bittle M, Scholle SH.
+(2022) <a href="https://doi.org/10.1097/PTS.0000000000000752">
+Association of Implementation and Social Network Factors With Patient
+Safety Culture in Medical Homes. A Coincidence Analysis</a>, <em>The
+Journal of Patient Safety</em>, Jan 1;18(1):e249-e256. doi:
+10.1097/PTS.0000000000000752</p></li>
+<li><p>Swiatczak, M.D. (2021),
+<a href="https://doi.org/10.1007/s11031-021-09906-1">Towards a
+neo-configurational theory of intrinsic motivation</a>. <em>Motivation
+and Emotion</em>. doi: 10.1007/s11031-021-09906-1</p></li>
+<li><p>
+<p>Miech, E.J., Freitag, M.B., Evans, R.R. et al. (2021),
+<a href="https://doi.org/10.1186/s12913-021-06774-w">Facility-level
+conditions leading to higher reach: a configurational analysis of
+national VA weight management programming</a>. <em>BMC Health Serv
+Res</em> 21, 797. doi: 10.1186/s12913-021-06774-w</p>
+<ul>
+<li>The first published example of the <em>7cs solution
+visualization</em>.
+</p></li>
+</ul></li>
+<li><p>Cohen, D.J., Shannon M. Sweeney, William L. Miller, et al.,
+Miguel Marino (2021),
+<a href="https://www.annfammed.org/content/19/3/240"> Improving smoking
+and blood pressure outcomes: The interplay between operational changes
+and local context</a>, <em>The Annals of Family Medicine</em>, May 2021,
+19 (3) 240-248; doi: 10.1370/afm.2668</p></li>
+<li><p>Schlick CJ, Huang R, Brajcich BC, Halverson, AL, Yang AD,
+Kreutzer L, et al. (2021),
+<a href="https://journals.lww.com/dcrjournal/Abstract/9000/Unbundling_Bundles__Evaluating_the_Association_of.99255.aspx">
+Unbundling bundles: Evaluating the effectiveness of individual
+colorectal surgical site infection reduction bundle elements in a
+statewide collaborative</a>, <em>Diseases of the Colon and Rectum</em>,
+Nov 22 2021; doi: 10.1097/DCR.0000000000002223.</p></li>
+<li><p>Coury, J., E. Miech, P. Styer et al. (2021), What’s the “secret
+sauce”? How implementation variation affects the success of colorectal
+cancer screening outreach. <em>Implement Sci Commun</em> 2, 5 <a
+href="https://doi.org/10.1186/s43058-020-00104-7"
+class="uri">https://doi.org/10.1186/s43058-020-00104-7</a></p></li>
+<li><p>Nunes, F. A. S. F., J. S. Freitas (2021),
+<a href="http://www.rigd.periodikos.com.br/article/doi/10.51995/2237-3373.v11i1e110022">
+Combination of factors for the presence of the public: a look at the
+lower levels of football in Minas Gerais.</a> <em>Revista
+Intercontinental de Gestão Desportiva</em>, 11 (e1122), 1-11. doi:
+10.51995/2237-3373.v11i1e110022</p></li>
+<li><p>
+<p>Whitaker, R.G., N. Sperber, M. Baumgartner, et al. (2020),
+<a href="https://implementationscience.biomedcentral.com/articles/10.1186/s13012-020-01070-3">
+Coincidence analysis: a new method for causal inference in
+implementation science</a>, <em> Implementation Science</em> 15, 108.
+doi: 10.1186/s13012-020-01070-3</p>
+<ul>
+<li>The first time the journal <em>Implementation Science</em> has ever
+published a full-length configurational analysis.
+</p></li>
+</ul></li>
+<li><p>Petrik, A., B. Green, J. Schneider et al. (2020),
+<a href="https://link.springer.com/article/10.1007/s11606-020-06186-2">Factors
+influencing implementation of a colorectal cancer screening improvement
+program in community health centers: an applied use of configurational
+comparative methods</a>, <em>Journal of General Internal Medicine</em>,
+doi: 10.1007/s11606-020- 06186-2.</p></li>
+<li><p>Hickman, S. E., E. Miech et al. (2020),
+<a href="https://academic.oup.com/gerontologist/advance-article/doi/10.1093/geront/gnaa041/5841891">
+Identifying the Implementation Conditions Associated With Positive
+Outcomes in a Successful Nursing Facility Demonstration Project </a>,
+<em> The Gerontologist</em>, doi: 10.1093/geront/gnaa041</p></li>
+<li><p>
+<p>Yakovchenko, V., E. Miech et al. (2020),
+<a href="https://journals.lww.com/lww-medicalcare/FullText/2020/05000/Strategy_Configurations_Directly_Linked_to_Higher.12.aspx">
+Strategy Configurations Directly Linked to Higher Hepatitis C Virus
+Treatment Starts. An Applied Use of Configurational Comparative
+Methods</a>, <em>Medical Care</em> 58(5), p. e31-e38, doi:
+10.1097/MLR.0000000000001319</p>
+<ul>
+<li>Paper about configurations of “implementation strategies”. It
+includes the first published reference to using E. Miech’s <em>msc
+routine</em> for data reduction.
+</p></li>
+</ul></li>
+<li><p>Moret, W. and L. Lorenzetti (2020),
+<a href="https://www.tandfonline.com/doi/abs/10.1080/17450128.2020.1738022">Realistic
+expectations: exploring the sustainability of graduation outcomes in a
+program for children affected by HIV in Kenya’s Northern Arid Lands</a>.
+<em>Vulnerable Children and Youth Studies</em>. doi:
+10.1080/17450128.2020.1738022</p></li>
+<li><p>Haesebrouck, T. (2019),
+<a href="https://journals.sagepub.com/doi/10.1177/0022343319854787"> Who
+follows whom? A coincidence analysis of military action, public opinion
+and threats</a>, <em>Journal of Peace Research</em>, doi:
+10.1177/0022343319854787</p></li>
+<li><p>Epple. R. and S. Schief (2016), Fighting (for) gender equality:
+the roles of social movements and power resources, <i>Interface</i>: a
+journal for and about social movements, Vol. 8, No.2., 394-
+432.</p></li>
+<li><p>Baumgartner, M. and R. Epple (2014),
+<a href="http://smr.sagepub.com/content/43/2/280">A Coincidence Analysis
+of a Causal Chain: The Swiss Minaret Vote</a>, <em>Sociological Methods
+&amp; Research</em> 43, 280-312. <a href="docs/minaret.pdf">[penultimate
+draft]</a></p></li>
+</ul>
+</div>
+<div id="phd-theses-using-or-on-cna" class="section level4">
+<h4>PhD theses using or on CNA</h4>
+<ul>
+<li>Kelly Coates, 2021 (Portland State), “Affecting Absenteeism Through
+School-Based Health Services Delivery: A Configurational Comparative
+Methods Study of Oregon’s Public Secondary Schools.” (First standalone
+use of CNA in an applied analysis in any doctoral-level dissertation in
+any subject.)</li>
+<li>Jessica Dodge, 2021 (USC), “Exploring the Social Determinants of
+Health in a Population with Similar Access to Healthcare: Experiences
+from United States Active-Duty Army Wives.” (First formal pairing of CNA
+and QCA in an applied analysis in any doctoral-level dissertation in any
+subject.)</li>
+<li>Christoph Falk, 2020 (University of Geneva), “Konfigurationales
+kausales Modellieren. Ein theoretisches Fundament und Verfahren für
+Kausalanalysen mit crisp-set Konfigurationen.”</li>
+<li>Rebecca Whitaker, 2019 (UNC-Chapel Hill), “A Study of Preventable
+Hospital Utilization Among Medicaid-Insured Pediatric Patients in North
+Carolina’s Federally Qualified Health Centers.” (First doctoral-level
+dissertation in the United States to prominently feature CNA in an
+applied analysis.)</li>
+<li>Rui Fernando Correia Ferreira, 2018 (Universidade Federal de Minas
+Gerais, UFMG/Brazil), “Estratégia de influência: O ganho de vantagens
+competitivas de empresas em suas relações com o Estado”. [ENG:
+“Influence strategy: Gaining competitive advantages for companies in
+their relations with the State”]</li>
+<li>Sepheen Byron, 2022 (University of North Carolina – Chapel Hill).
+“State Medicaid Policy Levers Related to Successful Health Information
+Exchange Among Providers.”</li>
+</ul>
+<!-- ## References -->
+</div>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

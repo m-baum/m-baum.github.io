@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Publications</title>
+
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="basic.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Michael Baumgartner</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="vita.html">Vita</a>
+</li>
+<li>
+  <a href="publications.html">Publications</a>
+</li>
+<li>
+  <a href="talks.html">Talks</a>
+</li>
+<li>
+  <a href="research.html">Research</a>
+</li>
+<li>
+  <a href="teach.html">Teaching</a>
+</li>
+<li>
+  <a href="cna.html">CNA</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Publications</h1>
+
+</div>
+
+
+<p></br></p>
+<div id="articles-peer-reviewed" class="section level3">
+<h3>Articles (peer-reviewed)</h3>
+<ul>
+<li><p>M. Baumgartner and C. Falk (2021),
+<a href="https://doi.org/10.1080/00273171.2021.1971510">Configurational
+Causal Modeling and Logic Regression</a>, <em>Multivariate Behavioral
+Research</em>. <a href="docs/CNA_LR_final.pdf">[penultimate draft]</a>;
+<a href="docs/replication_material.zip">[replication
+material]</a></p></li>
+<li><p>M. Baumgartner (2021),
+<a href="https://doi.org/10.1007/s11135-021-01157-z">Qualitative
+Comparative Analysis and Robust Sufficiency</a>, <em>Quality &amp;
+Quantity</em>, doi: 10.1007/s11135-021-01157-z
+<a href="docs/rob_suff.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner and M. Ambühl (2021),
+<a href="https://doi.org/10.1177/0049124121995554">Optimizing
+Consistency and Coverage in Configurational Causal Modeling</a>, <em>
+Sociological Methods &amp; Research</em>. doi: 10.1177/0049124121995554
+<a href="docs/ConCovOpt.pdf">[penultimate draft]</a>;
+<a href="docs/replication_ConCovOpt.R">Replication
+material</a>.</p></li>
+<li><p>V.P. Parkkinen and M. Baumgartner (2021),
+<a href="https://doi.org/10.1177/0049124120986200">Robustness and Model
+Selection in Configurational Causal Modeling</a>, <em> Sociological
+Methods &amp; Research</em>. doi: 10.1177/0049124120986200
+<a href="docs/robustness.pdf">[penultimate draft]</a></p></li>
+<li><p>L. Casini and M. Baumgartner (2021), The PC Algorithm and the
+Inference to Constitution, <em>The British Journal for the Philosophy of
+Science</em>. doi: 10.1086/714820.
+<a href="docs/rep_material_BJPS2018-395.zip">Online supplementary
+material</a>; <a href="docs/PC_final.pdf">[penultimate
+draft]</a></p></li>
+<li><p>R.G. Whitaker, N. Sperber, M. Baumgartner, et al. (2020)
+<a href="https://implementationscience.biomedcentral.com/articles/10.1186/s13012-020-01070-3">
+Coincidence analysis: a new method for causal inference in
+implementation science</a>, <em> Implementation Science</em> 15, 108
+(2020). <a href="https://doi.org/10.1186/s13012-020-01070-3"
+class="uri">https://doi.org/10.1186/s13012-020-01070-3</a></p></li>
+<li><p>M. Baumgartner and M. Ambühl (2020),
+<a href="https://doi.org/10.1017/psrm.2018.45">Causal Modeling with
+Multi-Value and Fuzzy-Set Coincidence Analysis</a>, <em>Political
+Science Research and Methods</em> 8, 526-542, doi: 10.1017/psrm.2018.45.
+Replication material at <a href="https://doi.org/10.7910/DVN/YIEAF1"
+class="uri">https://doi.org/10.7910/DVN/YIEAF1</a>;
+<a href="docs/fscna.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner and A. Thiem (2020),
+<a href="https://doi.org/10.1177/0049124117701487">Often Trusted But
+Never (Properly) Tested: Evaluating Qualitative Comparative
+Analysis</a>, <em>Sociological Methods &amp; Research</em> 49, 279–311,
+doi: 10.1177/0049124117701487.</p></li>
+<li><p>M. Baumgartner and C. Falk (2019), Boolean Difference-Making: A
+Modern Regularity Theory of Causation, <em>The British Journal for the
+Philosophy of Science</em>, doi: 10.1093/bjps/axz047.
+<a href="docs/replicateBDM.R">Online supplementary material</a>;
+<a href="docs/bool_diffVfinal.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner, L. Casini, and B. Krickel (2018),
+<a href="https://rdcu.be/3GlM">Horizontal Surgicality and Mechanistic
+Constitution</a>, <em>Erkenntnis</em>, doi: 10.1007/s10670-018-0033-5.
+<a href="docs/HSMC.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner (2018),
+<a href="http://www.tandfonline.com/doi/full/10.1080/00048402.2017.1328451">The
+Inherent Empirical Underdetermination of Mental Causation</a>, <em>The
+Australasian Journal of Philosophy</em> 96, 335-350, doi:
+10.1080/00048402.2017.1328451.</p></li>
+<li><p>M. Baumgartner and W. Wilutzky (2017),
+<a href="http://www.tandfonline.com/doi/full/10.1080/09515089.2017.1355453">Is
+It Possible to Experimentally Determine the Extension of Cognition?</a>,
+<em>Philosophical Psychology</em> 30, 1104-1125, doi:
+10.1080/09515089.2017.1355453. <a href="docs/extended.pdf">[penultimate
+draft]</a></p></li>
+<li><p>M. Baumgartner and L. Casini (2017),
+<a href="http://dx.doi.org/10.1086/690716">An Abductive Theory of
+Constitution</a>, <em>Philosophy of Science</em> 84, 214-233, doi:
+10.1086/690716 <a href="docs/BC_NDC.pdf">[penultimate
+draft]</a></p></li>
+<li><p>M. Baumgartner and A. Thiem (2017),
+<a href="https://doi.org/10.1177/0049124115610351">Model Ambiguities in
+Configurational Comparative Research</a>, <em>Sociological Methods &amp;
+Research</em> 46, 954-987, doi: 10.1177/0049124115610351.</p></li>
+<li><p>A. Thiem and M. Baumgartner (2016),
+<a href="https://doi.org/10.1177/0081175016654736">Modeling Causal
+Irrelevance in Evaluations of Configurational Comparative Methods</a>,
+<em>Sociological Methodology</em> 46, 345-357, doi:
+10.1177/0081175016654736.</p></li>
+<li><p>A. Thiem and M. Baumgartner (2016),
+<a href="http://cps.sagepub.com/content/49/6/801">Back to Square One: A
+Reply to Munck, Paine and Schneider</a>, <em>Comparative Political
+Studies</em> 49, 801-806.</p></li>
+<li><p>A. Thiem, M. Baumgartner and D. Bol (2016),
+<a href="http://cps.sagepub.com/content/49/6/742">Still Lost in
+Translation! A Correction of Three Misunderstandings Between
+Configurational Comparativists and Regressional Analysts</a>,
+<em>Comparative Political Studies</em> 49, 742-774.</p></li>
+<li><p>M. Baumgartner and A. Gebharter (2016),
+<a href="https://doi.org/10.1093/bjps/axv003">Constitutive Relevance,
+Mutual Manipulability, and Fat-Handedness</a>, <em>The British Journal
+for the Philosophy of Science</em> 67, 731-756.
+<a href="docs/Mechanisms.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner and A. Thiem (2015),
+<a href="http://journal.r-project.org/archive/2015-1/baumgartner-thiem.pdf">Identifying
+Complex Causal Dependencies in Configurational Data with Coincidence
+Analysis</a>, <em>The R Journal</em> 7, 176-184.
+<a href="docs/RJwrapper.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner (2015),
+<a href="http://link.springer.com/article/10.1007%2Fs11135-014-0026-7">Parsimony
+and Causality</a>, <em>Quality &amp; Quantity</em> 49, 839-856.
+<a href="docs/parsimony.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner (2014),
+<a href="http://link.springer.com/article/10.1007%2Fs11229-013-0331-z">Exhibiting
+Interpretational and Representational Validity</a>, <em>Synthese</em>
+191, 1349-1373. <a href="docs/int_rep_val.pdf">[penultimate
+draft]</a></p></li>
+<li><p>M. Baumgartner and R. Epple (2014),
+<a href="http://smr.sagepub.com/content/43/2/280">A Coincidence Analysis
+of a Causal Chain: The Swiss Minaret Vote</a>, <em>Sociological Methods
+&amp; Research</em> 43, 280-312. <a href="docs/minaret.pdf">[penultimate
+draft]</a></p></li>
+<li><p>M. Baumgartner (2013),
+<a href="http://link.springer.com/article/10.1007%2Fs10670-013-9438-3">A
+Regularity Theoretic Approach to Actual Causation</a>,
+<em>Erkenntnis</em> 78, 85-109.
+<a href="docs/regul_actual.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner and I. Drouet (2013),
+<a href="http://link.springer.com/article/10.1007%2Fs13194-012-0063-9">Identifying
+Intervention Variables</a>, <em>European Journal for Philosophy of
+Science</em> 3, 183-205. <a href="docs/ident_int.pdf">[penultimate
+draft]</a></p></li>
+<li><p>M. Baumgartner (2013),
+<a href="http://onlinelibrary.wiley.com/doi/10.1111/1746-8361.12008/abstract">Rendering
+Interventionism and Non-Reductive Physicalism Compatible</a>,
+<em>Dialectica</em> 67, 1-27. <a href="docs/compatible.pdf">[penultimate
+draft]</a></p></li>
+<li><p>M. Baumgartner (2013),
+<a href="http://dx.doi.org/10.1177/1525822X12462527">Detecting Causal
+Chains in Small-<i>N</i> Data</a>, <em>Field Methods</em> 25, 3-24.
+<a href="docs/small_chain.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner and L. Glynn (2013),
+<a href="http://link.springer.com/article/10.1007%2Fs10670-013-9441-8">Introduction
+to Special Issue of <em>Erkenntnis</em> on ‘Actual Causation’</a>,
+<i>Erkenntnis</i> 78, 1-8.</p></li>
+<li><p>M. Baumgartner (2012),
+<a href="https://doi.org/10.1007/s11406-012-9369-2"> The Logical Form of
+Interventionism</a>, <em>Philosophia</em> 40, 751-761.
+<a href="docs/interlog.pdf">[penultimate draft]</a></p></li>
+<li><p>U. Hofmann and M. Baumgartner (2011),
+<a href="http://www.ehu.es/ojs/index.php/THEORIA/article/view/988">Determinism
+and the Method of Difference</a>, <em>Theoria</em> 26, 155-176.</p></li>
+<li><p>M. Baumgartner (2010),
+<a href="https://www.jstor.org/stable/40925849">Shallow Analysis and the
+Slingshot Argument</a>, <i>Journal of Philosophical Logic</i> 39,
+531-556. <a href="docs/shallow.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner (2010),
+<a href="http://dx.doi.org/10.1080/00455091.2010.10716727">Interventionism
+and Epiphenomenalism</a>, <i>Canadian Journal of Philosophy</i> 40,
+359-383. <a href="docs/inter_epi.pdf">[penultimate draft]</a></p></li>
+<li><p>T. Lampert and M. Baumgartner (2010),
+<a href="https://doi.org/10.1163/18756735-90000872">The Problem of
+Validity Proofs</a>, <i>Grazer Philosophische Studien</i> 80, 79-109.
+<a href="docs/validity3.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner (2010),
+<a href="https://www.jstor.org/stable/20642283 ">Causal Slingshots</a>,
+<i>Erkenntnis</i> 72, 111-133. <a href="docs/sling2.pdf">[penultimate
+draft]</a></p></li>
+<li><p>M. Baumgartner (2009),
+<a href="https://doi.org/10.1007/s11229-008-9348-0">Uncovering
+Deterministic Causal Structures: A Boolean Approach</a>, <i>Synthese</i>
+170, 71-96. <a href="http://rdcu.be/ugSn">[Springer Nature SharedIt]</a>
+<a href="docs/det_kluw2.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner (2009),
+<a href="https://www.jstor.org/stable/24706266 ">Interdefining Causation
+and Intervention</a>, <i>Dialectica</i> 63, 175-194.
+<a href="docs/inter.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner (2009),
+<a href="http://www.tandfonline.com/doi/abs/10.1080/02698590903006909">Interventionist
+Causal Exclusion and Non-reductive Physicalism</a>, <i>International
+Studies in the Philosophy of Science</i> 23, 161-178.
+<a href="docs/exclusion.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner (2009),
+<a href="http://smr.sagepub.com/cgi/content/abstract/38/1/71">Inferring
+Causal Complexity</a>, <i>Sociological Methods &amp; Research</i> 38,
+71-101. <a href="docs/qca.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner (2008),
+<a href="https://doi.org/10.1007/s11406-007-9114-4">Regularity Theories
+Reassessed</a>, <i>Philosophia</i> 36, 327-354.
+<a href="docs/regul_recon_fin.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner (2008),
+<a href="https://doi.org/10.1007/s10670-008-9113-2">The Causal Chain
+Problem</a>, <i>Erkenntnis</i> 69, 201-226.
+<a href="http://rdcu.be/ugSm">[Springer Nature SharedIt]</a>
+<a href="docs/chain_problem.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner and T. Lampert (2008),
+<a href="https://doi.org/10.1007/s11229-007-9218-1">Adequate
+Formalization</a>, <i>Synthese</i> 164, 93-115.
+<a href="docs/def_form.pdf">[penultimate draft]</a></p></li>
+</ul>
+<p></br></p>
+</div>
+<div id="articles-invited" class="section level3">
+<h3>Articles (invited)</h3>
+<ul>
+<li><p>M. Baumgartner (2020),
+<a href="docs/causation.pdf"><em>Causation</em></a>, in: The SAGE
+Handbook of Political Science, ed. by D. Berg-Schlosser, B. Badie, and
+L. Morlino, London: SAGE, pp. 305–321.</p></li>
+<li><p>M. Baumgartner and M. Ambühl (2019), cna: An R Package for
+Configurational Causal Inference and Modeling. R package vignette: The
+Comprehensive R Archive Network. <a
+href="https://cran.r-project.org/web/packages/cna/vignettes/cna_vignette.pdf"
+class="uri">https://cran.r-project.org/web/packages/cna/vignettes/cna_vignette.pdf</a>.</p></li>
+<li><p>A. Thiem and M. Baumgartner (2016),
+<a href="http://alrik-thiem.net/data/documents/glossary.pdf">Glossary
+for Configurational Comparative Methods</a>, Version 1.0. In: Thiem,
+Alrik. <span style="font-style: italic;">QCApro: Professional
+Functionality for Performing and Evaluating Qualitative Comparative
+Analysis</span>, R Package Version 1.1-0. URL: <a
+href="http://cran.r-project.org/package=QCApro"
+class="uri">http://cran.r-project.org/package=QCApro</a>.</p></li>
+<li><p>M. Baumgartner (2010), <a href="docs/reason_log.pdf">Informal
+Reasoning and Logical Formalization</a>, in: <i>Ding und Begriff</i>,
+ed. by S. Conrad and S. Imhof, Ontos Verlag, Frankfurt.</p></li>
+<li><p>M. Baumgartner (2007), Probleme einer theoretischen Analyse der
+Kausalrelation, in: N. Kersten u. U. Rose, Kausales Schliessen auf der
+Grundlage von Beobachtungsstudien, BAUA, Dortmund, 16-34.</p></li>
+<li><p>M. Baumgartner (2006), ‘Kausalität’, in: Neues Handbuch
+philosophischer Grundbegriffe, hg. v. Armin G. Wildfeuer und Petra
+Kolmer, Karl Alber. <br /> </br></p></li>
+</ul>
+</div>
+<div id="software" class="section level3">
+<h3>Software</h3>
+<ul>
+<li><p>V.P. Parkkinen and M. Baumgartner (2022).
+<strong>frscore</strong>: Functions for Calculating Fit-Robustness of
+CNA-Solutions. R package version 0.1.1. URL:
+<a href="http://cran.r-project.org/package=frscore">http://cran.r-project.org/package=frscore</a></p></li>
+<li><p>M. Ambuehl and M. Baumgartner. (2021), <strong>cnaOpt</strong>:
+Optimizing Consistency and Coverage in Configurational Causal Modeling.
+R package version 0.5.0. URL:
+<a href="http://cran.r-project.org/package=cnaOpt">http://cran.r-project.org/package=cnaOpt</a>.</p></li>
+<li><p>M. Ambuehl and M. Baumgartner. (2021), <strong>cna</strong>:
+Causal Modeling with Coincidence Analysis. R package version 3.3.0. URL:
+<a href="http://cran.r-project.org/package=cna">http://cran.r-project.org/package=cna</a>.</p></li>
+</ul>
+<p></br></p>
+</div>
+<div id="monographs" class="section level3">
+<h3>Monographs</h3>
+<ul>
+<li><p>M. Baumgartner and G. Grasshoff, <i>Kausalität und kausales
+Schliessen. Eine Einführung mit interaktiven Übungen</i>, Bern Studies
+in the History and Philosophy of Science, Bern, 2004.</p></li>
+<li><p>M. Baumgartner, <a href="docs/ext_reg.pdf"><i>Complex Causal
+Structures. Extensions of a Regularity Theory of Causation</i></a>,
+PhD-thesis, University of Bern, 2006.</p></li>
+</ul>
+<p></br></p>
+</div>
+<div id="special-journal-issue" class="section level3">
+<h3>Special Journal Issue</h3>
+<ul>
+<li>M. Baumgartner and L. Glynn (eds.) (2013), <i>Actual Causation</i>,
+special issue of <em>Erkenntnis</em>, vol. 78, issue 1 supplement.</li>
+</ul>
+<p></br></p>
+</div>
+<div id="book-reviews" class="section level3">
+<h3>Book Reviews</h3>
+<ul>
+<li><p>M. Baumgartner (2017),
+<a href="https://link.springer.com/article/10.1007/s11016-017-0230-x">Reasons
+Without Argument. Review of “Reasons Why” by Bradford Skow</a>,
+<i>Metascience</i>. <a href="http://rdcu.be/ughk">[Springer Nature
+SharedIt]</a></p></li>
+<li><p>M. Baumgartner (2017),
+<a href="http://www.tandfonline.com/doi/full/10.1080/00048402.2016.1276206">Review
+of “Ockham’s Razors. A User’s Manual” by Elliott Sober</a>, <i>The
+Australasian Journal of Philosophy</i>.
+<a href="docs/razors.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner (2010),
+<a href="http://www.springerlink.com/content/e330112873856120">Measuring
+and Governing</a>, Review of “The Law-Governed Universe” by John T.
+Roberts, <i>Metascience</i>. <a href="docs/roberts_gov.pdf">[penultimate
+draft]</a></p></li>
+<li><p>M. Baumgartner and T. Lampert (2004), ‘Die richtige Formel.
+Philosophische Probleme der logischen Formalisierung’ of G. Brun,
+<i>Erkenntnis</i> 60.3, pp. 417-421.</p></li>
+</ul>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
