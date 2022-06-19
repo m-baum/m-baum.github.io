@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Ongoing Research Projects</title>
+
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="basic.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Michael Baumgartner</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="vita.html">Vita</a>
+</li>
+<li>
+  <a href="publications.html">Publications</a>
+</li>
+<li>
+  <a href="talks.html">Talks</a>
+</li>
+<li>
+  <a href="research.html">Research</a>
+</li>
+<li>
+  <a href="teach.html">Teaching</a>
+</li>
+<li>
+  <a href="cna.html">CNA</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Ongoing Research Projects</h1>
+
+</div>
+
+
+<p><br/></p>
+<div
+id="research-council-of-norway-fripro-advancing-causal-modeling-with-coincidence-analysis-adcna"
+class="section level3">
+<h3>Research Council of Norway (FRIPRO): <a
+href="https://www.uib.no/en/cna/146141/fripro-project-granted">Advancing
+Causal Modeling with Coincidence Analysis (AdCNA)</a></h3>
+<p><strong>Background.</strong> Coincidence Analysis (CNA) is a
+configurational comparative method of causal data analysis that was
+first introduced in (Baumgartner 2009a, 2009b), substantively re-worked
+and generalized in (Baumgartner and Ambühl 2020), and implemented in a
+software library of the R environment for statistical computing in
+(Ambühl and Baumgartner 2020). In recent years, CNA was applied in
+numerous studies in public health as well as in the social and political
+sciences. For example, Dy et al. (2020) used CNA to investigate how
+different implementation strategies influence patient safety culture in
+medical homes. Yakovchenko et al. (2020) applied the method to data on
+the factors affecting the uptake of innovation in the treatment of
+hepatitis C virus infection, while Haesebrouck (2019) drew on CNA to
+search for factors influencing EU member states’ participation in the
+military operations in Libya and against the Islamic State. In contrast
+to more standard methods of data analysis, which primarily quantify
+effect sizes, CNA belongs to a family of methods designed to group
+causal influence factors conjunctively (i.e. in complex bundles) and
+disjunctively (i.e. on alternative pathways). It is firmly rooted in a
+so-called regularity theory of causation and it is the only method of
+its kind that can process data generated by causal structures with
+multiple outcomes (effects), for example, causal chains.</p>
+<p><strong>Main goals.</strong> The development of CNA is not finished.
+The AdCNA project will address four remaining weaknesses and limitations
+of the method. First, CNA’s applicability, which is currently limited to
+data on a maximum of about 15 factors, shall be extended to data of
+significantly higher dimensionality. Second, we will develop
+CNA-specific inference tests to further improve the quality of the
+method’s output—at present, that quality is not high enough when the
+data have small sample sizes and high noise levels. Third, instruments
+will be devised for reducing model ambiguities, which are particularly
+severe when the data are heavily fragmented. Fourth, by applying CNA in
+studies on auditory hallucinations and infant mortality, we will extend
+the scope of CNA applications to psychology and epidemiology. Overall,
+CNA has proven its value in some disciplines. But to establish itself in
+the methodological toolbox of the special sciences, more algorithmic
+power and flexibility, more output reliability, and wider dissemination
+are needed. The AdCNA project sets out to deliver exactly that.</p>
+<p>Collaborators on this project:</p>
+<ul>
+<li><a
+href="http://www.uib.no/en/persons/Veli-Pekka.Parkkinen">Dr. Veli-Pekka
+Parkkinen</a></li>
+<li>Dr. Mathias Ambühl</li>
+<li><a href="https://www.uib.no/en/persons/Luna.De.Souter">Luna De
+Souter</a></li>
+</ul>
+<p><br/></p>
+</div>
+<div
+id="research-project-for-the-toppforsk-programme-coincidence-analysis"
+class="section level3">
+<h3>Research Project for the <a
+href="http://www.uib.no/en/research/103156/toppforsk-programme">Toppforsk-programme</a>:
+<br> <a
+href="https://www.uib.no/en/cna/151209/cna-toppforsk-project">Coincidence
+Analysis</a></h3>
+<p>Since the late 1980ies, configurational comparative methods (CCMs)
+have gradually been added to the methodological toolkit in disciplines
+as diverse as political science, sociology, business administration,
+management, environmental science, evaluation science, and public
+health. The most prominent CCM is Qualitative Comparative Analysis (QCA)
+(Ragin 2008). QCA, however, is unsuited to analyze causal structures
+with more than one endogenous variable, e.g. structures with common
+causes or causal chains. To overcome that restriction, Coincidence
+Analysis (CNA) has been first introduced in Baumgartner (<a
+href="http://www.springerlink.com/content/x0487831qk67h455/">2009a</a>,
+<a
+href="http://smr.sagepub.com/cgi/content/abstract/38/1/71">2009b</a>).
+It has meanwhile been generalized in <a
+href="https://doi.org/10.1017/psrm.2018.45">Baumgartner &amp; Ambuehl
+(2020)</a> and is available as software package for the R environment
+(<a href="https://cran.r-project.org/package=cna">Ambuehl &amp;
+Baumgartner 2020</a>).</p>
+<p>This project has three objectives. The first is to fill all remaining
+gaps in the methodological protocol of CNA and to complement the CNA
+R-package accordingly. In particular, tools for robustness tests of CNA
+models shall be developed. The second objective is to systematically
+test the inferential potential of CNA by applying it to real-life
+studies from varying disciplines and, thereby, to explore the
+applicability of CNA outside of the standard domain of CCMs. The third
+objective is to analyze the relationship between CNA and methods from
+other theoretical traditions—in particular Bayes-nets methods
+(cf. Spirtes et al. 2000; Pearl 2000) and regression-analytical methods
+(Gelman and Hill 2007). Are there substantive points of contact between
+these methodological traditions? Are there ways to fruitfully integrate
+them in multi-method studies? What are the conditions that determine
+what method is best suited to investigate a given phenomenon or to
+answer a given research question?</p>
+<p>Collaborators on this project:</p>
+<ul>
+<li><a
+href="http://www.uib.no/en/persons/Veli-Pekka.Parkkinen">Dr. Veli-Pekka
+Parkkinen</a></li>
+<li>Dr. Mathias Ambühl</li>
+<li><a
+href="https://www.uib.no/en/persons/Martyna.Daria.Swiatczak">Dr. Martyna
+Swiatczak</a></li>
+<li><a href="https://www.uib.no/en/persons/Christoph.Falk">Dr. Christoph
+Falk</a></li>
+</ul>
+<!-- In the context of this project, a <a href="https://www.uib.no/en/cna/121435/causation-vs-constitution-loosening-friction"> conference on "**Causation vs. Constitution: Loosening the Friction**" </a> was held at the University of Bergen on December 3-4, 2018. <br > -->
+<!-- Organizers: Michael Baumgartner, Lorenzo Casini (Geneva), Veli-Pekka Parkkinen.  <br > -->
+<!-- Speakers included: Frederick Eberhardt (CalTech), Jiji Zhang (Lingnan), Daniel Malinsky (Johns Hopkins), Bert Leuridan (Antwerp), Markus Eronen (Groningen), Alessio Moneta (Pisa), Mark Couch (Seton Hall University), Beate Krickel (Bochum), Peter Fazekas (University of Antwerp), Alexander Gebharter (Düsseldorf), David Kinney (LSE), Jens Harbecke (Witten), Maria Serban (Copenhagen). -->
+<p><br></p>
+</div>
+<div id="further-ongoing-projects" class="section level3">
+<h3>Further Ongoing Projects</h3>
+<div id="a-bayesian-theory-of-constitution" class="section level4">
+<h4>A Bayesian Theory of Constitution</h4>
+<p>The goal of this project is to develop a Bayesian theory of
+constitution that identifies as constituents those spatiotemporal parts
+of a phenomenon whose causal roles contain the phenomenon’s causal role.
+By drawing on the conceptual resources of Bayesian networks, the project
+should pave the way for a Bayesian methodology for constitutional
+discovery. Collaborator: <a
+href="https://unige.academia.edu/LorenzoCasini">Lorenzo Casini</a>.</p>
+<p><br/></p>
+</div>
+<div
+id="is-it-possible-to-generate-empirical-evidence-for-the-existence-of-macro-to-micro-causation"
+class="section level4">
+<h4>Is it Possible to Generate Empirical Evidence for the Existence of
+Macro-To-Micro Causation?</h4>
+<p>In recent years, numerous non-reductive physicalists (e.g. Shapiro,
+Sober, Raatikainen, Menzies) have argued that, by adopting a variant of
+Woodward’s (2003) popular interventionist theory of causation, it
+becomes possible to provide empirical evidence in favor of the existence
+of macro-to-micro downward causation. This projects intends to show that
+all of these proposals are bound to fail, for it is impossible, in
+principle, to generate evidence for downward causation. The question as
+to the existence of macro-to-micro causation is of inherently pragmatic
+nature.</p>
+</div>
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

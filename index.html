@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>Michael Baumgartner</title>
+
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="basic.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Michael Baumgartner</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="vita.html">Vita</a>
+</li>
+<li>
+  <a href="publications.html">Publications</a>
+</li>
+<li>
+  <a href="talks.html">Talks</a>
+</li>
+<li>
+  <a href="research.html">Research</a>
+</li>
+<li>
+  <a href="teach.html">Teaching</a>
+</li>
+<li>
+  <a href="cna.html">CNA</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Michael Baumgartner</h1>
+
+</div>
+
+
+<p><br > <br ></p>
+<div style="float:right;position: relative; top: 1px;width:4.5cm">
+<p><img src="me.jpg" /></p>
+</div>
+<p>University of Bergen <br /> Department of Philosophy<br /> Postboks
+7805 <br /> 5020 Bergen <br /> Norway<br /> <br > Tel: +47 55 588 960
+<br /> Fax: +47 55 589 651 <br /> Email: <a
+href="mailto:michael.baumgartner@uib.no"
+class="email">michael.baumgartner@uib.no</a></p>
+<p><br > <br ></p>
+<div id="bio" class="section level2">
+<h2>Bio</h2>
+<p>I am a full professor at the Department of Philosophy of the <a
+href="http://www.uib.no/en">University of Bergen</a> and part of the <a
+href="http://www.uib.no/en/research/103156/toppforsk-programme">Toppforsk-programme</a>.
+My PhD is from the University of Bern (2005). I work on questions in the
+philosophy of science and the philosophy of logic, in particular, on
+causation, mechanistic constitution, and logical formalization. My
+publications include an introduction to the philosophy of causation
+entitled “Kausalitaet und kausales Schliessen” (2004) and numerous
+papers on causation, causal reasoning, regularity theories, Coincidence
+Analysis (CNA), interventionism, mechanistic constitution, non-reductive
+physicalism, epiphenomenalism, determinism, logical formalization,
+argument reconstruction/evaluation, modeling in the social sciences,
+QCA, and the slingshot argument.</p>
+<p><br > <br ></p>
+</div>
+<div id="news" class="section level2">
+<h2>News</h2>
+<ol style="list-style-type: decimal">
+<li><p><strong>New CNA application</strong>: Gwayi-Chore, MC., Aruldas,
+K., Avokpaho, E. et al. (2022),
+<a href="https://doi.org/10.1186/s12913-022-08080-5">Defining optimal
+implementation packages for delivering community-wide mass drug
+administration for soil-transmitted helminths with high coverage</a>.
+<em> BMC Health Serv Res</em> 22, 792. doi:
+10.1186/s12913-022-08080-5</p></li>
+<li><p><strong>New CNA application</strong>: Miech EJ, Perkins AJ, Zhang
+Y, Myers LJ, Sico JJ, Daggy J, Bravata DM (2022),
+<a href="https://bmjopen.bmj.com/content/12/6/e061469"> Pairing
+regression and configurational analysis in health services research:
+modelling outcomes in an observational cohort using a split-sample
+design</a>. <em>BMJ Open</em>; 12:e061469. doi:
+10.1136/bmjopen-2022-061469</p></li>
+<li><p><strong>New CNA application</strong>: Rich JA, Miech EJ, Bilal U,
+Corbin TJ (2022), <a href="https://doi.org/10.1186/s12889-022-13414-3">
+How education and racial segregation intersect in neighborhoods with
+persistently low COVID-19 vaccination rates in Philadelphia</a>, <em>BMC
+Public Health</em> 22, 1044, doi: 10.1186/s12889-022-13414-3</p></li>
+<li><p><strong>New CNA application</strong>: Mulrooney M, Smith M,
+Sobieraj D, Shipley B, Miech E. (2022),
+<a href="https://www.japha.org/article/S1544-3191(22)00091-7/fulltext">
+Factors Influencing Primary Care Organization Commitment to Technical
+Assistance Services for Clinical Pharmacist Integration Using
+Configurational Comparative Methods</a>. <em>Journal of the American
+Pharmacists Association</em>, doi: 10.1016/j.japh.2022.03.019.</p></li>
+</ol>
+<!-- 1. <div style="background-color:powderblue;">**Registration now open**: **4-day intensive introduction to causal modeling with Coincidence Analysis (CNA) in Bergen from May 30 to June 2, 2022. For details and registration click <a href="https://www.uib.no/en/cna/149512/introduction-causal-data-analysis-and-modeling-coincidence-analysis">here</a>.**</div><br> -->
+<!-- 1. **New CNA application**: Davis MM, Schneider JL, Petrik AF, Miech EJ, Younger B, Escaron AL, Rivelli JS, Thompson JH, Nyongesa D, Coronado GD (2022), <a href="https://pubmed.ncbi.nlm.nih.gov/35346927/">Clinic Factors Associated With Mailed Fecal Immunochemical Test (FIT) Completion: The Difference-Making Role of Support Staff</a>. Ann Fam Med. 20(2):123-129. doi: 10.1370/afm.2772. -->
+<!-- 1. **New CNA application**: Rattray, Nicholas, Edward J. Miech, Gala True, Diana Natividad, Brian Laws, Richard M. Frankel, and Marina Kukla (2022), <a href="https://doi.org/10.1177/15586898211059616"> Modeling Contingency in Veteran Community: A Mixed Approach</a>, <em>Journal of Mixed Methods Research</em>, doi: 10.1177/15586898211059616. -->
+<!-- 1. **New CNA application**: Edianto, Achmed, Gregory Trencher, and Kazuyo Matsubae (2022), <a href="https://doi.org/10.1016/j.esd.2021.12.004">Why Do Some Countries Receive More International Financing for Coal-Fired Power Plants than Renewables? Influencing Factors in 23 Countries</a>, <em>Energy for Sustainable Development</em>, 66: 177–88, doi: 10.1016/j.esd.2021.12.004. -->
+<!-- 1. **New CNA application**: Winchester, B., Cragun, D., Redlinger-Grosse, K., et al., Zierhut, H. (2022), <a href="https://onlinelibrary.wiley.com/doi/10.1002/jgc4.1554">Application of motivational interviewingstrategies with the extended parallel process model to improve risk communication for parents of children with familial hypercholesterolemia</a>, <em>Journal of Genetic Counseling</em>, doi: 10.1002/jgc4.1554. -->
+<!-- 1. **New CNA application**: Schlick CJ, Huang R, Brajcich BC, Halverson, AL, Yang AD, Kreutzer L, et al. (2021), <a href="https://journals.lww.com/dcrjournal/Abstract/9000/Unbundling_Bundles__Evaluating_the_Association_of.99255.aspx"> Unbundling bundles: Evaluating the effectiveness of individual colorectal surgical site infection reduction bundle elements in a statewide collaborative</a>, <em>Diseases of the Colon and Rectum</em>, Nov 22 2021; doi: 10.1097/DCR.0000000000002223. -->
+<!-- 1. **New version of CNA R package**: Version 3.3.0 of the **cna** R package has been published on <a href="https://CRAN.R-project.org/package=cna">CRAN</a>. -->
+<!-- 1. **New Software**: Version 0.1.1 of the R package **frscore** published on [CRAN](https://cran.csiro.au/web/packages/frscore/index.html). This package provides functions that calculate robustness scores for CNA/CCM models. -->
+<!-- 1. **New Paper**: M. Baumgartner and C. Falk  (2021), <a href="https://doi.org/10.1080/00273171.2021.1971510">Configurational Causal Modeling and Logic Regression</a>, <em>Multivariate Behavioral Research</em>. <a href="docs/CNA_LR_final.pdf">[penultimate draft]</a>; <a href="docs/replication_material.zip">[replication material]</a> -->
+<!-- 1. **Further Funding**: I am very happy and grateful that the Research Council of Norway will fund the further development of CNA with NOK 12,000,000 (ca.\ €1,200,000)  over the next years (project [*AdCNA*](https://www.uib.no/en/cna/146141/fripro-project-granted)). -->
+<!-- 1. **New CNA application**: Swiatczak, M.D. (2021), <a href="https://doi.org/10.1007/s11031-021-09906-1">Towards a neo-configurational theory of intrinsic motivation</a>. <em>Motivation and Emotion</em>. dor: 10.1007/s11031-021-09906-1 -->
+<!-- 1. **New CNA application**: Miech, E.J., Freitag, M.B., Evans, R.R. et al. (2021), <a href="https://doi.org/10.1186/s12913-021-06774-w">Facility-level conditions leading to higher reach: a configurational analysis of national VA weight management programming</a>. <em>BMC Health Serv Res</em> 21, 797. doi: 10.1186/s12913-021-06774-w -->
+<!-- 1. **New paper**: M. Baumgartner (2021), <a href="https://doi.org/10.1007/s11135-021-01157-z">Qualitative Comparative Analysis and Robust Sufficiency</a>, <em>Quality \& Quantity</em>, doi: 10.1007/s11135-021-01157-z <a href="docs/rob_suff.pdf">[penultimate draft]</a> -->
+<!-- 1. **New paper**: M. Baumgartner and M. Ambühl  (2021), <a href="https://doi.org/10.1177/0049124121995554">Optimizing Consistency and Coverage in Configurational Causal Modeling</a>, <em> Sociological Methods &amp; Research</em>. doi: 10.1177/0049124121995554 <a href="docs/ConCovOpt.pdf">[penultimate draft]</a>; <a href="docs/replication_ConCovOpt.R">Replication material</a>. -->
+<!-- 1. **New paper**: V.P. Parkkinen and M. Baumgartner (2021), <a href="https://doi.org/10.1177/0049124120986200">Robustness and Model Selection in Configurational Causal Modeling</a>, <em> Sociological Methods &amp; Research</em>. doi: 10.1177/0049124120986200  <a href="docs/robustness.pdf">[penultimate draft]</a> -->
+<!-- 1. Version 3.2 of the **cna** R package released on CRAN:<br > -->
+<!-- <a href="https://CRAN.R-project.org/package=cna">https://CRAN.R-project.org/package=cna</a><br > -->
+<!-- 1. **New CNA application**: Deborah J. Cohen, Shannon M. Sweeney, William L. Miller, et al., Miguel Marino (2021), <a href="https://www.annfammed.org/content/19/3/240"> Improving smoking and blood pressure outcomes: The interplay between operational changes and local context</a>, <em>The Annals of Family Medicine</em>, May 2021, 19 (3) 240-248; doi: 10.1370/afm.2668 -->
+<!-- 1. **New paper**: L. Casini and M. Baumgartner (2021), The PC Algorithm and the Inference to Constitution, <em>The British Journal for the Philosophy of Science</em>. doi: 10.1086/714820, <a href="docs/PC_final.pdf">[penultimate draft]</a> -->
+<!-- 1. **New member of the CNA project**: Dr. Christoph Falk has joined the CNA project as a researcher. More information about him can be found <a href="https://www.uib.no/en/persons/Christoph.Falk">here</a>. -->
+<!-- 1. **New paper showcasing the CNA method in the flagship journal of implementation science**: R.G. Whitaker, N. Sperber, M. Baumgartner, et al. (2020) <a href="https://implementationscience.biomedcentral.com/articles/10.1186/s13012-020-01070-3"> Coincidence analysis: a new method for causal inference in implementation science</a>, <em> Implementation Science</em> 15, 108 (2020). https://doi.org/10.1186/s13012-020-01070-3 -->
+<!-- 1. **New 3-year post-doc position in the Coincidence Analysis project**. We are looking for a scientist with a specific interest in methodological questions, causal modeling, and data analysis. The PhD  can be from any discipline relevant for the application of Boolean methods, e.g. social/political science, economics, biology, medicine or psychology. The preferred starting date is 1 February 2020, but a later date might be possible. An additional 4. year with teaching is negotiable as well. For more information and details on how to apply, please, go <a href="https://www.jobbnorge.no/en/available-jobs/job/177227/postdoctoral-fellowship-in-causal-modeling"> here</a>. -->
+<!-- 1. **New CNA application**: Sydney M. Dy et al. (2020), <a href="https://doi.org/10.1097/PTS.0000000000000752"> Association of Implementation and Social Network Factors With Patient Safety Culture in Medical Homes. A Coincidence Analysis</a>, <em>The Journal of Patient Safety</em>, doi: 10.1097/PTS.0000000000000752   -->
+<!-- 1. **New CNA application**: S. E. Hickman, E. Miech et al. (2020), <a href="https://academic.oup.com/gerontologist/advance-article/doi/10.1093/geront/gnaa041/5841891"> Identifying the Implementation Conditions Associated With Positive Outcomes in a Successful Nursing Facility Demonstration Project </a>, <em> The Gerontologist</em>, doi: 10.1093/geront/gnaa041 -->
+<!-- 1. **New CNA application**: V. Yakovchenko, E. Miech et al. (2020), <a href="https://journals.lww.com/lww-medicalcare/FullText/2020/05000/Strategy_Configurations_Directly_Linked_to_Higher.12.aspx"> Strategy Configurations Directly Linked to Higher Hepatitis C Virus Treatment Starts. An Applied Use of Configurational Comparative Methods</a>, <em>Medical Care</em> 58(5), p. e31-e38, doi: 10.1097/MLR.0000000000001319  -->
+<!-- 1. **New paper**: M. Baumgartner (2020), <a href="docs/causation.pdf">*Causation*</a>, in: The SAGE Handbook of Political Science, ed. by D. Berg-Schlosser, B. Badie, and L. Morlino, London: SAGE, pp. 305--321. -->
+<!-- 1. **cnaOpt**, a new add-on package to the  **cna** R package, has been released on <a href="https://CRAN.R-project.org/package=cnaOpt">CRAN</a>. **cnaOpt** provides various new functions for optimizing consistency and coverage scores of models of configurational comparative methods as Coincidence Analysis (CNA) and Qualitative Comparative Analysis (QCA). <a href="docs/ConCovOpt.pdf">This draft</a> introduces these functions.  -->
+<!-- 1. Tim Haesebrouck has published an application of CNA in the <em>The Journal of Peace Research</em>: <a href="https://journals.sagepub.com/doi/10.1177/0022343319854787"> Who follows whom? A coincidence analysis of military action, public opinion and threats</a> -->
+<!-- 1. Version 2.2.0 of the **cna** R package released on CRAN:<br > -->
+<!-- <a href="https://CRAN.R-project.org/package=cna">https://CRAN.R-project.org/package=cna</a><br > -->
+<!-- The new package version provides various new functions for evaluating and benchmarking  CNA's output. The package <a href="https://cran.r-project.org/web/packages/cna/vignettes/cna_vignette.pdf"> vignette </a> and <a href="https://cran.r-project.org/web/packages/cna/cna.pdf"> reference manual </a> have been updated accordingly. -->
+</div>
+
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
