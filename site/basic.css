@@ -1,0 +1,18 @@
+body .main-container {
+max-width: 700px;
+}
+
+
+a:link { color: #a20808 ; }
+
+a:visited { color: #721704 ; }
+
+a:hover { color: #806e0f }
+
+a:active { color: red }
+
+body{  font-size: 15px;
+  }
+.boxed {
+  border: 1px solid green ;
+}
