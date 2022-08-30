@@ -4,12 +4,12 @@
 ##           "Boolean difference-making: a modern regularity         ##
 ##           theory of causation"                                    ##
 ##  Authors: Michael Baumgartner & Christoph Falk                    ##
-##  Version: 29/09/2020                                              ##
+##  Version: 26/09/2019                                              ##
 ##                                                                   ##
 #######################################################################
 
 # R version used 3.6
-# Required R package (package version used: 3.0.0)
+# Required R package (package version used: 2.2.1)
 library(cna)
 
 # Fundamentals
@@ -18,7 +18,7 @@ library(cna)
 dat1 <- allCombs(c(2,2,2,2,2)) -1
 (tab1b <- selectCases("(A*B + C <-> D)*(c + a <-> E)", dat1))
 # Minimally sufficient conditions for D:
-ana1 <- cna(tab1b, what = "mac", inus.only = FALSE)
+ana1 <- cna(tab1b, what = "mac")
 subset(msc(ana1), outcome == "D")
 # RDN-biconditional for D:
 subset(asf(ana1), outcome == "D")
@@ -39,7 +39,7 @@ for(i in 1:n){
    cat(i, "\n")
    x <- randomCsf(full.tt(8), n.asf = 3, compl = 2)
    y <- selectCases(x)
-   score[[i]] <- csf(cna(y, details = T, rm.dup.factors = F, inus.only = F), 1)
+   score[[i]] <- csf(cna(y, details = T, rm.dup.factors = F), 1)
 }
 eval <- Filter(function(x) dim(x)[1] > 0, 
                lapply(score, function(x) subset(x, x$redundant == TRUE)))
@@ -49,8 +49,8 @@ length(eval)/n
 # Permanence
 # ----------
 # Table 1c:
-(tab1c <- ct2df(tab1b)[, -2])
-ana2 <- cna(tab1c, inus.only = F)
+(tab1c <- tt2df(tab1b)[, -2])
+ana2 <- cna(tab1c)
 # Structurally minimal conjunction of RDN-biconditionals:
 minimalizeCsf(csf(ana2)$condition, dat1)
 
@@ -72,7 +72,7 @@ cna(tab3b)
 # ----------------------
 # Table 4a:
 (tab4a <- selectCases("(a + b + c <-> D)*(A + C <-> E)*(A + B <-> E)", dat1))
-ana1 <- cna(tab4a, details = T, inus.only = T)
+ana1 <- cna(tab4a, details = T)
 # All RDN-biconditionals entailed by Table 4a:
 asf(ana1)$condition
 # All minimal theories for Table 4a:
