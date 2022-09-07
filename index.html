@@ -13,7 +13,7 @@
 
 <title>Michael Baumgartner</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
@@ -142,11 +142,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -314,6 +318,19 @@ QCA, and the slingshot argument.</p>
 <div id="news" class="section level2">
 <h2>News</h2>
 <ol style="list-style-type: decimal">
+<li><p><strong>CNA introduced to medical informatics</strong>: Womack
+DM, Miech EJ, Fox NJ, Silvey LC, Somerville AM, Eldredge DH, Steege LM.
+(2022), <a href="https://pubmed.ncbi.nlm.nih.gov/36044917/">Coincidence
+Analysis: A Novel Approach to Modeling Nurses’ Workplace
+Experience</a>,<em> Applied Clinical Informatics</em>, (4):794-802. doi:
+10.1055/s-0042-1756368.</p></li>
+<li><p><strong>A new mixed-methods protocol involving CNA</strong>:
+Sperber NR, Cragun D, Roberts MC, Bendz LM, Ince P, Gonzales S, Haga SB,
+Wu RR, Petry NJ, Ramsey L, Uber R. (2022),
+<a href="https://www.mdpi.com/2075-4426/12/8/1313"> A Mixed-Methods
+Protocol to Identify Best Practices for Implementing Pharmacogenetic
+Testing in Clinical Settings</a>, <em> Journal of Personalized
+Medicine</em>, 12(8):1313. doi: 10.3390/jpm12081313.</p></li>
 <li><p><strong>Software Update</strong>: Version 3.4.0 of the R package
 <strong>cna</strong> published on <a
 href="https://cran.r-project.org/package=cna">CRAN</a>.</p></li>
@@ -336,19 +353,9 @@ design</a>. <em>BMJ Open</em>; 12:e061469. doi:
 href="https://cran.csiro.au/web/packages/frscore/index.html">CRAN</a>.
 This package provides functions that calculate robustness scores for
 CNA/CCM models.</p></li>
-<li><p><strong>New CNA application</strong>: Rich JA, Miech EJ, Bilal U,
-Corbin TJ (2022), <a href="https://doi.org/10.1186/s12889-022-13414-3">
-How education and racial segregation intersect in neighborhoods with
-persistently low COVID-19 vaccination rates in Philadelphia</a>, <em>BMC
-Public Health</em> 22, 1044, doi: 10.1186/s12889-022-13414-3</p></li>
-<li><p><strong>New CNA application</strong>: Mulrooney M, Smith M,
-Sobieraj D, Shipley B, Miech E. (2022),
-<a href="https://www.japha.org/article/S1544-3191(22)00091-7/fulltext">
-Factors Influencing Primary Care Organization Commitment to Technical
-Assistance Services for Clinical Pharmacist Integration Using
-Configurational Comparative Methods</a>. <em>Journal of the American
-Pharmacists Association</em>, doi: 10.1016/j.japh.2022.03.019.</p></li>
 </ol>
+<!-- 1. **New CNA application**: Rich JA, Miech EJ, Bilal U, Corbin TJ (2022), <a href="https://doi.org/10.1186/s12889-022-13414-3"> How education and racial segregation intersect in neighborhoods with persistently low COVID-19 vaccination rates in Philadelphia</a>, <em>BMC Public Health</em> 22, 1044, doi: 10.1186/s12889-022-13414-3 -->
+<!-- 1. **New CNA application**: Mulrooney M, Smith M, Sobieraj D, Shipley B, Miech E. (2022), <a href="https://www.japha.org/article/S1544-3191(22)00091-7/fulltext"> Factors Influencing Primary Care Organization Commitment to Technical Assistance Services for Clinical Pharmacist Integration Using Configurational Comparative Methods</a>. <em>Journal of the American Pharmacists Association</em>, doi: 10.1016/j.japh.2022.03.019. -->
 <!-- 1. <div style="background-color:powderblue;">**Registration now open**: **4-day intensive introduction to causal modeling with Coincidence Analysis (CNA) in Bergen from May 30 to June 2, 2022. For details and registration click <a href="https://www.uib.no/en/cna/149512/introduction-causal-data-analysis-and-modeling-coincidence-analysis">here</a>.**</div><br> -->
 <!-- 1. **New CNA application**: Davis MM, Schneider JL, Petrik AF, Miech EJ, Younger B, Escaron AL, Rivelli JS, Thompson JH, Nyongesa D, Coronado GD (2022), <a href="https://pubmed.ncbi.nlm.nih.gov/35346927/">Clinic Factors Associated With Mailed Fecal Immunochemical Test (FIT) Completion: The Difference-Making Role of Support Staff</a>. Ann Fam Med. 20(2):123-129. doi: 10.1370/afm.2772. -->
 <!-- 1. **New CNA application**: Rattray, Nicholas, Edward J. Miech, Gala True, Diana Natividad, Brian Laws, Richard M. Frankel, and Marina Kukla (2022), <a href="https://doi.org/10.1177/15586898211059616"> Modeling Contingency in Veteran Community: A Mixed Approach</a>, <em>Journal of Mixed Methods Research</em>, doi: 10.1177/15586898211059616. -->

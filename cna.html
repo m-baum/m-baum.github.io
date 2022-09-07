@@ -13,7 +13,7 @@
 
 <title>cna.knit</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
@@ -142,11 +142,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -400,6 +404,8 @@ href="https://cran.r-project.org/package=cna">CRAN</a>.</li>
 optimizing consistency and coverage scores of models of configurational
 comparative methods as CNA and QCA.</p>
 <ul>
+<li>On 07/08/2021, update 0.5.2 has been released on <a
+href="https://cran.r-project.org/package=cnaOpt">CRAN</a>.</li>
 <li>On 12/17/2021, update 0.5.0 has been released on <a
 href="https://cran.r-project.org/package=cnaOpt">CRAN</a>.</li>
 <li>On 09/14/2020, update 0.2.0 has been released on <a
@@ -492,6 +498,13 @@ Causal Complexity</a>, <i>Sociological Methods &amp; Research</i> 38,
 <div id="applied" class="section level4">
 <h4>Applied</h4>
 <ul>
+<li><p>Womack DM, Miech EJ, Fox NJ, Silvey LC, Somerville AM, Eldredge
+DH, Steege LM. (2022),
+<a href="https://pubmed.ncbi.nlm.nih.gov/36044917/">Coincidence
+Analysis: A Novel Approach to Modeling Nurses’ Workplace
+Experience</a>,<em> Applied Clinical Informatics</em>, (4):794-802. doi:
+10.1055/s-0042-1756368. (First published CNA analysis in medical
+informatics.)</p></li>
 <li><p>Gwayi-Chore, MC., Aruldas, K., Avokpaho, E. et al. (2022),
 <a href="https://doi.org/10.1186/s12913-022-08080-5">Defining optimal
 implementation packages for delivering community-wide mass drug
@@ -657,7 +670,14 @@ draft]</a></p></li>
 <div id="phd-theses-using-or-on-cna" class="section level4">
 <h4>PhD theses using or on CNA</h4>
 <ul>
-<li>Claire Gwayi-Chore, 2022 (University of Washington, Seattle)</li>
+<li>Claire Gwayi-Chore, 2022 (University of Washington, Seattle).
+“Scaling up deworming programs: implementation science approaches to
+guide the transition from school-based to community-wide mass drug
+administration for soil-transmitted helminths.” (This multi-method study
+included a CNA analysis to identify necessary and/or sufficient
+combinations of intervention delivery activities related to successful
+implementation of a community-wide public health intervention in three
+different countries: Benin, India and Malawi.)</li>
 <li>Kelly Coates, 2021 (Portland State), “Affecting Absenteeism Through
 School-Based Health Services Delivery: A Configurational Comparative
 Methods Study of Oregon’s Public Secondary Schools.” (First standalone
