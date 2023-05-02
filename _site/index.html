@@ -13,7 +13,7 @@
 
 <title>Michael Baumgartner</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
@@ -179,8 +179,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -188,16 +188,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -318,41 +311,28 @@ QCA, and the slingshot argument.</p>
 <div id="news" class="section level2">
 <h2>News</h2>
 <ol style="list-style-type: decimal">
-<li><p><strong>Registration open for CNA training in Prague</strong>: We
-will hold a 4-day training seminar introducing to causal modeling with
-CNA in Prague from May 15-18, 2023. For more information and
-registration see
+<li><p><strong>2nd international CNA conference in Prague, May
+19-20</strong>: The second international conference on “Current Issues
+in Coincidence Analysis” will be held at Prague University of Economics
+and Business, May 19 – 20. For more information click
+<a href="https://www.uib.no/en/cna/161438/2nd-international-conference-current-issues-coincidence-analysis">here</a>.</p></li>
+<li><p><strong>CNA training in Prague, May 15-18</strong>: We will hold
+a 4-day training seminar introducing to causal modeling with CNA in
+Prague from May 15-18, 2023. For more information and registration see
 <a href="https://www.uib.no/en/cna/158122/introduction-causal-data-analysis-and-modeling-coincidence-analysis">here</a>.</p></li>
-<li><p><strong>New geoconfiguational application of CNA</strong>: Rich
-JA, Miech EJ, Semenza DC, Corbin TJ. (2022),
-<a href="https://doi.org/10.1016/j.ypmed.2022.107262"> How combinations
-of state firearm laws link to low firearm suicide and homicide rates: A
-configurational analysis</a>, <em>Preventive Medicine</em>, doi:
-10.1016/j.ypmed.2022.107262.</p></li>
-<li><p><strong>CNA introduced to medical informatics</strong>: Womack
-DM, Miech EJ, Fox NJ, Silvey LC, Somerville AM, Eldredge DH, Steege LM.
-(2022), <a href="https://pubmed.ncbi.nlm.nih.gov/36044917/">Coincidence
-Analysis: A Novel Approach to Modeling Nurses’ Workplace
-Experience</a>,<em> Applied Clinical Informatics</em>, (4):794-802. doi:
-10.1055/s-0042-1756368.</p></li>
-<li><p><strong>A new mixed-methods protocol involving CNA</strong>:
-Sperber NR, Cragun D, Roberts MC, Bendz LM, Ince P, Gonzales S, Haga SB,
-Wu RR, Petry NJ, Ramsey L, Uber R. (2022),
-<a href="https://www.mdpi.com/2075-4426/12/8/1313"> A Mixed-Methods
-Protocol to Identify Best Practices for Implementing Pharmacogenetic
-Testing in Clinical Settings</a>, <em> Journal of Personalized
-Medicine</em>, 12(8):1313. doi: 10.3390/jpm12081313.</p></li>
-<li><p><strong>Software Update</strong>: Version 3.4.0 of the R package
-<strong>cna</strong> published on <a
-href="https://cran.r-project.org/package=cna">CRAN</a>.</p></li>
-<li><p><strong>New CNA application</strong>: Gwayi-Chore, MC., Aruldas,
-K., Avokpaho, E. et al. (2022),
-<a href="https://doi.org/10.1186/s12913-022-08080-5">Defining optimal
-implementation packages for delivering community-wide mass drug
-administration for soil-transmitted helminths with high coverage</a>.
-<em> BMC Health Serv Res</em> 22, 792. doi:
-10.1186/s12913-022-08080-5</p></li>
+<li><p><strong>Template application of the frscore routine</strong>:
+Haesebrouck T. (2023),
+<a href="https://doi.org/10.1080/03050629.2023.2184815"> The populist
+radical right and military intervention: A coincidence analysis of
+military deployment votes</a>, <em>International Interactions</em>, doi:
+10.1080/03050629.2023.2184815</p></li>
+<li><p><strong>Software Update</strong>: Version 0.3.1 of the R package
+<strong>frscore</strong> published on <a
+href="https://cran.r-project.org/package=frscore">CRAN</a>.</p></li>
 </ol>
+<!-- 1. **CNA introduced to medical informatics**: Womack DM, Miech EJ, Fox NJ, Silvey LC, Somerville AM, Eldredge DH, Steege LM. (2022), <a href="https://pubmed.ncbi.nlm.nih.gov/36044917/">Coincidence Analysis: A Novel Approach to Modeling Nurses' Workplace Experience</a>,<em> Applied Clinical Informatics</em>, (4):794-802. doi: 10.1055/s-0042-1756368.  -->
+<!-- 1. **A new mixed-methods protocol involving CNA**: Sperber NR, Cragun D, Roberts MC, Bendz LM, Ince P, Gonzales S, Haga SB, Wu RR, Petry NJ, Ramsey L, Uber R. (2022), <a href="https://www.mdpi.com/2075-4426/12/8/1313"> A Mixed-Methods Protocol to Identify Best Practices for Implementing Pharmacogenetic Testing in Clinical Settings</a>, <em> Journal of Personalized Medicine</em>, 12(8):1313. doi: 10.3390/jpm12081313. -->
+<!-- 1. **New CNA application**: Gwayi-Chore, MC., Aruldas, K., Avokpaho, E. et al. (2022), <a href="https://doi.org/10.1186/s12913-022-08080-5">Defining optimal implementation packages for delivering community-wide mass drug administration for soil-transmitted helminths with high coverage</a>. <em> BMC Health Serv Res</em> 22, 792. doi: 10.1186/s12913-022-08080-5 -->
 <!-- 1. **New CNA application**: Miech EJ, Perkins AJ, Zhang Y, Myers LJ, Sico JJ, Daggy J, Bravata DM (2022), <a href="https://bmjopen.bmj.com/content/12/6/e061469"> Pairing regression and configurational analysis in health services research: modelling outcomes in an observational cohort using a split-sample design</a>. <em>BMJ Open</em>; 12:e061469. doi: 10.1136/bmjopen-2022-061469 -->
 <!-- 1. **Software Update**: Version 0.2.0 of the R package **frscore** published on [CRAN](https://cran.csiro.au/web/packages/frscore/index.html). This package provides functions that calculate robustness scores for CNA/CCM models. -->
 <!-- 1. **New CNA application**: Rich JA, Miech EJ, Bilal U, Corbin TJ (2022), <a href="https://doi.org/10.1186/s12889-022-13414-3"> How education and racial segregation intersect in neighborhoods with persistently low COVID-19 vaccination rates in Philadelphia</a>, <em>BMC Public Health</em> 22, 1044, doi: 10.1186/s12889-022-13414-3 -->
