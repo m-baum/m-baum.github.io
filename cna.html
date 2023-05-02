@@ -13,7 +13,7 @@
 
 <title>cna.knit</title>
 
-<script src="site_libs/header-attrs-2.16/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.20/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
@@ -179,8 +179,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -188,16 +188,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -375,6 +368,12 @@ QCA and CNA</em></a></li>
 <p>The <strong>cna</strong> package provides all the base
 functionalities required to analyze data by means of CNA.</p>
 <ul>
+<li>On 03/09/2023, update 3.5.1 of the <strong>cna</strong> R-package
+has been released on <a
+href="https://cran.r-project.org/package=cna">CRAN</a>.</li>
+<li>On 02/17/2023, version 3.5.0 of the <strong>cna</strong> R-package
+has been released on <a
+href="https://cran.r-project.org/package=cna">CRAN</a>.</li>
 <li>On 08/07/2022, version 3.4.0 of the <strong>cna</strong> R-package
 has been released on <a
 href="https://cran.r-project.org/package=cna">CRAN</a>.</li>
@@ -431,6 +430,8 @@ href="https://cran.r-project.org/package=cnaOpt">CRAN</a>.</li>
 <p>The <strong>frscore</strong> package provides functions for
 calculating the robustness of CNA/CCM models.</p>
 <ul>
+<li>On 04/28/2023, update 0.3.1 has been released on <a
+href="https://cran.r-project.org/package=frscore">CRAN</a>.</li>
 <li>On 05/20/2022, update 0.2.0 has been released on <a
 href="https://cran.r-project.org/package=frscore">CRAN</a>.</li>
 <li>On 01/10/2022, update 0.1.1 has been released on <a
@@ -507,6 +508,11 @@ Causal Complexity</a>, <i>Sociological Methods &amp; Research</i> 38,
 <div id="applied" class="section level4">
 <h4>Applied</h4>
 <ul>
+<li><p>Haesebrouck T. (2023),
+<a href="https://doi.org/10.1080/03050629.2023.2184815"> The populist
+radical right and military intervention: A coincidence analysis of
+military deployment votes</a>, <em>International Interactions</em>, doi:
+10.1080/03050629.2023.2184815</p></li>
 <li><p>Adams KK, Miech EJ, Sobieraj DM. (2022),
 <a href="https://ascpjournal.biomedcentral.com/articles/10.1186/s13722-022-00336-z">Factors
 that distinguish opioid withdrawal during induction with buprenorphine
