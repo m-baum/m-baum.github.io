@@ -1,4 +1,0 @@
-AuthName "secure"
-AuthType Basic
-AuthUserFile /srv/www/htdocs/rz59/html/docs/real/.htpasswd
-require valid-user

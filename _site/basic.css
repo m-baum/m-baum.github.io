@@ -57,6 +57,9 @@ a:active {
 .navbar-default .navbar-brand:hover,
 .navbar-default .navbar-brand:focus {
   color: #fff4e5;
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
 }
 
 .navbar-default .navbar-nav > li > a,

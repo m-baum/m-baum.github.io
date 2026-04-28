@@ -1,4 +1,0 @@
-AuthName "secure"
-AuthType Basic
-AuthUserFile /wwwdata/www.home.uni-osnabrueck.de/htdocs/mbaumgartner/docs/geda/.htpasswd 
-require valid-user

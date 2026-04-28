@@ -1,4 +1,0 @@
-AuthName "secure"
-AuthType Basic
-AuthUserFile /srv/www/htdocs/rz59/html/docs/kausa/protect/.htpasswd
-require valid-user
