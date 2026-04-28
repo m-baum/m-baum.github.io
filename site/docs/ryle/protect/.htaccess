@@ -1,0 +1,4 @@
+AuthName "secure"
+AuthType Basic
+AuthUserFile /srv/www/htdocs/rz59/html/docs/ryle/protect/.htpasswd
+require valid-user

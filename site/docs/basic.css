@@ -1,0 +1,23 @@
+body { color: black; background-color: white; margin-top: 1cm; 
+margin-left: 3cm;line-height:17px;list-style-position: inside; width: 761px;}
+
+p {}
+
+
+td {}
+
+a:link { color: #a20808 ; font-style: normal; background-color: white; }
+
+a:visited { color: #721704 ; background-color: transparent; }
+
+a:hover { color: #806e0f }
+
+a:active { color: red }
+
+.mail a {
+color: blue;
+}
+
+.mail a:hover {
+color: blue;
+}

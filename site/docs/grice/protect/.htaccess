@@ -1,0 +1,4 @@
+AuthName "secure"
+AuthType Basic
+AuthUserFile /wwwdata/www.home.uni-osnabrueck.de/htdocs/mbaumgartner/docs/grice/protect/.htpasswd
+require valid-user
