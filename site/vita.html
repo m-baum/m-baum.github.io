@@ -13,7 +13,7 @@
 
 <title>Curriculum Vitae</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
@@ -142,11 +142,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -175,8 +179,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -184,16 +188,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -284,150 +281,235 @@ $(document).ready(function () {
 </div>
 
 
-<table cellspacing="3" cellpadding="2" border="0" style="text-align: left; width: 100%; vertical-align: top;">
+<div class="intro-block vita-intro">
+<div class="eyebrow">
+<p>Curriculum Vitae</p>
+</div>
+<div class="lead">
+<p>Academic positions, education, and grants across Bergen, Geneva,
+Osnabrueck, Konstanz, Bern, Pittsburgh, and Paris.</p>
+</div>
+</div>
+<div class="vita-grid">
+<div id="positions" class="section level2 vita-card vita-card-featured">
+<h2>Positions</h2>
+<table class="vita-position-table">
 <tbody>
-<tr>
-<td>
-<br>
+<tr class="vita-position-row-current">
+<td class="vita-position-years">
+2017-
 </td>
 <td>
-<br>
+<span class="vita-position-status">Current</span> Full Professor at the
+<a href="http://www.uib.no/en/fof#">Department of Philosophy</a>,
+University of Bergen, Norway.
 </td>
 </tr>
 <tr>
-<td width="20%" style="vertical-align: top;">
-<strong>Current Position</strong>
-</td>
-<td width="80%">
-Full Professor at the <a href="http://www.uib.no/en/fof#">Department of
-Philosophy</a>, University of Bergen, Norway.
-</td>
-<tr>
-<td>
-<br>
+<td class="vita-position-years">
+2014-2017
 </td>
 <td>
-<br>
-</td>
-</tr>
-</tr>
-<tr>
-<td width="20%" style="vertical-align: top;">
-Previous Positions
-</td>
-<td width="80%">
 SNSF Professor at the <a
 href="http://www.unige.ch/lettres/philo/">Department of Philosophy</a>,
-University of Geneva, Switzerland, (2014-2017).
+University of Geneva, Switzerland.
 </td>
 </tr>
 <tr>
-<td>
+<td class="vita-position-years">
+2012-2014
 </td>
-<td width="80%">
-<br> Juniorprofessor at the <a
+<td>
+Juniorprofessor at the <a
 href="http://cogsci.uni-osnabrueck.de/">Institute of Cognitive
-Science</a>, University of Osnabrück, Germany, (2012-2014).
+Science</a>, University of Osnabrueck, Germany.
 </td>
 </tr>
 <tr>
-<td>
+<td class="vita-position-years">
+2009-2012
 </td>
-<td width="80%">
-<br> Postdoctoral Research Associate and Lecturer at the <a
-href="http://www.unikonstanz.de/philosophie/">Dept. of Philosophy</a>,
-University of Konstanz, Germany, (2009-2012).
+<td>
+Postdoctoral Research Associate and Lecturer at the <a
+href="https://www.philosophie.uni-konstanz.de/en/">Dept. of
+Philosophy</a>, University of Konstanz, Germany.
 </td>
 </tr>
 <tr>
-<td>
+<td class="vita-position-years">
+2010
 </td>
-<td width="80%">
-<br> Visiting Scholar at the Institut d’Histoire et de Philosophie des
-Sciences et des Techniques, University of Paris 1, France, (spring
-2010).
+<td>
+Visiting Scholar at the Institut d’Histoire et de Philosophie des
+Sciences et des Techniques, University of Paris 1, France.
 </td>
 </tr>
 <tr>
-<td>
+<td class="vita-position-years">
+2008-2009
 </td>
-<td width="80%">
-<br> Postdoctoral Research Associate and Lecturer at the <a
+<td>
+Postdoctoral Research Associate and Lecturer at the <a
 href="http://www.philosophie.unibe.ch/content/index_ger.html">Dept. of
-Philosophy</a>, University of Bern, Switzerland, (2008-2009).
+Philosophy</a>, University of Bern, Switzerland.
 </td>
 </tr>
 <tr>
-<td>
+<td class="vita-position-years">
+2007-2008
 </td>
-<td width="80%">
-<br> Visiting Fellow at the <a
-href="http://www.pitt.edu/%7Epittcntr/">Center for Philosophy of
-Science</a>, University of Pittsburgh, USA, (2007-2008).
+<td>
+Visiting Fellow at the <a
+href="https://www.centerphilsci.pitt.edu/">Center for Philosophy of
+Science</a>, University of Pittsburgh, USA.
 </td>
 </tr>
 <tr>
-<td>
+<td class="vita-position-years">
+2003-2007
 </td>
-<td width="80%">
-<br> Lecturer, Department of Philosophy, University of Bern,
-Switzerland, (2003-2007).
+<td>
+Lecturer, Department of Philosophy, University of Bern, Switzerland.
 </td>
 </tr>
 <tr>
-<td>
+<td class="vita-position-years">
+2001-2003
 </td>
-<td width="80%">
-<br> Research and Teaching Assistant, Department of Philosophy,
-University of Bern, Switzerland, (2001-2003).
+<td>
+Research and Teaching Assistant, Department of Philosophy, University of
+Bern, Switzerland.
 </td>
 </tr>
-<tr>
-<td>
-<br>
-</td>
-<td>
-<br>
-</td>
-</tr>
-<tr>
-<td width="20%" style="vertical-align: top;">
-Education
-</td>
-<td width="80%">
-Ph.D. (Philosophy): University of Bern (2005);<br> M.A. (Philosophy):
-University of Bern (2001);<br> Studies in Philosophy, History, and
-German: Universities of Bern, Freiburg, and Konstanz (Germany)
-(1995-2000).
-</td>
-</tr>
-<tr>
-<td>
-<br>
-</td>
-<td>
-<br>
-</td>
-</tr>
-<td width="20%" style="vertical-align: top;">
-Fellowship, Grants
-</td>
-<td width="80%">
-<a href="https://www.uib.no/en/cna/146141/fripro-project-granted">FRIPRO
-project</a>, Research Council of Norway (2021);<br> <a
-href="http://www.uib.no/forskning/91071/toppforskprogrammet">Toppforskprogrammet</a>,
-Universitetet i Bergen / Trond Mohn Foundation (2017);<br> <a
-href="http://www.snf.ch/en/funding/careers/snsf-professorships/Pages/default.aspx#">SNSF
-Professorship</a> from the Swiss National Science Foundation (2013);<br>
-Visiting Fellowship at the University of Pittsburgh (2007);<br>
-Fellowship for Prospective Researchers from the Swiss National Science
-Foundation (2007);<br> Ph.D. Grant from the Swiss National Science
-Foundation for a research project on regularity theories of causation
-(2001-2003);<br> Diverse travel grants from the University of Bern and
-from the Swiss National Science Foundation.
-</td>
 </tbody>
 </table>
+</div>
+<div id="education" class="section level2 vita-card">
+<h2>Education</h2>
+<table class="vita-position-table">
+<tbody>
+<tr>
+<td class="vita-position-years">
+2005
+</td>
+<td>
+Ph.D. (Philosophy), University of Bern.
+</td>
+</tr>
+<tr>
+<td class="vita-position-years">
+2001
+</td>
+<td>
+M.A. (Philosophy), University of Bern.
+</td>
+</tr>
+<tr>
+<td class="vita-position-years">
+1995-2000
+</td>
+<td>
+Studies in Philosophy, History, and German, Universities of Bern,
+Freiburg, and Konstanz.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="grants-fellowships" class="section level2 vita-card">
+<h2>Grants &amp; Fellowships</h2>
+<table class="vita-position-table">
+<tbody>
+<tr>
+<td class="vita-position-years">
+2024
+</td>
+<td>
+<a href="https://sathercenter.berkeley.edu/">Peder Sather Grant</a>,
+Peder Sather Center, UC Berkeley. Project title: “Coincidence analysis
+workshop and applied health services research comparing coincidence
+analysis with regression analysis”.
+</td>
+</tr>
+<tr>
+<td class="vita-position-years">
+2024
+</td>
+<td>
+<a
+href="https://www.uib.no/humaniorastrategien/171693/fem-prosjekter-f%C3%A5r-st%C3%B8tte-fra-uibs-humaniorastrategi">Humaniora
+Strategy Grant</a>, University of Bergen. Project title: “Exploring the
+Potential of AI Models for Causal Data Analysis with CNA”.
+</td>
+</tr>
+<tr>
+<td class="vita-position-years">
+2021
+</td>
+<td>
+<a href="https://www.uib.no/en/cna/146141/fripro-project-granted">FRIPRO
+project</a>, Research Council of Norway.
+</td>
+</tr>
+<tr>
+<td class="vita-position-years">
+2017
+</td>
+<td>
+<a
+href="http://www.uib.no/forskning/91071/toppforskprogrammet">Toppforskprogrammet</a>,
+Universitetet i Bergen / Trond Mohn Foundation.
+</td>
+</tr>
+<tr>
+<td class="vita-position-years">
+2013
+</td>
+<td>
+<a
+href="https://www.snf.ch/en/qB3Cj7WzYGcqbgVi/funding/funding/discontinued-funding-schemes/snsf-professorships">SNSF
+Professorship</a>, Swiss National Science Foundation.
+</td>
+</tr>
+<tr>
+<td class="vita-position-years">
+2007
+</td>
+<td>
+Visiting Fellowship at the University of Pittsburgh.
+</td>
+</tr>
+<tr>
+<td class="vita-position-years">
+2007
+</td>
+<td>
+Fellowship for Prospective Researchers from the Swiss National Science
+Foundation.
+</td>
+</tr>
+<tr>
+<td class="vita-position-years">
+2001-2003
+</td>
+<td>
+Ph.D. Grant from the Swiss National Science Foundation for a research
+project on regularity theories of causation.
+</td>
+</tr>
+<tr>
+<td class="vita-position-years">
+Various
+</td>
+<td>
+Diverse travel grants from the University of Bern and from the Swiss
+National Science Foundation.
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
 
 

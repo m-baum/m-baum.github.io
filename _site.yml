@@ -22,5 +22,13 @@ output:
     css: basic.css
     lib_dir: site_docs
     self_contained: no
+exclude:
+  - docs
+  - preview
+  - preview-basic.css
+  - homepage_old
+  - test-results
+  - Akadmie_project_Baumgartner draft.docx
+  - Peder Sather Grant.docx
+  - SciencePart_baumgartner.pdf
 output_dir: _site
-

@@ -7,96 +7,109 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-<br>
+::: {#teaching-top .intro-block .vita-intro}
+::: {.eyebrow}
+Teaching
+:::
 
-### University of Bergen
+::: {.lead}
+Courses and workshops taught in Bergen, CNA training formats, and previous teaching appointments.
+:::
 
-May/June. 2022: [*Introduction to Causal Data Analysis and Modeling with Coincidence Analysis*](https://www.uib.no/en/cna/149512/introduction-causal-data-analysis-and-modeling-coincidence-analysis)
+::: {.nav-strip}
+[Bergen](#bergen){.nav-button}
+[CNA Training](#cna-training){.nav-button}
+[Geneva](#geneva){.nav-button}
+[Osnabrueck](#osnabrueck){.nav-button}
+[Konstanz](#konstanz){.nav-button}
+[Bern](#bern){.nav-button}
+:::
+:::
 
-<br>
+::: {.vita-grid .teach-grid}
+::: {#bergen .vita-card .vita-card-featured .teach-card}
+## Bergen
 
+* Spring 2026: [*Philosophy and Artificial Intelligence*](https://www4.uib.no/en/studies/courses/fil117)
+* Spring 2025: [*Philosophy and Artificial Intelligence*](https://www4.uib.no/en/studies/courses/fil117)
+* Spring 2025: [*Epistemology*](https://www4.uib.no/en/studies/courses/fil247)
+* Fall 2024: [*Philosophy of Science*](https://www4.uib.no/en/studies/courses/fil219)
+* Spring 2024: Examen philosophicum for mathematics and natural science
+* May/June 2022: [*Introduction to Causal Data Analysis and Modeling with Coincidence Analysis*](https://www.uib.no/en/cna/149512/introduction-causal-data-analysis-and-modeling-coincidence-analysis)
 
-### Indianapolis (Regenstrief Institute) 
+[Back to top](#teaching-top){.section-backlink .teach-card-backlink}
+:::
 
-Aug. 2021: [*Introduction to Causal Modeling with Coincidence Analysis*](docs/course_outlineCNA.pdf)
+::: {#cna-training .vita-card .vita-card-featured .teach-card}
+## CNA Training
 
-Sept. 2020: [*Configurational Causal Data Analysis*](https://www.eventbrite.com/e/sept-21-25-intensive-two-courses-in-configurational-comparative-methods-tickets-109016380930)
+* June 2026: [*Introduction to Causal Data Analysis and Modeling with Coincidence Analysis*](https://mackcenter.berkeley.edu/2026-cna-workshop), **UC Berkeley**
+* May 2025: [*Introduction to Causal Data Analysis and Modeling with Coincidence Analysis*](https://www.uib.no/en/cna/172726/introduction-causal-data-analysis-modeling-coincidence-analysis), **Copenhagen (National Research Centre for the Working Environment)**
+* May 2024: [*Introduction to Causal Data Analysis and Modeling with Coincidence Analysis*](https://rushu.rush.edu/cna2024), **Chicago (RUSH University)**
+* May 2023: [*Introduction to Causal Data Analysis and Modeling with Coincidence Analysis*](https://www.uib.no/en/cna/158122/introduction-causal-data-analysis-and-modeling-coincidence-analysis), **Prague (Prague University of Economics and Business)**
+* Aug. 2021: [*Introduction to Causal Modeling with Coincidence Analysis*](docs/course_outlineCNA.pdf), **Indianapolis (Regenstrief Institute)**
+* Sept. 2020: [*Configurational Causal Data Analysis*](https://www.eventbrite.com/e/sept-21-25-intensive-two-courses-in-configurational-comparative-methods-tickets-109016380930), **Indianapolis (Regenstrief Institute)**
+* Sept. 2017: [*Configurational Research with Qualitative Comparative Analysis (QCA) and Coincidence Analysis (CNA)*](docs/course_page.png), **Indianapolis (Regenstrief Institute)**; [*Outline*](docs/course_outline.pdf)
 
-Sept. 2017: [*Configurational Research with Qualitative Comparative Analysis (QCA) and Coincidence Analysis (CNA)*](docs/course_page.png), [*Outline*](docs/course_outline.pdf)
+[Back to top](#teaching-top){.section-backlink .teach-card-backlink}
+:::
 
-<br>
+::: {#geneva .vita-card .teach-card}
+## Geneva
 
-### Geneva (2014-2017)
+* Semestre de printemps 17: *The Philosophy of the Social Sciences*
+* Semestre d'automne 16/17: *The Bounds of Cognition/Mind*
+* Semestre d'automne 15/16: *General Philosophy of Science*
+* Semestre d'automne 15/16: [*Configurational Research with QCA and CNA*](docs/course_outline_geneva.pdf)
+* Semestre d'automne 14/15: *Philosophie de la causalité*
 
-Semestre de printemps 17: *The Philosophy of the Social Sciences* 
+[Back to top](#teaching-top){.section-backlink .teach-card-backlink}
+:::
 
-Semestre d'automne 16/17: *The Bounds of Cognition/Mind* 
+::: {#osnabrueck .vita-card .teach-card}
+## Osnabrück
 
-Semestre d'automne 15/16: *General Philosophy of Science* 
+* Wintersemester 13/14: *Seminar on Philosophy of Mathematics*
+* Wintersemester 13/14: *Lecture on Foundations of Logic*
+* Sommersemester 13: *Seminar on [The Core Debates in the Philosophy of Science](docs/programm_core.pdf)*
+* Sommersemester 13: *Seminar on [Thought Experiments](docs/programm_thou_os.pdf)*
+* Wintersemester 12/13: *Lecture on Foundations of Logic*
+* Sommersemester 12: *Seminar on [Determinism](docs/programm_det_os.pdf)*
+* Sommersemester 12: *Introduction to the Philosophy of Mind*
 
-Semestre d'automne 15/16: [*Configurational Research with QCA and CNA*](docs/course_outline_geneva.pdf)
+[Back to top](#teaching-top){.section-backlink .teach-card-backlink}
+:::
 
-Semestre d'automne 14/15: *Philosophie de la causalité* 
+::: {#konstanz .vita-card .teach-card}
+## Konstanz
 
-<br>
+* Methods Workshop 16: [*Configurational Research with QCA and CNA*](docs/course_outline_konstanz.pdf)
+* Proseminar/Wintersemester 11/12: *Die Sprachphilosophie von Paul Grice*
+* Proseminar/Wintersemester 10/11: *Gilbert Ryle: The Concept of Mind*
+* Hauptseminar/Wintersemester 10/11: *Kausalität*
+* Proseminar/Sommersemester 10: *Gedankenexperimente*
+* Proseminar/Wintersemester 09/10: *Wissenschaftlicher Realismus und Anti-Realismus*
 
-### Osnabrück (2012-2014)
+[Back to top](#teaching-top){.section-backlink .teach-card-backlink}
+:::
 
-Wintersemester 13/14: *Seminar on Philosophy of Mathematics*
+::: {#bern .vita-card .teach-card}
+## Bern
 
-Wintersemester 13/14: *Lecture on Foundations of Logic*
-
-Sommersemester 13: *Seminar on [The Core Debates in the Philosophy of Science](docs/programm_core.pdf)* 
-
-Sommersemester 13: *Seminar on [Thought Experiments](docs/programm_thou_os.pdf)* 
-
-Wintersemester 12/13: *Lecture on Foundations of Logic* 
-
-Sommersemester 12: *Seminar on [Determinism](docs/programm_det_os.pdf) *
-
-Sommersemester 12: *Introduction to the Philosophy of Mind* 
-
-<br>
-
-#### Konstanz (2009-2012)
-
-Methods Workshop 16: [*Configurational Research with QCA and CNA*](docs/course_outline_konstanz.pdf)
-
-Proseminar/Wintersemester 11/12: *Die Sprachphilosophie von Paul Grice* 
-
-Proseminar/Wintersemester 10/11: *Gilbert Ryle: The Concept of Mind*
-
-Hauptseminar/Wintersemester 10/11: *Kausalität*
-
-Proseminar/Sommersemester 10: *Gedankenexperimente*
-
-Proseminar/Wintersemester 09/10: *Wissenschaftlicher Realismus und Anti-Realismus*
-
-<br>
-
-#### Bern (2003-2008)
-
-Proseminar: *Gedankenexperimente*
-
-Einfuehrungskurs: *Kausalitaet und kausales Schliessen*
-
-Proseminar/Lektuerekurs: *Mills System of Logic und seine Kritiker*
-
-Proseminar/Lektuerekurs: *[Wissenschaftstheoretische Probleme und Positionen im Englischen Empirismus](docs/programm_emp.pdf)*
-
-Proseminar/Lektuerekurs: *Realismus vs. Anti-Realismus: Bas van Fraassen The Scientific Image*
-
-Proseminar: *Die Kontroverse um Karl Poppers Wissenschaftsphilosophie* 
-
-Einfuehrungskurs: *Logik mit Uebungen*
-
-Proseminar/Einfuehrungskurs: *Determinismus* 
-
-Hauptseminar: *Geist-Koerper Interaktion* 
-
-Proseminar: [*Naturgesetze*](docs/programm_nat.pdf)
-
-<br>
+* Proseminar: *Gedankenexperimente*
+* Einfuehrungskurs: *Kausalitaet und kausales Schliessen*
+* Proseminar/Lektuerekurs: *Mills System of Logic und seine Kritiker*
+* Proseminar/Lektuerekurs: *[Wissenschaftstheoretische Probleme und Positionen im Englischen Empirismus](docs/programm_emp.pdf)*
+* Proseminar/Lektuerekurs: *Realismus vs. Anti-Realismus: Bas van Fraassen The Scientific Image*
+* Proseminar: *Die Kontroverse um Karl Poppers Wissenschaftsphilosophie*
+* Einfuehrungskurs: *Logik mit Uebungen*
+* Proseminar/Einfuehrungskurs: *Determinismus*
+* Hauptseminar: *Geist-Koerper Interaktion*
+* Proseminar: [*Naturgesetze*](docs/programm_nat.pdf)
 
 To download English descriptions of the courses at the University of Bern, click [*here*](docs/bern2003-2008_mb.pdf).
+
+[Back to top](#teaching-top){.section-backlink .teach-card-backlink}
+:::
+:::
 

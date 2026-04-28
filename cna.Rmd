@@ -1,5 +1,5 @@
 ---
-title: ""
+title: "Coincidence Analysis (CNA)"
 output:html_document:
     # toc: true
     # toc_float:
@@ -13,46 +13,37 @@ bibliography: bib.bib
 knitr::opts_chunk$set(echo = TRUE)
 ```
 <style>
+body {
+  padding-top: 0 !important;
+}
+
+body .main-container {
+  padding-top: 0 !important;
+}
+
+#header {
+  display: none;
+}
+
 #banner {
-  position: absolute;
-  top: 60px;
-  left: 0px;
-  right: 0px;
-  width: 100%;
+  display: block;
+  position: relative;
+  left: 50%;
+  width: 100vw;
+  max-width: 100vw;
   height: 250px;
-  margin:auto;
-  text-align:center;
-  z-index: -1;
+  margin: -12px 0 28px -50vw;
+  object-fit: cover;
 }
 
 </style>
-</head>
 
-  <img id="banner" src="docs/head_cna3.png" alt="Banner Image" />
+<div id="page-top"></div>
 
-
-
-<br />
-<br />
-<br />
-<br />
-<br />
-<br />
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
+<img id="banner" src="docs/head_cna3.png" alt="Banner Image" />
 
 
 
-</p>
-
-
-  
 ---
 
 
@@ -65,16 +56,23 @@ library(QCApro)
 options(knitr.table.format = "html")
 library(kableExtra)
 ```
-# Coincidence Analysis (CNA)
-<font size="4">
-*Coincidence Analysis* (CNA) is a configurational comparative method (CCM) of causal inference and data analysis that is custom-built for multi-outcome structures. 
+::: {#cna-top .intro-block}
+::: {.eyebrow}
+Coincidence Analysis (CNA)
+:::
 
-<br><div class="boxed">
-This page presents some relevant literature on CNA and will inform about new developments, seminars, workshops etc. For more see the <a href="https://www.uib.no/en/cna">official CNA website</a> at the University of Bergen. </div>
+::: {.lead}
+Coincidence Analysis (CNA) is a configurational comparative method (CCM) of causal inference and data analysis that is custom-built for multi-outcome structures.
+:::
 
-</font>
-<br>
-<br>
+::: {.nav-strip}
+[Training](#training){.nav-button}
+[Software](#software){.nav-button}
+[Literature](#literature){.nav-button}
+:::
+
+This page presents some relevant literature on CNA and informs about new developments, seminars, workshops etc. For more see the [official CNA website](https://www.uib.no/en/cna) at the University of Bergen.
+:::
 
 <!-- ### Job -->
 
@@ -85,12 +83,20 @@ This page presents some relevant literature on CNA and will inform about new dev
 <!-- https://www.jobbnorge.no/en/available-jobs/job/177227/postdoctoral-fellowship-in-causal-modeling -->
 
 
-<br>
+::: {.vita-grid .cna-grid}
+::: {#training .vita-card .vita-card-featured .cna-card}
+## Training
 
-### Training 
+### Upcoming
 
-#### previous
-* Bergen (in-person), May 30 - June 2, 2022, [*Introduction to Causal Data Analysis and Modeling with Coincidence Analysis*](https://www.uib.no/en/cna/149512/introduction-causal-data-analysis-and-modeling-coincidence-analysis) 
+* UC Berkeley (in-person), June 8 - June 11, 2026, [*Introduction to Causal Data Analysis and Modeling with Coincidence Analysis*](https://mackcenter.berkeley.edu/2026-cna-workshop)
+
+### Previous
+
+* Copenhagen (in-person), May 19 - 22, 2025 [*Introduction to Causal Data Analysis and Modeling with Coincidence Analysis*](https://www.uib.no/en/cna/172726/introduction-causal-data-analysis-modeling-coincidence-analysis)
+* Chicago (in-person), May 20 - 23, 2024 [*Introduction to Causal Data Analysis and Modeling with Coincidence Analysis*](https://rushu.rush.edu/cna2024)
+* Prague (in-person), May 15 - 18, 2023, [*Introduction to Causal Data Analysis and Modeling with Coincidence Analysis*](https://www.uib.no/en/cna/158122/introduction-causal-data-analysis-and-modeling-coincidence-analysis)
+* Bergen (in-person), May 30 - June 2, 2022, [*Introduction to Causal Data Analysis and Modeling with Coincidence Analysis*](https://www.uib.no/en/cna/149512/introduction-causal-data-analysis-and-modeling-coincidence-analysis)
 * Indianapolis (via Zoom), Aug. 3-5, 2021, [*Introduction to Causal Modeling with Coincidence Analysis*](docs/course_outlineCNA.pdf)
 * Indianapolis (via Zoom), 2020, [*Advanced Topics in Configurational Causal Data Analysis*](docs/course_outline_advanced.pdf)
 * Indianapolis (via Zoom), 2020, [*Beginners' Introduction to Configurational Causal Data Analysis*](docs/course_outline_beginner.pdf)
@@ -99,12 +105,24 @@ This page presents some relevant literature on CNA and will inform about new dev
 * Konstanz, 2016: [*Configurational Research with QCA and CNA*](docs/course_outline_konstanz.pdf)
 * Geneva, 2015: [*Configurational Research with QCA and CNA*](docs/course_outline_geneva.pdf)
 
-<br>
+<a class="section-backlink cna-card-backlink" href="cna.html#cna-top">Back to top</a>
+:::
 
-### Software
-#### Base package **cna**
+::: {#software .vita-card .cna-card}
+## Software
+
+### Base package **cna**
+
 The **cna** package provides all the base functionalities required to analyze data by means of CNA.
 
+* On 06/02/2025, update 4.0.3 of the **cna** R-package has been released on [CRAN](https://cran.r-project.org/package=cna).
+* On 04/04/2025, version 4.0.0 of the **cna** R-package has been released on [CRAN](https://cran.r-project.org/package=cna).
+* On 06/07/2024, update 3.6.0 of the **cna** R-package has been released on [CRAN](https://cran.r-project.org/package=cna).
+* On 12/21/2023, update 3.5.6 of the **cna** R-package has been released on [CRAN](https://cran.r-project.org/package=cna).
+* On 08/10/2023, update 3.5.4 of the **cna** R-package has been released on [CRAN](https://cran.r-project.org/package=cna).
+* On 03/09/2023, update 3.5.1 of the **cna** R-package has been released on [CRAN](https://cran.r-project.org/package=cna).
+* On 02/17/2023, version 3.5.0 of the **cna** R-package has been released on [CRAN](https://cran.r-project.org/package=cna).
+* On 08/07/2022, version 3.4.0 of the **cna** R-package has been released on [CRAN](https://cran.r-project.org/package=cna).
 * On 12/17/2021, version 3.3.0 of the **cna** R-package has been released on [CRAN](https://cran.r-project.org/package=cna).
 * On 06/14/2021, version 3.2.0 of the **cna** R-package has been released on [CRAN](https://cran.r-project.org/package=cna).
 * On 05/28/2021, version 3.1.0 of the **cna** R-package has been released on [CRAN](https://cran.r-project.org/package=cna).
@@ -117,32 +135,70 @@ The **cna** package provides all the base functionalities required to analyze da
 * On 06/13/2018, update 2.1.1 has been released on [CRAN](https://cran.r-project.org/package=cna).
 * On 06/01/2018, version 2.1.0 of the **cna** R-package has been released on [CRAN](https://cran.r-project.org/package=cna).
 
+### Add-on package **cnaOpt**
 
-#### Add-on package **cnaOpt**
 The **cnaOpt** package provides various functions for optimizing consistency and coverage scores of models of configurational comparative methods as CNA and QCA.
 
+* On 08/20/2025, update 0.5.3 has been released on [CRAN](https://cran.r-project.org/package=cnaOpt).
+* On 07/08/2022, update 0.5.2 has been released on [CRAN](https://cran.r-project.org/package=cnaOpt).
 * On 12/17/2021, update 0.5.0 has been released on [CRAN](https://cran.r-project.org/package=cnaOpt).
 * On 09/14/2020, update 0.2.0 has been released on [CRAN](https://cran.r-project.org/package=cnaOpt).
 * On 09/12/2019, update 0.1.1 has been released on [CRAN](https://cran.r-project.org/package=cnaOpt).
 * On 21/10/2019, version 0.1.0 of the **cnaOpt** R-package has been released on [CRAN](https://cran.r-project.org/package=cnaOpt).
 
-#### Add-on package **frscore**
+### Add-on package **frscore**
+
 The **frscore** package provides functions for calculating the robustness of CNA/CCM models.
 
+* On 07/05/2025, version 0.5.2 of frscore has been released on [CRAN](https://cran.r-project.org/package=frscore).
+* On 06/11/2024, update 0.4.1 has been released on [CRAN](https://cran.r-project.org/package=frscore).
+* On 04/25/2024, update 0.4.0 has been released on [CRAN](https://cran.r-project.org/package=frscore).
+* On 04/28/2023, update 0.3.1 has been released on [CRAN](https://cran.r-project.org/package=frscore).
+* On 05/20/2022, update 0.2.0 has been released on [CRAN](https://cran.r-project.org/package=frscore).
 * On 01/10/2022, update 0.1.1 has been released on [CRAN](https://cran.r-project.org/package=frscore).
 * On 07/22/2021, version 0.1.0 of the **frscore** R-package has been released on [CRAN](https://cran.r-project.org/package=frscore).
 
-<br>
+### Add-on package **causalHyperGraph**
 
+The **causalHyperGraph** package provides functions for graphically visualizing CNA/CCM models.
 
-### [Literature](https://www.zotero.org/groups/4567107/coincidence.analysis/library)
-#### Methodological
+* On 03/21/2024, version 0.1.0 of the **frscore** R-package has been released on [CRAN](https://cran.r-project.org/package=frscore).
+
+<a class="section-backlink cna-card-backlink" href="cna.html#cna-top">Back to top</a>
+:::
+
+<div id="literature-top"></div>
+
+::: {#literature .vita-card .vita-card-featured .cna-card}
+## Literature
+
+The full bibliography is also available in the [Zotero group library](https://www.zotero.org/groups/4567107/coincidence.analysis/library).
+
+::: {.nav-strip}
+[Methodological](#methodological){.nav-button}
+[Applied](#applied){.nav-button}
+[Protocol](#protocol){.nav-button}
+[Book Chapters](#book-chapters){.nav-button}
+[PhD Theses](#phd-theses-using-or-on-cna){.nav-button}
+:::
+
+<a class="section-backlink cna-card-backlink" href="cna.html#cna-top">Back to top</a>
+:::
+
+::: {#methodological .vita-card .publication-card .cna-card}
+## Methodological
 
 The details of the most recent version of CNA, which is implemented in the **cna** package, are described here:
 
 * M. Baumgartner and M. Ambühl (2021), cna: An R Package for Configurational Causal Inference and Modeling. R package vignette: The Comprehensive R Archive Network. https://cran.r-project.org/web/packages/cna/vignettes/cna_vignette.pdf.
 
 * M. Baumgartner and M. Ambühl (2020), <a href="https://doi.org/10.1017/psrm.2018.45">Causal Modeling with Multi-Value and Fuzzy-Set Coincidence Analysis</a>, <em>Political Science Research and Methods</em> 8, 526-542, doi: 10.1017/psrm.2018.45. Replication material at https://doi.org/10.7910/DVN/YIEAF1; <a href="docs/fscna.pdf">[penultimate draft]</a> 
+
+Short and informal introductions to configurational causal modeling are provided in the following papers:
+
+* von Thiele Schwarz, U., Sørensen, O. H., Tafvelin, S., & Roczniewska, M. (2024), <a href="https://doi.org/10.1080/02678373.2024.2349000">Complexity Embraced: A New Perspective on the Evaluation of Organisational Interventions</a>, <em>Work & Stress</em>, 1–7, doi:10.1080/02678373.2024.2349000
+
+* Whitaker, R.G., N. Sperber, M. Baumgartner, et al. (2020), <a href="https://implementationscience.biomedcentral.com/articles/10.1186/s13012-020-01070-3"> Coincidence Analysis: A New Method for Causal Inference in Implementation Science</a>, <em> Implementation Science</em> 15, 108. doi: 10.1186/s13012-020-01070-3
 
 
 The following paper provides a theoretical introduction the functions of the **cnaOpt** package: 
@@ -152,7 +208,27 @@ The following paper provides a theoretical introduction the functions of the **c
 
 The following paper introduces the robustness measure implemented in the **frscore** package:
 
-* V.P. Parkkinen and M. Baumgartner (2021), <a href="https://doi.org/10.1177/0049124120986200">Robustness and Model Selection in Configurational Causal Modeling</a>, <em> Sociological Methods &amp; Research</em>. <a href="docs/robustness.pdf">[penultimate draft]</a>
+* V.P. Parkkinen and M. Baumgartner (2023), <a href="https://doi.org/10.1177/0049124120986200">Robustness and Model Selection in Configurational Causal Modeling</a>, <em> Sociological Methods &amp; Research</em> 52(1), 176–208. doi: 10.1177/0049124120986200 <a href="docs/robustness.pdf">[penultimate draft]</a>
+
+These papers discuss shortcomings of consistency and coverage and introduce additional evaluation measures:
+
+* L. De Souter (2024), <a href="https://doi.org/10.1515/jci-2023-0014">Evaluating Boolean relationships in Configurational Comparative Methods</a>, Journal of Causal Inference, vol. 12, no. 1, 2024.
+
+* L.\ De Souter and M.\ Baumgartner (2025), <a href="https://doi.org/10.5281/zenodo.13619580">New Sufficiency and Necessity Measures for Model Building with Coincidence Analysis</a>, <em>Zenodo</em>, doi: 10.5281/zenodo.13619580 (preprint).
+
+This paper investigates the impact of data imbalances on CNA's performance:
+
+* M.\ Swiatczak and M.\ Baumgartner (2024), <a href="https://doi.org/10.1177/00491241241227039">Data Imbalances in Coincidence Analysis: A Simulation Study</a>, <em>Sociological Methods \& Research</em>, doi: 10.1177/00491241241227039.
+
+These papers compare CNA and QCA:
+
+* M. Swiatczak (2022), <a href="https://link.springer.com/article/10.1007/s11135-021-01193-9">Different Algorithms, Different Models</a>, <em>Quality & Quantity</em>, 56:1913–1937
+
+* T. Haesebrouck  and E. Thomann (2022), <a href="https://doi.org/10.1007/s11135-021-01209-4">Introduction: Causation, Inferences, and Solution Types in Configurational Comparative Methods</a>, Quality \& Quantity, 56:1867–1888.
+
+This paper compares CNA and Logic Regression:
+
+* M. Baumgartner and C. Falk  (2023), <a href="https://doi.org/10.1080/00273171.2021.1971510">Configurational Causal Modeling and Logic Regression</a>, <em>Multivariate Behavioral Research</em> 58:2, 292-310. <a href="docs/CNA_LR_final.pdf">[penultimate draft]</a>; <a href="docs/replication_material.zip">[replication material]</a>
 
 
 Older CNA versions are introduced/discussed here: 
@@ -167,10 +243,76 @@ Deterministic Causal Structures: A Boolean Approach</a>, <i>Synthese</i> 170, 71
 * M. Baumgartner (2009), <a href="http://smr.sagepub.com/cgi/content/abstract/38/1/71">Inferring
 Causal Complexity</a>, <i>Sociological Methods &amp; Research</i> 38, 71-101. <a href="docs/qca.pdf">[penultimate draft]</a>
 
+<a class="section-backlink cna-card-backlink" href="cna.html#cna-top">Back to top</a>
+:::
 
+::: {#applied .vita-card .publication-card .cna-card}
+## Applied
+* Rhodes, Jesse (2025), <a href="https://doi.org/10.1017/psrm.2025.10051">Laboratories of democratic renewal: explaining substantial improvement in the quality of democracy in the American States</a>. <i>Political Science Research and Methods,&nbsp;</i>1-18. doi:10.1017/psrm.2025.10051
 
+* Adamu, Abdu A., Ndwandwe, Duduzile, Uthman, Olalekan A., and Wiysonge, Charles S. (2025), <a   href="https://doi.org/10.1080/21645515.2025.2582302">Enhancing the use of routine program data for immunization decision-making: The role of Coincidence Analysis in localized learning and adaptation</a>, <i>Human Vaccines &amp; Immunotherapeutics</i>, 21:1, 2582302, DOI: 10.1080/21645515.2025.2582302
 
-#### Applied
+* Talal, A.H., Markatou, M., Zeremski, M. et al. (2025), <a href="https://doi.org/10.1186/s12906-025-05138-9">Opioid treatment program-integrated facilitated telemedicine for hepatitis C treatment: a hybrid effectiveness-implementation analysis</a>. <i>BMC Complement Med Ther</i> 25, 377. doi: 10.1186/s12906-025-05138-95
+
+* Zamantakis, A., Gomez, W., Lukose, L. et al. (2025) <a href="https://doi.org/10.1007/s10461-025-04898-2">Barriers to Same-Day Pre-exposure Prophylaxis (PrEP) Implementation in Federally Funded HIV Clinics Within High-Burden Areas of the U.S.: A Coincidence Analysis</a>. <i>AIDS Behav</i>. doi: 10.1007/s10461-025-04898-2
+
+* Wasmuth, Sally, Bravata, Dawn Bravata, and Miech, Edward (2025), <a href="https://doi.org/10.5014/ajot.2025.051085">Difference-Making Conditions for the Successful Implementation of IDEAS: A Provider Stigma-Reduction Training for and by Occupational Therapy Practitioners</a>. <i>Am J Occup Ther</i> September/October 2025, Vol. 79(5), 7905205070. doi: 10.5014/ajot.2025.051085
+
+* Tafvelin, S. and Stenling, A. (2025), <a href="https://doi.org/10.1111/ijtd.12373">How Do Individual and Work Environment Factors Combine in Their Influence on Transfer of Leadership Training? A Configural Approach</a>. <i>International Journal of Training and Development.</i>&nbsp;doi:&nbsp;10.1111/ijtd.12373
+
+* Huang, R, Remer, S., Knapp, L, Cohen, M, Rosen, M, et al. Ko, C (2025). Hospital Configurations Leading to Successful Implementation of Enhanced Recovery Programs. Annals of Surgery ():10.1097/SLA.0000000000006731, April 16, 2025. https://doi.org/10.1097/SLA.0000000000006731  
+
+* Pratt-Chapman, M.L., Miech, E.J., Mullins, M.A., Chang, S., Quinn, G.P., Maingi, S., Schabath, M.B. and Kamen, C. (2025), Difference-Makers for Collecting Sexual Orientation and Gender Identity Data in Oncology Settings. Cancer Med, 14: e70727. https://doi.org/10.1002/cam4.70727
+
+* Matson TE, Lee AK, Miech EJ, Wartko PD, et al., Bradley KA (2025). The Difference-Making Role of Staff Support in Implementing Nurse Care Management for Opioid Use Disorder Treatment: A Configurational Analysis. J Subst Use Addict Treat.  Feb 15:209642. https://doi.org/10.1016/j.josat.2025.209642. PMID: 39961581.
+
+* Chuang, E., Bunger, A., Smith, R. et al. (2024). Collaboration strategies affecting implementation of a cross-systems intervention for child welfare and substance use treatment: a mixed methods analysis. Implement Sci Commun 5, 127. https://doi.org/10.1186/s43058-024-00666-w
+
+* Becker, J., Poast, P., and Haesebrouck, T. (2024). Setting targets: Abatement cost, vulnerability, and the agreement of NATO’s Wales Pledge on Defense Investment. Journal of Peace Research, 0(0). https://doi.org/10.1177/00223433241267798
+
+* Kelley, A.T., M.A.\ Incze, M.\ Baumgartner, A.N.C.\ Campbell, E.V.\ Nunes , D.O.\ Scharfstein (2024), <a href="https://doi.org/10.1016/j.drugalcdep.2024.111368">Predictors of urine toxicology and other biological specimen missingness in randomized trials of substance use disorders</a>, <em>Drug and Alcohol Dependence</em>, Volume 260, doi: 10.1016/j.drugalcdep.2024.111368.
+
+* Duan, Y., Wang, J., Lanham, H.J. et al. (2024), <a href="https://doi.org/10.1186/s43058-024-00600-0">How context links to best practice use in long-term care homes: a mixed methods study</a>, Implement Sci Commun 5, 63, doi:10.1186/s43058-024-00600-0
+
+* Barroso, M. B. C., & Moraes, S. M. (2024), <a href="https://doi.org/10.5585/remark.v23i2.23369">Influencing factors of the purchase intention of virtual cosmetic goods in online games</a>. Brazilian Journal of Marketing, 23(2), 580-602, doi:10.5585/remark.v23i2.23369
+
+* Haesebrouck, T. (2024), <a href="https://doi.org/10.1093/fpa/orae005">EU Member State Support to Ukraine</a>, <em>Foreign Policy Analysis</em>, Volume 20, Issue 2, orae005, doi: 10.1093/fpa/orae005
+
+* Kaye, S., Hood, S., Cragun, D. et al. (2024), <a href="https://doi.org/10.1007/s11121-024-01669-8">Maintaining Family Engagement During Home Visitor Turnover: a Mixed Methods Study of Best Practices</a>, <em>Prevention Science</em>, doi: 10.1007/s11121-024-01669-8
+
+* Akerstrom, M., J. Severin, E.J. Miech, E. Wikström, and M. Roczniewska (2024), <a href="https://doi.org/10.1007/s00420-024-02048-0">Reducing sickness absence among public-sector healthcare employees: The difference-making roles of managerial and employee participation</a>, <em>Int Arch Occup Environ Health</em>, doi: 10.1007/s00420-024-02048-0
+
+* Johnson, C, AlRasheed, R, Gray, C, Triplett, N, Mbwayo, A, Weinhold, A, Whetten, K,  Dorsey, S. (2024), <a href="https://journals.sagepub.com/doi/10.1177/26334895231220277">Uncovering determinants of perceived feasibility of TF-CBT through Coincidence Analysis</a>, <em>Implementation Research and Practice</em>, 5, doi:10.1177/26334895231220277.
+
+* Chava Pollak, Joe Verghese, Helena M Blumen (2024), <a href="https://doi.org/10.1093/geront/gnad173">Difference-Making Pathways to Frailty Through Social Factors: A Configurational Analysis</a>, <em>The Gerontologist</em>, Volume 64, Issue 6, gnad173, doi:10.1093/geront/gnad173
+
+* Roczniewska M, Tafvelin S, Nielsen K, von Thiele Schwarz U, Miech EJ, Hasson H, Edwards K,  Abildgaard JS, Sorensen OH. (2023), <a href="https://iaap-journals.onlinelibrary.wiley.com/doi/10.1111/apps.12502"> Simple Roads to Failure, Complex Paths to Success: An Evaluation of Conditions Explaining Perceived Fit of an Organizational Occupational Health Intervention</a>, <em>Applied Psychology</em>, doi: 10.1111/apps.12502.
+
+* Dean, M, Tezak, A, Johnson, S, Weidner, A, Almanza, D, Pal, T, Cragun, D. (2023), <a href="https://www.gimjournal.org/article/S1098-3600(23)00958-9/fulltext"> Factors that Differentiate Cancer Risk Management Decisions Among Females with Pathogenic/Likely Pathogenic Variants in PALB2, CHEK2, and ATM</a>, <em>Genetics in Medicine</em>, 25, 100945, doi: 10.1016/j.gim.2023.100945.
+
+* Dodge, J.R., Youles, B., Caldararo, J. et al. (2023), <a href="https://link.springer.com/article/10.1007/s11606-023-08115-5"> Engaging Operational Partners Is Critical for Successful Implementation of Research Products: a Coincidence Analysis of Access-Related Projects in the Veterans Affairs Healthcare System</a>, <em>Journal of General Internal Medicine</em>, doi: 10.1007/s11606-023-08115-5
+
+* Salvati ZM, Rahm AK, Williams MS....Cragun D. (2023), <a href="https://implementationsciencecomms.biomedcentral.com/articles/10.1186/s43058-023-00424-4"> A picture Is worth a thousand words: advancing the use of visualization tools in implementation science through process mapping and matrix heat mapping</a>, <em>Implementation Science Communications</em> 4 (2023): 43, doi: 10.1186/s43058-023-00424-4
+
+* Knott CL, Miech EJ, Woodward N, Huq M. (2023), <a href="https://link.springer.com/article/10.1007/s43477-023-00089-0"> The role of organizational capacity in intervention efficacy in a church‑based cancer education program: a configurational analysis</a>, <em>Global Implementation Research and Applications</em>, doi: 10.1007/s43477-023-00089-0
+
+* Haesebrouck T. (2023), <a href="https://doi.org/10.1080/03050629.2023.2184815"> The populist radical right and military intervention: A coincidence analysis of military deployment votes</a>, <em>International Interactions</em>, doi: 10.1080/03050629.2023.2184815
+
+* Adams KK, Miech EJ, Sobieraj DM. (2022), <a href="https://ascpjournal.biomedcentral.com/articles/10.1186/s13722-022-00336-z">Factors that distinguish opioid withdrawal during induction with buprenorphine microdosing: a configurational analysis</a>, <em>Addiction Science & Clinical Practice</em>, 17(1):55. doi: 10.1186/s13722-022-00336-z.
+    + This is the second study ever to apply CNA in the field of pharmacy, and draws upon a subset of data       from an earlier systematic review. </p>
+
+* Rich JA, Miech EJ, Semenza DC, Corbin TJ. (2022), <a href="https://www.sciencedirect.com/science/article/pii/S0091743522003115?via%3Dihub">How combinations of state firearm laws link to low firearm suicide and homicide rates: A configurational analysis</a>, <em>Preventive Medicine</em>, doi: 10.1016/j.ypmed.2022.107262.
+  + The 2nd "geoconfigurational" analysis integrating CNA solutions with maps. </p>
+
+* Charns MP, Lerner B , Yakovchenko V, MS, Urech TH, Shin MH, Kim B, Engle RL, Vashi AA. (2022), <a href="https://onlinelibrary.wiley.com/doi/10.1111/1475-6773.14072">Achieving transformation to Lean Management Systems in health care</a>, <em>Health Services Research</em>, doi: 10.1111/1475-6773.14072.
+  + The 1st CNA analysis to be published in HSR, an AcademyHealth journal.</p>
+
+* Sperber NR, Miech EJ, Clary AS, Perry K, Edwards-Orr M, Rudolph JL, Van Houtven CH, Thomas KS. (2022), <a href="https://doi.org/10.1016/j.hjdsi.2022.100653">Determinants of inter-organizational implementation success: A mixed-methods evaluation of Veteran Directed Care</a>, <em>Healthcare</em> 10(4), 100653. doi: 10.1016/j.hjdsi.2022.100653.
+  + First multi-level cna analysis to be published in the literatures for health services research and implementation science. </p>
+
+* Womack DM, Miech EJ, Fox NJ, Silvey LC, Somerville AM, Eldredge DH, Steege LM. (2022), <a href="https://pubmed.ncbi.nlm.nih.gov/36044917/">Coincidence Analysis: A Novel Approach to Modeling Nurses' Workplace Experience</a>,<em> Applied Clinical Informatics</em>, (4):794-802. doi: 10.1055/s-0042-1756368.
+    + First published CNA analysis in medical informatics.</p>
+
 * Gwayi-Chore, MC., Aruldas, K., Avokpaho, E. et al. (2022), <a href="https://doi.org/10.1186/s12913-022-08080-5">Defining optimal implementation packages for delivering community-wide mass drug administration for soil-transmitted helminths with high coverage</a>. <em> BMC Health Serv Res</em> 22, 792. doi: 10.1186/s12913-022-08080-5
 
 * Miech EJ, Perkins AJ, Zhang Y, Myers LJ, Sico JJ, Daggy J, Bravata DM (2022), <a href="https://bmjopen.bmj.com/content/12/6/e061469"> Pairing regression and configurational analysis in health services research: modelling outcomes in an observational cohort using a split-sample design</a>. <em>BMJ Open</em>; 12:e061469. doi: 10.1136/bmjopen-2022-061469
@@ -206,9 +348,6 @@ Causal Complexity</a>, <i>Sociological Methods &amp; Research</i> 38, 71-101. <a
 
 * Nunes, F. A. S. F., J. S. Freitas (2021), <a href="http://www.rigd.periodikos.com.br/article/doi/10.51995/2237-3373.v11i1e110022"> Combination of factors for the presence of the public: a look at the lower levels of football in Minas Gerais.</a> <em>Revista Intercontinental de Gestão Desportiva</em>, 11 (e1122), 1-11. doi: 10.51995/2237-3373.v11i1e110022
 
-* <p>Whitaker, R.G., N. Sperber, M. Baumgartner, et al. (2020), <a href="https://implementationscience.biomedcentral.com/articles/10.1186/s13012-020-01070-3"> Coincidence analysis: a new method for causal inference in implementation science</a>, <em> Implementation Science</em> 15, 108. doi: 10.1186/s13012-020-01070-3
-    + The first time the journal <em>Implementation Science</em> has ever published a full-length configurational analysis. </p>
-
 * Petrik, A., B. Green, J. Schneider et al. (2020), <a href="https://link.springer.com/article/10.1007/s11606-020-06186-2">Factors influencing implementation of a colorectal cancer screening improvement program in community health centers: an applied use of configurational comparative methods</a>, <em>Journal of General Internal Medicine</em>, doi: 10.1007/s11606-020- 06186-2.
 
 * Hickman, S. E., E. Miech et al. (2020), <a href="https://academic.oup.com/gerontologist/advance-article/doi/10.1093/geront/gnaa041/5841891"> Identifying the Implementation Conditions Associated With Positive Outcomes in a Successful Nursing Facility Demonstration Project </a>, <em> The Gerontologist</em>, doi: 10.1093/geront/gnaa041
@@ -224,7 +363,37 @@ Causal Complexity</a>, <i>Sociological Methods &amp; Research</i> 38, 71-101. <a
 
 * Baumgartner, M. and R. Epple (2014), <a href="http://smr.sagepub.com/content/43/2/280">A Coincidence Analysis of a Causal Chain: The Swiss Minaret Vote</a>, <em>Sociological Methods &amp; Research</em> 43, 280-312. <a href="docs/minaret.pdf">[penultimate draft]</a>
 
-#### PhD theses using or on CNA
+<a class="section-backlink cna-card-backlink" href="cna.html#cna-top">Back to top</a>
+:::
+
+::: {#protocol .vita-card .publication-card .cna-card}
+## Protocol
+* Sperber NR, Cragun D, Roberts MC, Bendz LM, Ince P, Gonzales S, Haga SB, Wu RR, Petry NJ, Ramsey L, Uber R. (2022), A Mixed-Methods Protocol to Identify Best Practices for Implementing Pharmacogenetic Testing in Clinical Settings, Journal of Personalized Medicine 12(8), 1313. doi: 10.3390/jpm12081313.
+
+* Wasmuth S, Belkiewitz J, Bravata D, Horsford C, Harris A, Smith C, Austin C, Miech E. (2022), Protocol for evaluating external facilitation as a strategy to nationally implement a novel stigma reduction training tool for healthcare providers, Implementation Science Communications 3(1), 88. doi: 10.1186/s43058-022-00332-z.
+
+* Cragun D, Beckstead J, Farmer M, Hooker G, Dean M, Matloff E, Reid S, Tezak A, Weidner A, Whisenant JG, Pal T. (2021),  IMProving care After inherited Cancer Testing (IMPACT) study: protocol of a randomized trial evaluating the efficacy of two interventions designed to improve cancer risk management and family communication of genetic test results, BMC Cancer 21(1), 1099. doi: 10.1186/s12885-021-08822-4.
+
+* Rogal SS, Yakovchenko V, Morgan T, Bajaj JS, Gonzalez R, Park A, Beste L, Miech EJ, Lamorte C, Neely B, Gibson S, Malone PS, Chartier M, Taddei T, Garcia-Tsao G, Powell BJ, Dominitz JA, Ross D, Chinman MJ. (2020), Getting to implementation: a protocol for a Hybrid III stepped wedge cluster randomized evaluation of using data-driven implementation strategies to improve cirrhosis care for Veterans, Implementation Science 15(1), 92, doi: 10.1186/s13012-020-01050-7.
+
+* Rahm AK, Cragun D, Hunter JE, Epstein MM, Lowery J, Lu CY, Pawloski PA, Sharaf RN, Liang SY, Burnett-Hartman AN, Gudgeon JM, Hao J, Snyder S, Gogoi R, Ladd I, Williams MS. (2018), Implementing universal Lynch syndrome screening (IMPULSS): protocol for a multi-site study to identify strategies to implement, adapt, and sustain genomic medicine programs in different organizational contexts, BMC Health Services Research 18(1), 824.
+
+<a class="section-backlink cna-card-backlink" href="cna.html#cna-top">Back to top</a>
+:::
+
+::: {#book-chapters .vita-card .publication-card .cna-card}
+## Book chapters
+* D. Cragun (2020), Configurational Comparative Methods, in: Handbook on Implementation Science, eds. P. Nilsen & S. A. Birken, Northampton, MA: Edward Elgar Publishing. doi:10.4337/9781788975995.00034.
+    + First textbook or handbook in implementation science or health services research to mention CNA as an analytic method.</p>
+
+<a class="section-backlink cna-card-backlink" href="cna.html#cna-top">Back to top</a>
+:::
+
+::: {#phd-theses-using-or-on-cna .vita-card .publication-card .cna-card}
+## PhD theses using or on CNA
+* Lauren Niles, 2022 (Johns Hopkins University, Baltimore, MD) “Effectiveness of Maryland Opioid Treatment Program Response During the COVID-19 Pandemic and National Regulatory Exemption Period.”
+* Claire Gwayi-Chore, 2022 (University of Washington, Seattle). “Scaling up deworming programs: implementation science approaches to guide the transition from school-based to community-wide mass drug administration for soil-transmitted helminths.”
+(This multi-method study included a CNA analysis to identify necessary and/or sufficient combinations of intervention delivery activities related to successful implementation of a community-wide public health intervention in three different countries: Benin, India and Malawi.)
 * Kelly Coates, 2021 (Portland State), “Affecting Absenteeism Through School-Based Health Services Delivery: A Configurational Comparative Methods Study of Oregon's Public Secondary Schools.” 
     (First standalone use of CNA in an applied analysis in any doctoral-level dissertation in any subject.)
 * Jessica Dodge, 2021 (USC), “Exploring the Social Determinants of Health in a Population with Similar Access to Healthcare: Experiences from United States Active-Duty Army Wives.”
@@ -234,5 +403,9 @@ Causal Complexity</a>, <i>Sociological Methods &amp; Research</i> 38, 71-101. <a
     (First doctoral-level dissertation in the United States to prominently feature CNA in an applied analysis.)
 * Rui Fernando Correia Ferreira, 2018 (Universidade Federal de Minas Gerais, UFMG/Brazil), “Estratégia de influência: O ganho de vantagens competitivas de empresas em suas relações com o Estado”. [ENG: “Influence strategy: Gaining competitive advantages for companies in their relations with the State”]
 * Sepheen Byron, 2022 (University of North Carolina – Chapel Hill). “State Medicaid Policy Levers Related to Successful Health Information Exchange Among Providers.”
+
+<a class="section-backlink cna-card-backlink" href="cna.html#cna-top">Back to top</a>
+:::
+:::
 
 <!-- ## References -->

@@ -13,7 +13,7 @@
 
 <title>Teaching</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
@@ -142,11 +142,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -175,8 +179,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -184,16 +188,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -284,92 +281,166 @@ $(document).ready(function () {
 </div>
 
 
-<p><br></p>
-<div id="university-of-bergen" class="section level3">
-<h3>University of Bergen</h3>
-<p>May/June. 2022: <a
+<div id="teaching-top" class="intro-block vita-intro">
+<div class="eyebrow">
+<p>Teaching</p>
+</div>
+<div class="lead">
+<p>Courses and workshops taught in Bergen, CNA training formats, and
+previous teaching appointments.</p>
+</div>
+<div class="nav-strip">
+<p><a href="#bergen" class="nav-button">Bergen</a> <a
+href="#cna-training" class="nav-button">CNA Training</a> <a
+href="#geneva" class="nav-button">Geneva</a> <a href="#osnabrueck"
+class="nav-button">Osnabrueck</a> <a href="#konstanz"
+class="nav-button">Konstanz</a> <a href="#bern"
+class="nav-button">Bern</a></p>
+</div>
+</div>
+<div class="vita-grid teach-grid">
+<div id="bergen"
+class="section level2 vita-card vita-card-featured teach-card">
+<h2>Bergen</h2>
+<ul>
+<li>Spring 2026: <a
+href="https://www4.uib.no/en/studies/courses/fil117"><em>Philosophy and
+Artificial Intelligence</em></a></li>
+<li>Spring 2025: <a
+href="https://www4.uib.no/en/studies/courses/fil117"><em>Philosophy and
+Artificial Intelligence</em></a></li>
+<li>Spring 2025: <a
+href="https://www4.uib.no/en/studies/courses/fil247"><em>Epistemology</em></a></li>
+<li>Fall 2024: <a
+href="https://www4.uib.no/en/studies/courses/fil219"><em>Philosophy of
+Science</em></a></li>
+<li>Spring 2024: Examen philosophicum for mathematics and natural
+science</li>
+<li>May/June 2022: <a
 href="https://www.uib.no/en/cna/149512/introduction-causal-data-analysis-and-modeling-coincidence-analysis"><em>Introduction
 to Causal Data Analysis and Modeling with Coincidence
-Analysis</em></a></p>
-<p><br></p>
+Analysis</em></a></li>
+</ul>
+<p><a href="#teaching-top"
+class="section-backlink teach-card-backlink">Back to top</a></p>
 </div>
-<div id="indianapolis-regenstrief-institute" class="section level3">
-<h3>Indianapolis (Regenstrief Institute)</h3>
-<p>Aug. 2021: <a href="docs/course_outlineCNA.pdf"><em>Introduction to
-Causal Modeling with Coincidence Analysis</em></a></p>
-<p>Sept. 2020: <a
+<div id="cna-training"
+class="section level2 vita-card vita-card-featured teach-card">
+<h2>CNA Training</h2>
+<ul>
+<li>June 2026: <a
+href="https://mackcenter.berkeley.edu/2026-cna-workshop"><em>Introduction
+to Causal Data Analysis and Modeling with Coincidence Analysis</em></a>,
+<strong>UC Berkeley</strong></li>
+<li>May 2025: <a
+href="https://www.uib.no/en/cna/172726/introduction-causal-data-analysis-modeling-coincidence-analysis"><em>Introduction
+to Causal Data Analysis and Modeling with Coincidence Analysis</em></a>,
+<strong>Copenhagen (National Research Centre for the Working
+Environment)</strong></li>
+<li>May 2024: <a href="https://rushu.rush.edu/cna2024"><em>Introduction
+to Causal Data Analysis and Modeling with Coincidence Analysis</em></a>,
+<strong>Chicago (RUSH University)</strong></li>
+<li>May 2023: <a
+href="https://www.uib.no/en/cna/158122/introduction-causal-data-analysis-and-modeling-coincidence-analysis"><em>Introduction
+to Causal Data Analysis and Modeling with Coincidence Analysis</em></a>,
+<strong>Prague (Prague University of Economics and
+Business)</strong></li>
+<li>Aug. 2021: <a href="docs/course_outlineCNA.pdf"><em>Introduction to
+Causal Modeling with Coincidence Analysis</em></a>, <strong>Indianapolis
+(Regenstrief Institute)</strong></li>
+<li>Sept. 2020: <a
 href="https://www.eventbrite.com/e/sept-21-25-intensive-two-courses-in-configurational-comparative-methods-tickets-109016380930"><em>Configurational
-Causal Data Analysis</em></a></p>
-<p>Sept. 2017: <a href="docs/course_page.png"><em>Configurational
+Causal Data Analysis</em></a>, <strong>Indianapolis (Regenstrief
+Institute)</strong></li>
+<li>Sept. 2017: <a href="docs/course_page.png"><em>Configurational
 Research with Qualitative Comparative Analysis (QCA) and Coincidence
-Analysis (CNA)</em></a>, <a
-href="docs/course_outline.pdf"><em>Outline</em></a></p>
-<p><br></p>
+Analysis (CNA)</em></a>, <strong>Indianapolis (Regenstrief
+Institute)</strong>; <a
+href="docs/course_outline.pdf"><em>Outline</em></a></li>
+</ul>
+<p><a href="#teaching-top"
+class="section-backlink teach-card-backlink">Back to top</a></p>
 </div>
-<div id="geneva-2014-2017" class="section level3">
-<h3>Geneva (2014-2017)</h3>
-<p>Semestre de printemps 17: <em>The Philosophy of the Social
-Sciences</em></p>
-<p>Semestre d’automne 16/17: <em>The Bounds of Cognition/Mind</em></p>
-<p>Semestre d’automne 15/16: <em>General Philosophy of Science</em></p>
-<p>Semestre d’automne 15/16: <a
+<div id="geneva" class="section level2 vita-card teach-card">
+<h2>Geneva</h2>
+<ul>
+<li>Semestre de printemps 17: <em>The Philosophy of the Social
+Sciences</em></li>
+<li>Semestre d’automne 16/17: <em>The Bounds of Cognition/Mind</em></li>
+<li>Semestre d’automne 15/16: <em>General Philosophy of
+Science</em></li>
+<li>Semestre d’automne 15/16: <a
 href="docs/course_outline_geneva.pdf"><em>Configurational Research with
-QCA and CNA</em></a></p>
-<p>Semestre d’automne 14/15: <em>Philosophie de la causalité</em></p>
-<p><br></p>
+QCA and CNA</em></a></li>
+<li>Semestre d’automne 14/15: <em>Philosophie de la causalité</em></li>
+</ul>
+<p><a href="#teaching-top"
+class="section-backlink teach-card-backlink">Back to top</a></p>
 </div>
-<div id="osnabrück-2012-2014" class="section level3">
-<h3>Osnabrück (2012-2014)</h3>
-<p>Wintersemester 13/14: <em>Seminar on Philosophy of
-Mathematics</em></p>
-<p>Wintersemester 13/14: <em>Lecture on Foundations of Logic</em></p>
-<p>Sommersemester 13: <em>Seminar on <a
+<div id="osnabrueck" class="vita-card teach-card">
+<div id="osnabrück" class="section level2">
+<h2>Osnabrück</h2>
+<ul>
+<li>Wintersemester 13/14: <em>Seminar on Philosophy of
+Mathematics</em></li>
+<li>Wintersemester 13/14: <em>Lecture on Foundations of Logic</em></li>
+<li>Sommersemester 13: <em>Seminar on <a
 href="docs/programm_core.pdf">The Core Debates in the Philosophy of
-Science</a></em></p>
-<p>Sommersemester 13: <em>Seminar on <a
-href="docs/programm_thou_os.pdf">Thought Experiments</a></em></p>
-<p>Wintersemester 12/13: <em>Lecture on Foundations of Logic</em></p>
-<p>Sommersemester 12: <em>Seminar on <a
-href="docs/programm_det_os.pdf">Determinism</a> </em></p>
-<p>Sommersemester 12: <em>Introduction to the Philosophy of
-Mind</em></p>
-<p><br></p>
-<div id="konstanz-2009-2012" class="section level4">
-<h4>Konstanz (2009-2012)</h4>
-<p>Methods Workshop 16: <a
-href="docs/course_outline_konstanz.pdf"><em>Configurational Research
-with QCA and CNA</em></a></p>
-<p>Proseminar/Wintersemester 11/12: <em>Die Sprachphilosophie von Paul
-Grice</em></p>
-<p>Proseminar/Wintersemester 10/11: <em>Gilbert Ryle: The Concept of
-Mind</em></p>
-<p>Hauptseminar/Wintersemester 10/11: <em>Kausalität</em></p>
-<p>Proseminar/Sommersemester 10: <em>Gedankenexperimente</em></p>
-<p>Proseminar/Wintersemester 09/10: <em>Wissenschaftlicher Realismus und
-Anti-Realismus</em></p>
-<p><br></p>
+Science</a></em></li>
+<li>Sommersemester 13: <em>Seminar on <a
+href="docs/programm_thou_os.pdf">Thought Experiments</a></em></li>
+<li>Wintersemester 12/13: <em>Lecture on Foundations of Logic</em></li>
+<li>Sommersemester 12: <em>Seminar on <a
+href="docs/programm_det_os.pdf">Determinism</a></em></li>
+<li>Sommersemester 12: <em>Introduction to the Philosophy of
+Mind</em></li>
+</ul>
+<p><a href="#teaching-top"
+class="section-backlink teach-card-backlink">Back to top</a></p>
 </div>
-<div id="bern-2003-2008" class="section level4">
-<h4>Bern (2003-2008)</h4>
-<p>Proseminar: <em>Gedankenexperimente</em></p>
-<p>Einfuehrungskurs: <em>Kausalitaet und kausales Schliessen</em></p>
-<p>Proseminar/Lektuerekurs: <em>Mills System of Logic und seine
-Kritiker</em></p>
-<p>Proseminar/Lektuerekurs: <em><a
+</div>
+<div id="konstanz" class="section level2 vita-card teach-card">
+<h2>Konstanz</h2>
+<ul>
+<li>Methods Workshop 16: <a
+href="docs/course_outline_konstanz.pdf"><em>Configurational Research
+with QCA and CNA</em></a></li>
+<li>Proseminar/Wintersemester 11/12: <em>Die Sprachphilosophie von Paul
+Grice</em></li>
+<li>Proseminar/Wintersemester 10/11: <em>Gilbert Ryle: The Concept of
+Mind</em></li>
+<li>Hauptseminar/Wintersemester 10/11: <em>Kausalität</em></li>
+<li>Proseminar/Sommersemester 10: <em>Gedankenexperimente</em></li>
+<li>Proseminar/Wintersemester 09/10: <em>Wissenschaftlicher Realismus
+und Anti-Realismus</em></li>
+</ul>
+<p><a href="#teaching-top"
+class="section-backlink teach-card-backlink">Back to top</a></p>
+</div>
+<div id="bern" class="section level2 vita-card teach-card">
+<h2>Bern</h2>
+<ul>
+<li>Proseminar: <em>Gedankenexperimente</em></li>
+<li>Einfuehrungskurs: <em>Kausalitaet und kausales Schliessen</em></li>
+<li>Proseminar/Lektuerekurs: <em>Mills System of Logic und seine
+Kritiker</em></li>
+<li>Proseminar/Lektuerekurs: <em><a
 href="docs/programm_emp.pdf">Wissenschaftstheoretische Probleme und
-Positionen im Englischen Empirismus</a></em></p>
-<p>Proseminar/Lektuerekurs: <em>Realismus vs. Anti-Realismus: Bas van
-Fraassen The Scientific Image</em></p>
-<p>Proseminar: <em>Die Kontroverse um Karl Poppers
-Wissenschaftsphilosophie</em></p>
-<p>Einfuehrungskurs: <em>Logik mit Uebungen</em></p>
-<p>Proseminar/Einfuehrungskurs: <em>Determinismus</em></p>
-<p>Hauptseminar: <em>Geist-Koerper Interaktion</em></p>
-<p>Proseminar: <a
-href="docs/programm_nat.pdf"><em>Naturgesetze</em></a></p>
-<p><br></p>
+Positionen im Englischen Empirismus</a></em></li>
+<li>Proseminar/Lektuerekurs: <em>Realismus vs. Anti-Realismus: Bas van
+Fraassen The Scientific Image</em></li>
+<li>Proseminar: <em>Die Kontroverse um Karl Poppers
+Wissenschaftsphilosophie</em></li>
+<li>Einfuehrungskurs: <em>Logik mit Uebungen</em></li>
+<li>Proseminar/Einfuehrungskurs: <em>Determinismus</em></li>
+<li>Hauptseminar: <em>Geist-Koerper Interaktion</em></li>
+<li>Proseminar: <a
+href="docs/programm_nat.pdf"><em>Naturgesetze</em></a></li>
+</ul>
 <p>To download English descriptions of the courses at the University of
 Bern, click <a href="docs/bern2003-2008_mb.pdf"><em>here</em></a>.</p>
+<p><a href="#teaching-top"
+class="section-backlink teach-card-backlink">Back to top</a></p>
 </div>
 </div>
 

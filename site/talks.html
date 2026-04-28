@@ -13,7 +13,7 @@
 
 <title>Talks</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
@@ -32,8 +32,6 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 
 <style type="text/css">
   code{white-space: pre-wrap;}
@@ -144,11 +142,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -177,8 +179,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -186,16 +188,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -286,21 +281,88 @@ $(document).ready(function () {
 </div>
 
 
-<p></br></p>
-<div id="section" class="section level2">
-<h2></h2>
-<table class="table table-striped table-bordered" style="width: auto !important; margin-left: auto; margin-right: auto;">
+<div class="intro-block talks-intro">
+<div class="eyebrow">
+<p>Talks</p>
+</div>
+<div class="lead">
+<p>Invited lectures, workshop talks, conference presentations, and
+commentaries across philosophy of science, causation, and
+configurational methods.</p>
+</div>
+</div>
+<div id="talks" class="section level2 vita-card talks-card">
+<h2>Talks</h2>
+<table class="vita-position-table talks-table">
 <thead>
 <tr>
 <th style="text-align:left;">
 Date
 </th>
 <th style="text-align:left;">
-Topic/Location
+Talk / Location
 </th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td style="text-align:left;">
+March 2026
+</td>
+<td style="text-align:left;">
+The Prospect of Avoiding Interventionist Exclusion by Variable Set
+Pruning, Workshop on Interventionism and Non-Causal Dependence at UFR de
+philosophie, Université Paris 1 Panthéon-Sorbonne, France
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dec. 2025
+</td>
+<td style="text-align:left;">
+Introducing Causal Hypergraphs, 13th European QCA Conference 2025 at the
+Jagiellonian University, Kraków, Poland.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Oct. 2025
+</td>
+<td style="text-align:left;">
+From Regularities to Causal Complexity, Symposium on the Philosophy of
+Causation Institute of Philosophy, Chinese Academy of Sciences, 2025,
+Beijing.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Dec. 2023
+</td>
+<td style="text-align:left;">
+Evaluating Sufficiency and Necessity in Model Building with Coincidence
+Analysis, 11th International QCA Expert Workshop 2023, University of
+Antwerp.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Sept. 2023
+</td>
+<td style="text-align:left;">
+Introducing the Basics of Causal Data Analysis with Coincidence Analysis
+(CNA) for Implementation Research, Methods Training Workshop, Yale
+School of Public Health.
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Aug. 2023
+</td>
+<td style="text-align:left;">
+Boolean Difference-Making: A Modern Regularity Theory of Causation,
+Workshop on Causation, Dependence, and Regularity, University of Bergen.
+</td>
+</tr>
 <tr>
 <td style="text-align:left;">
 Dec. 2021
@@ -317,7 +379,7 @@ Nov. 2021
 </td>
 <td style="text-align:left;">
 Causal Reasoning and Boolean Minimization – Panel with Sjur Dyrkolbotn,
-Department of Informatics, University of Bergen
+Department of Informatics, University of Bergen.
 </td>
 </tr>
 <tr>

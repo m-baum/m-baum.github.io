@@ -13,7 +13,7 @@
 
 <title>Publications</title>
 
-<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.30/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/sandstone.min.css" rel="stylesheet" />
@@ -142,11 +142,15 @@ $(document).ready(function () {
     href = "index.html";
   var menuAnchor = $('a[href="' + href + '"]');
 
-  // mark it active
-  menuAnchor.tab('show');
-
-  // if it's got a parent navbar menu mark it active as well
-  menuAnchor.closest('li.dropdown').addClass('active');
+  // mark the anchor link active (and if it's in a dropdown, also mark that active)
+  var dropdown = menuAnchor.closest('li.dropdown');
+  if (window.bootstrap) { // Bootstrap 4+
+    menuAnchor.addClass('active');
+    dropdown.find('> .dropdown-toggle').addClass('active');
+  } else { // Bootstrap 3
+    menuAnchor.parent().addClass('active');
+    dropdown.addClass('active');
+  }
 
   // Navbar adjustments
   var navHeight = $(".navbar").first().height() + 15;
@@ -175,8 +179,8 @@ $(document).ready(function () {
   border-radius: 4px;
 }
 
-.tabset-dropdown > .nav-tabs > li.active:before {
-  content: "";
+.tabset-dropdown > .nav-tabs > li.active:before, .tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "\e259";
   font-family: 'Glyphicons Halflings';
   display: inline-block;
   padding: 10px;
@@ -184,16 +188,9 @@ $(document).ready(function () {
 }
 
 .tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
-  content: "&#xe258;";
-  border: none;
-}
-
-.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
-  content: "";
+  content: "\e258";
   font-family: 'Glyphicons Halflings';
-  display: inline-block;
-  padding: 10px;
-  border-right: 1px solid #ddd;
+  border: none;
 }
 
 .tabset-dropdown > .nav-tabs > li.active {
@@ -284,20 +281,84 @@ $(document).ready(function () {
 </div>
 
 
-<p></br></p>
-<div id="articles-peer-reviewed" class="section level3">
-<h3>Articles (peer-reviewed)</h3>
+<div id="publications-top" class="intro-block publications-intro">
+<div class="eyebrow">
+<p>Publications</p>
+</div>
+<div class="lead">
+<p>Peer-reviewed articles, invited contributions, software, monographs,
+special issues, and reviews.</p>
+</div>
+<div class="nav-strip">
+<p><a href="#peer-reviewed" class="nav-button">Peer-Reviewed</a> <a
+href="#invited" class="nav-button">Invited</a> <a href="#software"
+class="nav-button">Software</a> <a href="#monographs"
+class="nav-button">Monographs</a> <a href="#special-issue"
+class="nav-button">Special Issue</a> <a href="#book-reviews"
+class="nav-button">Reviews</a></p>
+</div>
+</div>
+<div class="publications-grid">
+<div id="peer-reviewed"
+class="vita-card publication-card vita-card-featured">
+<div id="articles-peer-reviewed" class="section level2">
+<h2>Articles (peer-reviewed)</h2>
+<p><a href="#publications-top" class="section-backlink">Back to
+top</a></p>
 <ul>
-<li><p>M. Baumgartner and C. Falk (2021),
+<li><p>L. De Souter and M. Baumgartner (2025),
+<a href="https://doi.org/10.5281/zenodo.13619580">New Sufficiency and
+Necessity Measures for Model Building with Coincidence Analysis</a>,
+<em>Zenodo</em>, doi: 10.5281/zenodo.13619580 (preprint).</p></li>
+<li><p>M. Baumgartner and L. Casini (2025),
+<a href="https://doi.org/10.3998/ergo.6924">Constitution, Non-Causal
+Explanation, and Demarcation</a>, <em>Ergo</em>, 12:14, doi:
+10.3998/ergo.6924.</p></li>
+<li><p>M. Baumgartner and C. Falk (2024),
+<a href="https://doi.org/10.1515/jci-2023-0032">Quantifying the Quality
+of Configurational Causal Models</a>, <em>Journal of Causal
+Inference</em> 12(1), 20230032, doi: 10.1515/jci-2023-0032.</p></li>
+<li><p>A.T. Kelley, M.A. Incze, M. Baumgartner, A.N.C. Campbell,
+E.V. Nunes , D.O. Scharfstein (2024),
+<a href="https://doi.org/10.1016/j.drugalcdep.2024.111368">Predictors of
+Urine Toxicology and Other Biological Specimen Missingness in Randomized
+Trials of Substance Use Disorders</a>, <em>Drug and Alcohol
+Dependence</em> 260, doi: 10.1016/j.drugalcdep.2024.111368.</p></li>
+<li><p>M. Swiatczak and M. Baumgartner (2024),
+<a href="https://doi.org/10.1177/00491241241227039">Data Imbalances in
+Coincidence Analysis: A Simulation Study</a>, <em>Sociological Methods
+&amp; Research</em>, 54(2), 739-771, doi:
+10.1177/00491241241227039.</p></li>
+<li><p>L. Casini and M. Baumgartner (2023),
+<a href="https://doi.org/10.1086/714820">The PC Algorithm and the
+Inference to Constitution</a>, <em>The British Journal for the
+Philosophy of Science</em> 74(2), 405-429. doi: 10.1086/714820.
+<a href="docs/rep_material_BJPS2018-395.zip">Online supplementary
+material</a>; <a href="docs/PC_final.pdf">[penultimate
+draft]</a></p></li>
+<li><p>M. Baumgartner and C. Falk (2023),
+<a href="https://doi.org/10.1093/bjps/axz047">Boolean Difference-Making:
+A Modern Regularity Theory of Causation</a>, <em>The British Journal for
+the Philosophy of Science</em> 74(1), 171-197, doi: 10.1093/bjps/axz047.
+<a href="docs/replicateBDM.R">Online supplementary material</a>;
+<a href="docs/bool_diffVfinal.pdf">[penultimate draft]</a></p></li>
+<li><p>M. Baumgartner and C. Falk (2023),
 <a href="https://doi.org/10.1080/00273171.2021.1971510">Configurational
 Causal Modeling and Logic Regression</a>, <em>Multivariate Behavioral
-Research</em>. <a href="docs/CNA_LR_final.pdf">[penultimate draft]</a>;
+Research</em> 58:2, 292-310.
+<a href="docs/CNA_LR_final.pdf">[penultimate draft]</a>;
 <a href="docs/replication_material.zip">[replication
 material]</a></p></li>
-<li><p>M. Baumgartner (2021),
+<li><p>V.P. Parkkinen and M. Baumgartner (2023),
+<a href="https://doi.org/10.1177/0049124120986200">Robustness and Model
+Selection in Configurational Causal Modeling</a>, <em> Sociological
+Methods &amp; Research</em> 52(1), 176–208. doi:
+10.1177/0049124120986200 <a href="docs/robustness.pdf">[penultimate
+draft]</a></p></li>
+<li><p>M. Baumgartner (2022),
 <a href="https://doi.org/10.1007/s11135-021-01157-z">Qualitative
 Comparative Analysis and Robust Sufficiency</a>, <em>Quality &amp;
-Quantity</em>, doi: 10.1007/s11135-021-01157-z
+Quantity</em> 56, 1939–1963, doi: 10.1007/s11135-021-01157-z
 <a href="docs/rob_suff.pdf">[penultimate draft]</a></p></li>
 <li><p>M. Baumgartner and M. Ambühl (2021),
 <a href="https://doi.org/10.1177/0049124121995554">Optimizing
@@ -306,21 +367,10 @@ Sociological Methods &amp; Research</em>. doi: 10.1177/0049124121995554
 <a href="docs/ConCovOpt.pdf">[penultimate draft]</a>;
 <a href="docs/replication_ConCovOpt.R">Replication
 material</a>.</p></li>
-<li><p>V.P. Parkkinen and M. Baumgartner (2021),
-<a href="https://doi.org/10.1177/0049124120986200">Robustness and Model
-Selection in Configurational Causal Modeling</a>, <em> Sociological
-Methods &amp; Research</em>. doi: 10.1177/0049124120986200
-<a href="docs/robustness.pdf">[penultimate draft]</a></p></li>
-<li><p>L. Casini and M. Baumgartner (2021), The PC Algorithm and the
-Inference to Constitution, <em>The British Journal for the Philosophy of
-Science</em>. doi: 10.1086/714820.
-<a href="docs/rep_material_BJPS2018-395.zip">Online supplementary
-material</a>; <a href="docs/PC_final.pdf">[penultimate
-draft]</a></p></li>
 <li><p>R.G. Whitaker, N. Sperber, M. Baumgartner, et al. (2020)
 <a href="https://implementationscience.biomedcentral.com/articles/10.1186/s13012-020-01070-3">
-Coincidence analysis: a new method for causal inference in
-implementation science</a>, <em> Implementation Science</em> 15, 108
+Coincidence Analysis: A New Method for Causal Inference in
+Implementation Science</a>, <em> Implementation Science</em> 15, 108
 (2020). <a href="https://doi.org/10.1186/s13012-020-01070-3"
 class="uri">https://doi.org/10.1186/s13012-020-01070-3</a></p></li>
 <li><p>M. Baumgartner and M. Ambühl (2020),
@@ -335,11 +385,6 @@ class="uri">https://doi.org/10.7910/DVN/YIEAF1</a>;
 Never (Properly) Tested: Evaluating Qualitative Comparative
 Analysis</a>, <em>Sociological Methods &amp; Research</em> 49, 279–311,
 doi: 10.1177/0049124117701487.</p></li>
-<li><p>M. Baumgartner and C. Falk (2019), Boolean Difference-Making: A
-Modern Regularity Theory of Causation, <em>The British Journal for the
-Philosophy of Science</em>, doi: 10.1093/bjps/axz047.
-<a href="docs/replicateBDM.R">Online supplementary material</a>;
-<a href="docs/bool_diffVfinal.pdf">[penultimate draft]</a></p></li>
 <li><p>M. Baumgartner, L. Casini, and B. Krickel (2018),
 <a href="https://rdcu.be/3GlM">Horizontal Surgicality and Mechanistic
 Constitution</a>, <em>Erkenntnis</em>, doi: 10.1007/s10670-018-0033-5.
@@ -480,20 +525,23 @@ Problem</a>, <i>Erkenntnis</i> 69, 201-226.
 Formalization</a>, <i>Synthese</i> 164, 93-115.
 <a href="docs/def_form.pdf">[penultimate draft]</a></p></li>
 </ul>
-<p></br></p>
 </div>
-<div id="articles-invited" class="section level3">
-<h3>Articles (invited)</h3>
+</div>
+<div id="invited" class="vita-card publication-card">
+<div id="articles-invited" class="section level2">
+<h2>Articles (invited)</h2>
+<p><a href="#publications-top" class="section-backlink">Back to
+top</a></p>
 <ul>
+<li><p>M. Baumgartner and M. Ambühl (2025), cna: An R Package for
+Configurational Causal Inference and Modeling. R package vignette: The
+Comprehensive R Archive Network. <a
+href="https://cran.r-project.org/web/packages/cna/vignettes/cna.pdf"
+class="uri">https://cran.r-project.org/web/packages/cna/vignettes/cna.pdf</a>.</p></li>
 <li><p>M. Baumgartner (2020),
 <a href="docs/causation.pdf"><em>Causation</em></a>, in: The SAGE
 Handbook of Political Science, ed. by D. Berg-Schlosser, B. Badie, and
 L. Morlino, London: SAGE, pp. 305–321.</p></li>
-<li><p>M. Baumgartner and M. Ambühl (2019), cna: An R Package for
-Configurational Causal Inference and Modeling. R package vignette: The
-Comprehensive R Archive Network. <a
-href="https://cran.r-project.org/web/packages/cna/vignettes/cna_vignette.pdf"
-class="uri">https://cran.r-project.org/web/packages/cna/vignettes/cna_vignette.pdf</a>.</p></li>
 <li><p>A. Thiem and M. Baumgartner (2016),
 <a href="http://alrik-thiem.net/data/documents/glossary.pdf">Glossary
 for Configurational Comparative Methods</a>, Version 1.0. In: Thiem,
@@ -510,28 +558,36 @@ Kausalrelation, in: N. Kersten u. U. Rose, Kausales Schliessen auf der
 Grundlage von Beobachtungsstudien, BAUA, Dortmund, 16-34.</p></li>
 <li><p>M. Baumgartner (2006), ‘Kausalität’, in: Neues Handbuch
 philosophischer Grundbegriffe, hg. v. Armin G. Wildfeuer und Petra
-Kolmer, Karl Alber. <br /> </br></p></li>
+Kolmer, Karl Alber. <br /></p></li>
 </ul>
 </div>
-<div id="software" class="section level3">
-<h3>Software</h3>
+</div>
+<div id="software" class="section level2 vita-card publication-card">
+<h2>Software</h2>
+<p><a href="#publications-top" class="section-backlink">Back to
+top</a></p>
 <ul>
-<li><p>V.P. Parkkinen and M. Baumgartner (2022).
-<strong>frscore</strong>: Functions for Calculating Fit-Robustness of
-CNA-Solutions. R package version 0.1.1. URL:
-<a href="http://cran.r-project.org/package=frscore">http://cran.r-project.org/package=frscore</a></p></li>
-<li><p>M. Ambuehl and M. Baumgartner. (2021), <strong>cnaOpt</strong>:
-Optimizing Consistency and Coverage in Configurational Causal Modeling.
-R package version 0.5.0. URL:
-<a href="http://cran.r-project.org/package=cnaOpt">http://cran.r-project.org/package=cnaOpt</a>.</p></li>
-<li><p>M. Ambuehl and M. Baumgartner. (2021), <strong>cna</strong>:
-Causal Modeling with Coincidence Analysis. R package version 3.3.0. URL:
+<li><p>M. Ambuehl and M. Baumgartner. (2025), <strong>cna</strong>:
+Causal Modeling with Coincidence Analysis. R package version 4.0.0. URL:
 <a href="http://cran.r-project.org/package=cna">http://cran.r-project.org/package=cna</a>.</p></li>
+<li><p>C. Falk, M. Ambuehl, and M. Baumgartner (2024).
+<strong>causalHyperGraph</strong>: Drawing Causal Hypergraphs. R package
+version 0.1.0. URL:
+<a href="http://cran.r-project.org/package=causalHyperGraph">http://cran.r-project.org/package=causalHyperGraph</a></p></li>
+<li><p>V.P. Parkkinen and M. Baumgartner (2024).
+<strong>frscore</strong>: Functions for Calculating Fit-Robustness of
+CNA-Solutions. R package version 0.4.1. URL:
+<a href="http://cran.r-project.org/package=frscore">http://cran.r-project.org/package=frscore</a></p></li>
+<li><p>M. Ambuehl and M. Baumgartner. (2022), <strong>cnaOpt</strong>:
+Optimizing Consistency and Coverage in Configurational Causal Modeling.
+R package version 0.5.2. URL:
+<a href="http://cran.r-project.org/package=cnaOpt">http://cran.r-project.org/package=cnaOpt</a>.</p></li>
 </ul>
-<p></br></p>
 </div>
-<div id="monographs" class="section level3">
-<h3>Monographs</h3>
+<div id="monographs" class="section level2 vita-card publication-card">
+<h2>Monographs</h2>
+<p><a href="#publications-top" class="section-backlink">Back to
+top</a></p>
 <ul>
 <li><p>M. Baumgartner and G. Grasshoff, <i>Kausalität und kausales
 Schliessen. Eine Einführung mit interaktiven Übungen</i>, Bern Studies
@@ -540,18 +596,23 @@ in the History and Philosophy of Science, Bern, 2004.</p></li>
 Structures. Extensions of a Regularity Theory of Causation</i></a>,
 PhD-thesis, University of Bern, 2006.</p></li>
 </ul>
-<p></br></p>
 </div>
-<div id="special-journal-issue" class="section level3">
-<h3>Special Journal Issue</h3>
+<div id="special-issue" class="vita-card publication-card">
+<div id="special-journal-issue" class="section level2">
+<h2>Special Journal Issue</h2>
+<p><a href="#publications-top" class="section-backlink">Back to
+top</a></p>
 <ul>
 <li>M. Baumgartner and L. Glynn (eds.) (2013), <i>Actual Causation</i>,
 special issue of <em>Erkenntnis</em>, vol. 78, issue 1 supplement.</li>
 </ul>
-<p></br></p>
 </div>
-<div id="book-reviews" class="section level3">
-<h3>Book Reviews</h3>
+</div>
+<div id="book-reviews"
+class="section level2 vita-card publication-card">
+<h2>Book Reviews</h2>
+<p><a href="#publications-top" class="section-backlink">Back to
+top</a></p>
 <ul>
 <li><p>M. Baumgartner (2017),
 <a href="https://link.springer.com/article/10.1007/s11016-017-0230-x">Reasons
@@ -572,6 +633,7 @@ draft]</a></p></li>
 Philosophische Probleme der logischen Formalisierung’ of G. Brun,
 <i>Erkenntnis</i> 60.3, pp. 417-421.</p></li>
 </ul>
+</div>
 </div>
 
 

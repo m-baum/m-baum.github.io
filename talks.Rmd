@@ -5,18 +5,32 @@ output: html_document
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
- library(knitr)
+library(knitr)
 options(knitr.table.format = "html")
-library(kableExtra)
 ```
 
-</br>
+::: {.intro-block .talks-intro}
+::: {.eyebrow}
+Talks
+:::
 
-## 
+::: {.lead}
+Invited lectures, workshop talks, conference presentations, and commentaries across philosophy of science, causation, and configurational methods.
+:::
+:::
+
+::: {.vita-card .talks-card}
+## Talks
 
 ```{r, echo = FALSE, message = FALSE, warning=FALSE}
 talk <- read.csv(file="talks.csv", header = FALSE, sep = ",")
 colnames(talk) <- c("Date", "Topic/Location")
-kable(talk) %>%
-  kable_styling(c("striped", "bordered"),full_width = FALSE)
+kable(
+  talk,
+  format = "html",
+  escape = FALSE,
+  col.names = c("Date", "Talk / Location"),
+  table.attr = 'class="vita-position-table talks-table"'
+)
 ```
+:::
