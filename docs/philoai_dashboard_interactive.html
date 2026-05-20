@@ -140,7 +140,7 @@
   </div>
 
   <div class="grid-2">
-    <div class="card"><h2>Overall Grade Distribution (Total / 60)</h2><div class="chart-wrap"><canvas id="gradeChart"></canvas></div>
+    <div class="card"><h2>Overall Grade Distribution (%)</h2><div class="chart-wrap"><canvas id="gradeChart"></canvas></div>
       <div class="legend">
         <span><span class="dot" style="background:#059669"></span>Excellent (A)</span>
         <span><span class="dot" style="background:#2563eb"></span>Good (B)</span>
@@ -337,7 +337,8 @@ function updateGradeChart(){
   const order=['A','B','C','D','E','F'];
   const cols={'A':'#059669','B':'#2563eb','C':'#d97706','D':'#ea580c','E':'#dc2626','F':'#dc2626'};
   const cnt={}; order.forEach(g=>cnt[g]=0); data.forEach(d=>cnt[d.tgr]++);
-  gradeChart.data.datasets[0].data = order.map(g=>cnt[g]);
+  const total = data.length || 1;
+  gradeChart.data.datasets[0].data = order.map(g=>((cnt[g]/total)*100).toFixed(1));
   gradeChart.data.datasets[0].backgroundColor = order.map(g=>cols[g]);
   gradeChart.update();
 }
