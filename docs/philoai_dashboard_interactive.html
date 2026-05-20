@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhiloAI 2026 — Interactive Grade Dashboard</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #f6f7f9; --card: #fff; --text: #1a1a2e; --muted: #6b7280;
+    --accent: #2563eb; --good: #059669; --warn: #d97706; --bad: #dc2626;
+    --border: #e5e7eb; --radius: 10px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 4px 12px rgba(0,0,0,0.04);
+  }
+  * { box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+         background: var(--bg); color: var(--text); margin: 0; padding: 0; line-height: 1.5; }
+  header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #fff;
+           padding: 2rem 1.5rem; text-align: center; }
+  header h1 { margin: 0 0 .25rem; font-size: 1.7rem; font-weight: 700; }
+  header p { margin: 0; opacity: .75; font-size: .9rem; }
+  .container { max-width: 1320px; margin: 0 auto; padding: 1.5rem; }
+  .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+  .stat-card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+               padding: 1.1rem 1rem; text-align: center; border: 1px solid var(--border); }
+  .stat-card .val { font-size: 1.7rem; font-weight: 700; color: var(--accent); line-height: 1; margin-bottom: .25rem; }
+  .stat-card .lbl { font-size: .75rem; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+  .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(340px, 1fr)); gap: 1.5rem; margin-bottom: 1.5rem; }
+  .card { background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+          padding: 1.25rem; border: 1px solid var(--border); }
+  .card h2 { margin: 0 0 .75rem; font-size: 1rem; font-weight: 600; }
+  .chart-wrap { position: relative; height: 260px; }
+  .table-scroll { max-height: 600px; overflow-y: auto; border: 1px solid var(--border); border-radius: var(--radius); }
+  table { width: 100%; border-collapse: collapse; font-size: .82rem; }
+  thead th { position: sticky; top: 0; background: #f9fafb; font-weight: 600;
+             text-align: center; padding: .5rem .3rem; border-bottom: 2px solid var(--border);
+             cursor: pointer; user-select: none; white-space: nowrap; }
+  tbody td { padding: .35rem .3rem; text-align: center; border-bottom: 1px solid var(--border); }
+  tbody tr:hover { background: #f9fafb; }
+  tbody td:first-child { font-weight: 600; }
+  .mc { color: var(--muted); font-size: .78rem; }
+  .grade-A { color: var(--good); font-weight: 700; }
+  .grade-B { color: var(--accent); font-weight: 700; }
+  .grade-C { color: var(--warn); font-weight: 700; }
+  .grade-D { color: #ea580c; font-weight: 700; }
+  .grade-E, .grade-F { color: var(--bad); font-weight: 700; }
+  input.essay { width: 3.2rem; text-align: center; padding: .15rem;
+                border: 1px solid var(--border); border-radius: 4px; font-size: .82rem; }
+  input.essay:focus { outline: none; border-color: var(--accent); }
+  .part-hdr { background: #eef2ff; font-weight: 600; color: #1e3a5f; }
+  .total-hdr { background: #e0e7ff; font-weight: 700; color: #1e3a5f; }
+  .legend { display: flex; flex-wrap: wrap; gap: .7rem; font-size: .75rem;
+            margin-top: .6rem; color: var(--muted); }
+  .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; margin-right: .2rem; }
+  footer { text-align: center; padding: 1.5rem; color: var(--muted); font-size: .78rem; }
+  .note { font-size: .78rem; color: var(--muted); margin-top: .5rem; }
+
+  /* Knot bar */
+  .knot-bar-wrap { margin: .8rem 0; }
+  .knot-bar { display: flex; height: 28px; border-radius: 6px; overflow: hidden; position: relative; }
+  .knot-seg { display: flex; align-items: center; justify-content: center; font-size: .72rem; font-weight: 600; color: #fff; transition: width .2s ease; }
+  .knot-seg.A { background: #059669; }
+  .knot-seg.B { background: #2563eb; }
+  .knot-seg.C { background: #d97706; }
+  .knot-seg.D { background: #ea580c; }
+  .knot-seg.E { background: #dc2626; }
+  .knot-seg.F { background: #7f1d1d; }
+  .knot-inputs { display: flex; align-items: center; gap: .3rem; margin-top: .5rem; flex-wrap: wrap; }
+  .knot-group { display: flex; flex-direction: column; align-items: center; gap: .15rem; }
+  .knot-group label { font-size: .72rem; font-weight: 600; color: var(--muted); text-transform: uppercase; }
+  .knot-group input { width: 3.2rem; text-align: center; padding: .2rem; border: 1px solid var(--border); border-radius: 4px; font-size: .85rem; }
+  .knot-group input:focus { outline: none; border-color: var(--accent); }
+  .knot-arrow { color: var(--border); font-size: .9rem; padding-top: 1.2rem; }
+  .knot-group.F label { color: #7f1d1d; }
+  .knot-group.F span { font-size: .85rem; font-weight: 600; color: #7f1d1d; padding: .2rem 0; }
+  .btn-reset { font-size: .75rem; padding: .25rem .6rem; border: 1px solid var(--border); border-radius: 4px; background: #fff; color: var(--muted); cursor: pointer; margin-left: .5rem; vertical-align: middle; }
+  .btn-reset:hover { background: #f3f4f6; color: var(--text); }
+  .col-p1 { background: #dbeafe !important; }
+  .col-p2 { background: #d1fae5 !important; }
+  .col-p3 { background: #fef3c7 !important; }
+  .col-tot { background: #e0e7ff !important; }
+</style>
+</head>
+<body>
+<header>
+  <h1>PhiloAI 2026 — Interactive Grade Dashboard</h1>
+  <p>39 candidates &middot; 33 questions &middot; Essay scores editable &middot; Grade knots draggable (edit values) &middot; Real-time recalculation</p>
+</header>
+<div class="container">
+
+  <div class="grid-2">
+    <div class="card">
+      <h2>Grade Knots — 20-Point Parts <button class="btn-reset" onclick="reset20()">Reset to defaults</button></h2>
+      <div class="knot-bar-wrap">
+        <div class="knot-bar" id="bar20"></div>
+      </div>
+      <div class="knot-inputs">
+        <div class="knot-group"><label>A ≥</label><input id="t20-A" type="number" step="0.5" value="17"></div>
+        <span class="knot-arrow">→</span>
+        <div class="knot-group"><label>B ≥</label><input id="t20-B" type="number" step="0.5" value="13"></div>
+        <span class="knot-arrow">→</span>
+        <div class="knot-group"><label>C ≥</label><input id="t20-C" type="number" step="0.5" value="10"></div>
+        <span class="knot-arrow">→</span>
+        <div class="knot-group"><label>D ≥</label><input id="t20-D" type="number" step="0.5" value="8"></div>
+        <span class="knot-arrow">→</span>
+        <div class="knot-group"><label>E ></label><input id="t20-E" type="number" step="0.5" value="6"></div>
+        <span class="knot-arrow">→</span>
+        <div class="knot-group F"><label>F ≤</label><span id="t20-F">6</span></div>
+      </div>
+      <div class="note">A ≥ B ≥ C ≥ D ≥ E. Changing a knot auto-adjusts neighbors to keep order.</div>
+    </div>
+    <div class="card">
+      <h2>Grade Knots — 60-Point Total <button class="btn-reset" onclick="reset60()">Reset to defaults</button></h2>
+      <div class="knot-bar-wrap">
+        <div class="knot-bar" id="bar60"></div>
+      </div>
+      <div class="knot-inputs">
+        <div class="knot-group"><label>A ≥</label><input id="t60-A" type="number" step="0.5" value="51"></div>
+        <span class="knot-arrow">→</span>
+        <div class="knot-group"><label>B ≥</label><input id="t60-B" type="number" step="0.5" value="39"></div>
+        <span class="knot-arrow">→</span>
+        <div class="knot-group"><label>C ≥</label><input id="t60-C" type="number" step="0.5" value="30"></div>
+        <span class="knot-arrow">→</span>
+        <div class="knot-group"><label>D ≥</label><input id="t60-D" type="number" step="0.5" value="24"></div>
+        <span class="knot-arrow">→</span>
+        <div class="knot-group"><label>E ></label><input id="t60-E" type="number" step="0.5" value="18"></div>
+        <span class="knot-arrow">→</span>
+        <div class="knot-group F"><label>F ≤</label><span id="t60-F">18</span></div>
+      </div>
+      <div class="note">Default is 3× the 20-point schema. Adjust freely — neighbors follow.</div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat-card"><div class="val" id="s-n">39</div><div class="lbl">Candidates</div></div>
+    <div class="stat-card"><div class="val" id="s-mean">—</div><div class="lbl">Mean Total</div></div>
+    <div class="stat-card"><div class="val" id="s-med">—</div><div class="lbl">Median Total</div></div>
+    <div class="stat-card"><div class="val" id="s-pass">—</div><div class="lbl">Pass Rate (≥D)</div></div>
+    <div class="stat-card"><div class="val" id="s-top">—</div><div class="lbl">A Rate</div></div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card"><h2>Overall Grade Distribution (Total / 60)</h2><div class="chart-wrap"><canvas id="gradeChart"></canvas></div>
+      <div class="legend">
+        <span><span class="dot" style="background:#059669"></span>Excellent (A)</span>
+        <span><span class="dot" style="background:#2563eb"></span>Good (B)</span>
+        <span><span class="dot" style="background:#d97706"></span>Satisfactory (C)</span>
+        <span><span class="dot" style="background:#ea580c"></span>Pass (D)</span>
+        <span><span class="dot" style="background:#dc2626"></span>Fail (E–F)</span>
+      </div>
+    </div>
+    <div class="card"><h2>Total Score Histogram</h2><div class="chart-wrap"><canvas id="histChart"></canvas></div></div>
+  </div>
+
+  <div class="grid-2">
+    <div class="card"><h2>Average Score per Part — MC vs Essay</h2><div class="chart-wrap"><canvas id="partChart"></canvas></div></div>
+    <div class="card"><h2>Grade Distribution by Part</h2><div class="chart-wrap"><canvas id="stackChart"></canvas></div></div>
+  </div>
+
+  <div class="card" style="margin-top:1rem;">
+    <h2>Student Results — click essay cells to edit <button class="btn-reset" onclick="resetEssays()">Currently in Inspera</button></h2>
+    <div class="table-scroll">
+      <table id="studentTable">
+        <thead>
+          <tr>
+            <th rowspan="2" onclick="sortBy('id')">ID</th>
+            <th colspan="4" class="part-hdr">Part 1 (Q1–11)</th>
+            <th colspan="4" class="part-hdr">Part 2 (Q12–22)</th>
+            <th colspan="4" class="part-hdr">Part 3 (Q23–33)</th>
+            <th colspan="2" class="total-hdr">Total</th>
+          </tr>
+          <tr>
+            <th onclick="sortBy('p1mc')">MC</th>
+            <th onclick="sortBy('p1es')">Essay</th>
+            <th onclick="sortBy('p1sc')">Score</th>
+            <th onclick="sortBy('p1gr')">Grade</th>
+            <th onclick="sortBy('p2mc')">MC</th>
+            <th onclick="sortBy('p2es')">Essay</th>
+            <th onclick="sortBy('p2sc')">Score</th>
+            <th onclick="sortBy('p2gr')">Grade</th>
+            <th onclick="sortBy('p3mc')">MC</th>
+            <th onclick="sortBy('p3es')">Essay</th>
+            <th onclick="sortBy('p3sc')">Score</th>
+            <th onclick="sortBy('p3gr')">Grade</th>
+            <th onclick="sortBy('tot')">Score</th>
+            <th onclick="sortBy('tgr')">Grade</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+    </div>
+  </div>
+
+</div>
+<footer>PhiloAI 2026 — Interactive Grade Dashboard. Knots and essay scores are editable.</footer>
+
+<script>
+const STUDENTS = [{"id":"119","q":[1,1,0,1,1,1,1,1,0,1,9,1,1,0,1,1,1,1,0,1,1,9,1,1,0,0,1,1,1,0,1,1,5.5]},{"id":"181","q":[1,0,0,1,1,1,1,0,0,1,1,0,1,0,0,0,1,1,1,1,0,3,1,1,0,0,0,1,1,1,1,1,4.5]},{"id":"186","q":[0,0,0,0,1,1,1,1,0,1,0,0,0,0,1,1,1,1,1,1,0,5,1,0,1,0,1,1,0,1,1,1,4.5]},{"id":"193","q":[1,1,0,1,1,1,1,0,0,1,3,0,0,0,1,0,1,0,1,0,1,10,1,0,1,0,1,1,1,1,1,1,5.5]},{"id":"115","q":[1,1,0,1,1,1,1,1,1,1,2,1,1,0,1,1,1,1,0,0,1,4,1,1,1,1,1,1,0,1,1,1,6.5]},{"id":"122","q":[0,0,0,1,1,0,1,0,0,1,5,1,1,0,1,1,0,1,0,1,1,1,1,1,0,0,0,0,0,1,0,1,5.5]},{"id":"162","q":[1,0,0,1,1,1,1,1,0,1,3,1,1,1,1,1,1,1,0,1,1,7,1,1,0,1,0,1,1,1,1,1,7.5]},{"id":"129","q":[1,0,1,1,1,0,1,0,0,0,4,0,0,1,1,0,1,0,0,1,1,10,0,0,0,1,0,0,0,0,0,1,3]},{"id":"140","q":[1,0,1,1,0,1,0,1,0,1,0,0,1,0,1,0,1,0,0,0,0,4,0,0,0,0,1,0,1,1,0,0,4.5]},{"id":"217","q":[1,0,0,0,1,0,1,1,0,1,0,1,1,0,1,0,0,1,1,1,1,3,1,0,0,0,0,0,0,1,1,0,5]},{"id":"228","q":[1,1,1,1,1,1,1,1,1,1,10,1,1,0,1,1,1,1,1,1,1,10,1,1,0,1,1,1,0,1,1,1,8.5]},{"id":"219","q":[0,1,0,0,1,1,1,1,1,0,0,1,1,0,1,1,1,1,1,1,0,6,1,1,1,0,0,0,1,1,0,1,5.5]},{"id":"126","q":[0,0,1,1,1,1,1,1,0,1,2,0,1,0,1,0,1,1,1,1,1,5,1,1,0,0,1,1,1,1,1,1,8]},{"id":"183","q":[0,1,0,1,0,1,1,0,1,0,3,1,1,1,1,1,1,1,1,1,1,7,1,0,1,1,1,1,1,1,1,1,5]},{"id":"171","q":[0,0,0,1,1,1,0,0,0,1,3,1,1,1,1,1,0,1,1,1,1,8,1,1,1,0,1,1,0,1,1,1,6]},{"id":"170","q":[0,0,0,1,1,1,1,1,0,1,9,1,1,0,1,0,1,0,1,0,1,10,1,0,0,1,1,1,1,0,1,1,6.5]},{"id":"200","q":[1,1,0,1,1,0,0,0,0,1,4,0,1,0,1,0,1,0,0,1,1,6,0,1,0,0,0,0,0,0,0,1,4]},{"id":"207","q":[1,0,1,1,1,1,1,0,0,0,2,1,1,0,1,1,0,1,0,1,1,3,0,0,1,1,1,1,1,1,1,1,4.5]},{"id":"185","q":[1,1,0,1,1,1,1,0,0,0,2,1,1,0,1,0,1,1,1,1,1,6,0,1,0,0,0,1,1,1,1,1,4.5]},{"id":"120","q":[0,0,0,1,1,1,1,1,0,0,9,0,1,1,1,1,1,1,0,1,1,9,1,1,0,1,1,1,0,1,1,1,6]},{"id":"106","q":[1,1,1,1,1,1,1,1,1,1,4,1,1,0,1,1,1,1,1,1,1,8,1,1,1,1,1,1,1,1,0,1,9.5]},{"id":"123","q":[1,0,0,1,0,1,0,0,1,1,0,1,1,0,1,0,1,1,1,0,1,2,1,1,1,1,1,1,1,1,1,1,8.5]},{"id":"160","q":[1,1,0,1,1,1,1,1,1,1,5,0,1,0,1,1,1,1,1,1,1,5,1,1,1,0,1,1,0,1,1,1,7]},{"id":"110","q":[1,0,0,1,1,1,0,0,0,1,0,1,1,0,0,0,0,0,1,1,1,0,1,0,0,0,0,1,0,0,0,0,3]},{"id":"116","q":[1,1,1,1,1,0,0,1,1,1,9,0,1,0,1,1,1,1,1,1,0,3,1,1,0,0,0,0,1,1,1,1,0]},{"id":"166","q":[1,1,1,0,1,1,1,0,1,1,4,1,1,0,1,1,1,1,1,1,1,6,1,1,1,1,1,1,0,1,1,1,10]},{"id":"118","q":[1,1,0,1,1,1,1,1,1,1,9,1,1,1,1,1,1,1,1,1,1,10,1,1,1,1,1,1,1,1,1,1,10]},{"id":"180","q":[0,0,1,1,0,0,0,0,0,1,2,0,0,0,1,0,0,1,0,1,0,7,0,0,1,0,0,0,0,0,1,1,5]},{"id":"156","q":[1,1,1,1,1,1,0,0,1,1,7,0,1,0,0,1,0,1,1,1,1,6,1,1,0,1,1,1,1,1,1,1,7.5]},{"id":"136","q":[1,1,1,1,1,1,1,0,0,1,10,1,1,0,1,1,1,1,1,1,1,10,1,1,0,0,1,1,1,1,0,1,8]},{"id":"187","q":[1,1,1,1,1,0,1,1,1,1,1,0,1,0,1,1,1,1,0,1,1,7,1,1,1,0,1,0,1,1,1,1,5.5]},{"id":"141","q":[1,0,1,1,1,1,0,0,1,1,0,1,1,0,0,1,0,0,1,1,1,8,1,0,0,0,1,0,0,0,1,1,3.5]},{"id":"178","q":[0,0,0,1,1,1,1,0,0,1,3,0,1,0,1,0,0,1,1,0,0,3,0,0,0,0,1,1,0,1,1,1,4.5]},{"id":"194","q":[0,0,1,1,0,1,1,1,0,0,3,0,0,0,1,1,0,1,0,1,0,5,1,1,0,1,0,1,1,0,1,1,4]},{"id":"188","q":[0,1,1,1,1,1,0,0,0,0,1,1,1,0,1,1,0,1,1,1,1,6,1,1,1,1,0,1,0,0,0,0,5]},{"id":"158","q":[1,1,0,1,0,1,1,1,1,1,0,1,0,0,1,0,1,1,1,1,1,6,1,1,1,1,1,1,1,1,1,1,6]},{"id":"168","q":[1,0,0,1,1,0,1,0,1,1,8,1,1,1,1,1,1,1,1,1,1,4,1,1,1,0,1,1,1,1,0,1,6]},{"id":"146","q":[0,0,1,1,1,1,1,1,0,0,6,0,1,0,1,0,1,1,0,1,1,10,1,1,0,0,1,0,0,1,1,1,6.5]},{"id":"155","q":[1,1,1,1,1,0,1,1,1,1,1,1,1,0,1,1,1,0,1,1,1,8,1,0,1,0,1,0,1,1,1,1,4]}];
+const STUDENTS_ORIGINAL = JSON.parse(JSON.stringify(STUDENTS));
+
+function resetEssays(){
+  for(let i=0;i<STUDENTS.length;i++){
+    STUDENTS[i].q = [...STUDENTS_ORIGINAL[i].q];
+  }
+  recalcAll();
+}
+
+function sum(a){ return a.reduce((x,y)=>x+y,0); }
+function gcls(g){ return 'grade-'+g; }
+
+/* ---------- KNOT LOGIC ---------- */
+const MAX20 = 20, MAX60 = 60;
+const GRADES = ['A','B','C','D','E'];
+const DEF20 = {A:17, B:13, C:10, D:8, E:6};
+const DEF60 = {A:51, B:39, C:30, D:24, E:18};
+
+function reset20(){
+  Object.entries(DEF20).forEach(([g,v])=>setVal('t20-'+g,v));
+  recalcAll();
+}
+function reset60(){
+  Object.entries(DEF60).forEach(([g,v])=>setVal('t60-'+g,v));
+  recalcAll();
+}
+
+function getVal(id){ return parseFloat(document.getElementById(id).value) || 0; }
+function setVal(id,v){ document.getElementById(id).value = v.toFixed(1).replace(/\.0$/,''); }
+
+function enforce20(){
+  let vals = GRADES.map(g=>getVal('t20-'+g));
+  // Enforce A >= B >= C >= D >= E, and cap at MAX20
+  for(let i=0;i<vals.length;i++){
+    if(vals[i]>MAX20) vals[i]=MAX20;
+    if(i>0 && vals[i]>vals[i-1]) vals[i]=vals[i-1];
+    if(i<vals.length-1 && vals[i]<vals[i+1]) vals[i]=vals[i+1];
+    if(vals[i]<0) vals[i]=0;
+  }
+  // Second pass forward to clean up after floor adjustments
+  for(let i=1;i<vals.length;i++) if(vals[i]>vals[i-1]) vals[i]=vals[i-1];
+  for(let i=vals.length-2;i>=0;i--) if(vals[i]<vals[i+1]) vals[i]=vals[i+1];
+  GRADES.forEach((g,i)=>setVal('t20-'+g, vals[i]));
+  document.getElementById('t20-F').textContent = vals[vals.length-1].toFixed(1).replace(/\.0$/,'');
+  updateBar('bar20', vals, MAX20);
+  return {A:vals[0], B:vals[1], C:vals[2], D:vals[3], E:vals[4]};
+}
+
+function enforce60(){
+  let vals = GRADES.map(g=>getVal('t60-'+g));
+  for(let i=0;i<vals.length;i++){
+    if(vals[i]>MAX60) vals[i]=MAX60;
+    if(i>0 && vals[i]>vals[i-1]) vals[i]=vals[i-1];
+    if(i<vals.length-1 && vals[i]<vals[i+1]) vals[i]=vals[i+1];
+    if(vals[i]<0) vals[i]=0;
+  }
+  for(let i=1;i<vals.length;i++) if(vals[i]>vals[i-1]) vals[i]=vals[i-1];
+  for(let i=vals.length-2;i>=0;i--) if(vals[i]<vals[i+1]) vals[i]=vals[i+1];
+  GRADES.forEach((g,i)=>setVal('t60-'+g, vals[i]));
+  document.getElementById('t60-F').textContent = vals[vals.length-1].toFixed(1).replace(/\.0$/,'');
+  updateBar('bar60', vals, MAX60);
+  return {A:vals[0], B:vals[1], C:vals[2], D:vals[3], E:vals[4]};
+}
+
+function updateBar(barId, vals, max){
+  const bar = document.getElementById(barId);
+  const colors = {A:'#059669', B:'#2563eb', C:'#d97706', D:'#ea580c', E:'#dc2626', F:'#7f1d1d'};
+  const bounds = [max, ...vals, 0];
+  const labels = ['A','B','C','D','E','F'];
+  let html = '';
+  labels.forEach((lbl,i)=>{
+    const w = ((bounds[i]-bounds[i+1])/max)*100;
+    if(w>0) html += `<div class="knot-seg ${lbl}" style="width:${w.toFixed(1)}%">${lbl}</div>`;
+  });
+  bar.innerHTML = html;
+}
+
+function getThresh20(){ return enforce20(); }
+function getThresh60(){ return enforce60(); }
+
+function grade20(s, t){
+  if (s >= t.A) return 'A';
+  if (s >= t.B) return 'B';
+  if (s >= t.C) return 'C';
+  if (s >= t.D) return 'D';
+  if (s > t.E) return 'E';
+  return 'F';
+}
+function grade60(s, t){
+  if (s >= t.A) return 'A';
+  if (s >= t.B) return 'B';
+  if (s >= t.C) return 'C';
+  if (s >= t.D) return 'D';
+  if (s > t.E) return 'E';
+  return 'F';
+}
+
+function calc(st){
+  const q = st.q;
+  const t20 = getThresh20();
+  const t60 = getThresh60();
+  const p1mc = sum(q.slice(0,10));
+  const p1es = q[10];
+  const p1sc = p1mc + p1es;
+  const p2mc = sum(q.slice(11,21));
+  const p2es = q[21];
+  const p2sc = p2mc + p2es;
+  const p3mc = sum(q.slice(22,32));
+  const p3es = q[32];
+  const p3sc = p3mc + p3es;
+  const tot = p1sc + p2sc + p3sc;
+  return {
+    id: st.id,
+    p1mc, p1es, p1sc, p1gr: grade20(p1sc, t20),
+    p2mc, p2es, p2sc, p2gr: grade20(p2sc, t20),
+    p3mc, p3es, p3sc, p3gr: grade20(p3sc, t20),
+    tot, tgr: grade60(tot, t60)
+  };
+}
+
+let data = STUDENTS.map(calc);
+let sortKey='id', sortAsc=true;
+let gradeChart, histChart, partChart, stackChart;
+
+function updateStats(){
+  const totals = data.map(d=>d.tot);
+  const mean = (totals.reduce((a,b)=>a+b,0)/totals.length).toFixed(1);
+  const s = [...totals].sort((a,b)=>a-b);
+  const med = s[Math.floor(s.length/2)].toFixed(1);
+  const pass = (data.filter(d=>!['E','F'].includes(d.tgr)).length/data.length*100).toFixed(0)+'%';
+  const top = (data.filter(d=>d.tgr==='A').length/data.length*100).toFixed(0)+'%';
+  document.getElementById('s-mean').textContent=mean;
+  document.getElementById('s-med').textContent=med;
+  document.getElementById('s-pass').textContent=pass;
+  document.getElementById('s-top').textContent=top;
+}
+
+function updateGradeChart(){
+  const order=['A','B','C','D','E','F'];
+  const cols={'A':'#059669','B':'#2563eb','C':'#d97706','D':'#ea580c','E':'#dc2626','F':'#dc2626'};
+  const cnt={}; order.forEach(g=>cnt[g]=0); data.forEach(d=>cnt[d.tgr]++);
+  gradeChart.data.datasets[0].data = order.map(g=>cnt[g]);
+  gradeChart.data.datasets[0].backgroundColor = order.map(g=>cols[g]);
+  gradeChart.update();
+}
+function updateHistChart(){
+  const bins=[0,5,10,15,20,25,30,35,40,45,50,55,60];
+  const h = new Array(bins.length-1).fill(0);
+  data.forEach(d=>{ for(let i=0;i<bins.length-1;i++) if(d.tot>=bins[i]&&d.tot<bins[i+1]){h[i]++;break;} });
+  histChart.data.datasets[0].data=h;
+  histChart.update();
+}
+function updatePartChart(){
+  const a1mc=(data.reduce((a,d)=>a+d.p1mc,0)/data.length).toFixed(1);
+  const a1es=(data.reduce((a,d)=>a+d.p1es,0)/data.length).toFixed(1);
+  const a2mc=(data.reduce((a,d)=>a+d.p2mc,0)/data.length).toFixed(1);
+  const a2es=(data.reduce((a,d)=>a+d.p2es,0)/data.length).toFixed(1);
+  const a3mc=(data.reduce((a,d)=>a+d.p3mc,0)/data.length).toFixed(1);
+  const a3es=(data.reduce((a,d)=>a+d.p3es,0)/data.length).toFixed(1);
+  partChart.data.datasets[0].data=[a1mc,a2mc,a3mc];
+  partChart.data.datasets[1].data=[a1es,a2es,a3es];
+  partChart.update();
+}
+function updateStackChart(){
+  const parts=['p1gr','p2gr','p3gr'];
+  const cats=[
+    {l:'A',g:['A'],c:'#059669'},{l:'B',g:['B'],c:'#2563eb'},{l:'C',g:['C'],c:'#d97706'},
+    {l:'D',g:['D'],c:'#ea580c'},{l:'E–F',g:['E','F'],c:'#dc2626'}
+  ];
+  cats.forEach((cat,i)=>{
+    stackChart.data.datasets[i].data = parts.map(p=>data.filter(d=>cat.g.includes(d[p])).length);
+  });
+  stackChart.update();
+}
+function updateCharts(){ updateGradeChart(); updateHistChart(); updatePartChart(); updateStackChart(); }
+
+function renderTable(){
+  const sorted = [...data].sort((a,b)=>{
+    let av=a[sortKey], bv=b[sortKey];
+    if(typeof av==='number') return sortAsc?av-bv:bv-av;
+    return sortAsc?String(av).localeCompare(String(bv)):String(bv).localeCompare(String(av));
+  });
+  const tbody = document.getElementById('tbody');
+  tbody.innerHTML = sorted.map((d,i)=>`
+    <tr data-idx="${STUDENTS.findIndex(s=>s.id===d.id)}">
+      <td>${d.id}</td>
+      <td class="mc col-p1">${d.p1mc}</td>
+      <td class="col-p1"><input class="essay" type="number" min="0" max="10" step="0.5" value="${d.p1es}" onchange="onEssay(this,${STUDENTS.findIndex(s=>s.id===d.id)},10)"></td>
+      <td class="col-p1" id="p1sc-${d.id}">${d.p1sc.toFixed(1)}</td>
+      <td class="${gcls(d.p1gr)} col-p1" id="p1gr-${d.id}">${d.p1gr}</td>
+      <td class="mc col-p2">${d.p2mc}</td>
+      <td class="col-p2"><input class="essay" type="number" min="0" max="10" step="0.5" value="${d.p2es}" onchange="onEssay(this,${STUDENTS.findIndex(s=>s.id===d.id)},21)"></td>
+      <td class="col-p2" id="p2sc-${d.id}">${d.p2sc.toFixed(1)}</td>
+      <td class="${gcls(d.p2gr)} col-p2" id="p2gr-${d.id}">${d.p2gr}</td>
+      <td class="mc col-p3">${d.p3mc}</td>
+      <td class="col-p3"><input class="essay" type="number" min="0" max="10" step="0.5" value="${d.p3es}" onchange="onEssay(this,${STUDENTS.findIndex(s=>s.id===d.id)},32)"></td>
+      <td class="col-p3" id="p3sc-${d.id}">${d.p3sc.toFixed(1)}</td>
+      <td class="${gcls(d.p3gr)} col-p3" id="p3gr-${d.id}">${d.p3gr}</td>
+      <td class="col-tot" id="tot-${d.id}"><strong>${d.tot.toFixed(1)}</strong></td>
+      <td class="${gcls(d.tgr)} col-tot" id="tgr-${d.id}"><strong>${d.tgr}</strong></td>
+    </tr>
+  `).join('');
+}
+
+function onEssay(input, stIdx, qIdx){
+  const val = parseFloat(input.value)||0;
+  STUDENTS[stIdx].q[qIdx] = val;
+  const d = calc(STUDENTS[stIdx]);
+  const id = d.id;
+  const di = data.findIndex(x=>x.id===id);
+  data[di] = d;
+  document.getElementById('p1sc-'+id).textContent = d.p1sc.toFixed(1);
+  document.getElementById('p1gr-'+id).textContent = d.p1gr;
+  document.getElementById('p1gr-'+id).className = gcls(d.p1gr);
+  document.getElementById('p2sc-'+id).textContent = d.p2sc.toFixed(1);
+  document.getElementById('p2gr-'+id).textContent = d.p2gr;
+  document.getElementById('p2gr-'+id).className = gcls(d.p2gr);
+  document.getElementById('p3sc-'+id).textContent = d.p3sc.toFixed(1);
+  document.getElementById('p3gr-'+id).textContent = d.p3gr;
+  document.getElementById('p3gr-'+id).className = gcls(d.p3gr);
+  document.getElementById('tot-'+id).textContent = d.tot.toFixed(1);
+  document.getElementById('tgr-'+id).textContent = d.tgr;
+  document.getElementById('tgr-'+id).className = gcls(d.tgr);
+  updateStats(); updateCharts();
+}
+
+function recalcAll(){
+  data = STUDENTS.map(calc);
+  updateStats(); updateCharts(); renderTable();
+}
+
+function sortBy(key){ if(sortKey===key) sortAsc=!sortAsc; else {sortKey=key; sortAsc=true;} renderTable(); }
+
+// Listeners: use both input (real-time) and change (fallback)
+['t20-A','t20-B','t20-C','t20-D','t20-E','t60-A','t60-B','t60-C','t60-D','t60-E'].forEach(id=>{
+  const el = document.getElementById(id);
+  if(el){
+    el.addEventListener('input', recalcAll);
+    el.addEventListener('change', recalcAll);
+    el.addEventListener('keydown', e=>{ if(e.key==='Enter'){ el.blur(); recalcAll(); } });
+  }
+});
+
+// Init charts
+gradeChart = new Chart(document.getElementById('gradeChart'),{
+  type:'bar',
+  data:{labels:['A','B','C','D','E','F'], datasets:[{label:'Students',data:[0,0,0,0,0,0], backgroundColor:['#059669','#2563eb','#d97706','#ea580c','#dc2626','#dc2626'], borderRadius:6, barPercentage:0.7}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}}
+});
+histChart = new Chart(document.getElementById('histChart'),{
+  type:'bar',
+  data:{labels:['0–5','5–10','10–15','15–20','20–25','25–30','30–35','35–40','40–45','45–50','50–55','55–60'], datasets:[{label:'Students',data:new Array(12).fill(0), backgroundColor:'#2563eb', borderRadius:4, barPercentage:0.9}]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{beginAtZero:true,ticks:{stepSize:1}}}}
+});
+partChart = new Chart(document.getElementById('partChart'),{
+  type:'bar',
+  data:{labels:['Part 1','Part 2','Part 3'], datasets:[
+    {label:'MC (avg)',data:[0,0,0], backgroundColor:'#2563eb', borderRadius:4},
+    {label:'Essay (avg)',data:[0,0,0], backgroundColor:'#f59e0b', borderRadius:4}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}},scales:{y:{max:20,beginAtZero:true}}}
+});
+stackChart = new Chart(document.getElementById('stackChart'),{
+  type:'bar',
+  data:{labels:['Part 1','Part 2','Part 3'], datasets:[
+    {label:'A',data:[0,0,0],backgroundColor:'#059669',borderRadius:3},
+    {label:'B',data:[0,0,0],backgroundColor:'#2563eb',borderRadius:3},
+    {label:'C',data:[0,0,0],backgroundColor:'#d97706',borderRadius:3},
+    {label:'D',data:[0,0,0],backgroundColor:'#ea580c',borderRadius:3},
+    {label:'E–F',data:[0,0,0],backgroundColor:'#dc2626',borderRadius:3}
+  ]},
+  options:{responsive:true,maintainAspectRatio:false,scales:{x:{stacked:true},y:{stacked:true,beginAtZero:true,ticks:{stepSize:2}}}}
+});
+
+updateStats(); updateCharts(); renderTable();
+</script>
+</body>
+</html>
