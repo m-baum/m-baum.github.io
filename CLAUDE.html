@@ -11,7 +11,7 @@
 
 
 
-<title>Michael Baumgartner</title>
+<title>CLAUDE</title>
 
 <script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -276,91 +276,82 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Michael Baumgartner</h1>
 
 </div>
 
 
-<div class="intro-block">
-<div class="intro-aside">
-<p><img src="Michael-portrait.jpg" class="portrait"
-alt="Portrait of Michael Baumgartner" /></p>
-<div class="contact-block">
-<p>University of Bergen<br />
-Department of Philosophy<br />
-Postboks 7805<br />
-5020 Bergen<br />
-Norway</p>
-<p>Tel: +47 55 588 960<br />
-Email: <a
-href="mailto:michael.baumgartner@uib.no">michael.baumgartner@uib.no</a></p>
-<div class="map-preview">
-<p><iframe
-    title="Map to the Department of Philosophy at the University of Bergen"
-    src="https://www.google.com/maps?q=Department+of+Philosophy,+University+of+Bergen,+Bergen,+Norway&z=15&output=embed"
-    loading="lazy"
-    referrerpolicy="no-referrer-when-downgrade"></iframe></p>
+<div id="claude.md" class="section level1">
+<h1>CLAUDE.md</h1>
+<p>This file provides guidance to Claude Code (claude.ai/code) when
+working with code in this repository.</p>
+<div id="project-overview" class="section level2">
+<h2>Project Overview</h2>
+<p>Academic personal website for Michael Baumgartner (University of
+Bergen, Philosophy). Built with <strong>R Markdown</strong>
+(<code>rmarkdown::render_site()</code>) using the Bootstrap “sandstone”
+theme. Published to GitHub Pages.</p>
 </div>
-</div>
-</div>
-<div class="eyebrow">
-<p>Philosophy of Science • Causation • Coincidence Analysis</p>
-</div>
-<div class="lead">
-<p>I work on causation, mechanistic constitution, logical formalization,
-and configurational methods, with a particular focus on Coincidence
-Analysis.</p>
-</div>
-<div class="nav-strip">
-<p><a href="publications.html" class="nav-button">Publications</a> <a
-href="research.html" class="nav-button">Research</a> <a href="vita.html"
-class="nav-button">Vita</a> <a href="teach.html"
-class="nav-button">Teaching</a> <a href="cna.html"
-class="nav-button">CNA</a></p>
-</div>
-<div id="profile" class="section level2">
-<h2>Profile</h2>
-<p>I am a full professor at the Department of Philosophy of the <a
-href="http://www.uib.no/en">University of Bergen</a> and part of the <a
-href="http://www.uib.no/en/research/103156/toppforsk-programme">Toppforsk-programme</a>.
-My PhD is from the University of Bern (2005). My work spans philosophy
-of science and philosophy of logic, especially questions of causation,
-causal reasoning and discovery, mechanistic constitution, and logical
-formalization.</p>
-<p>My publications include an introduction to the philosophy of
-causation entitled “Kausalitaet und kausales Schliessen” (2004) as well
-as numerous papers on causal reasoning, regularity theories, Coincidence
-Analysis (CNA), interventionism, non-reductive physicalism, determinism,
-argument reconstruction, and configurational modeling in the social
-sciences.</p>
-<p><a href="https://www.uib.no/en/cna" class="profile-link">Visit the
-UIB Coincidence Analysis site</a> <a
-href="https://scholar.google.de/citations?user=3G4PBNMAAAAJ"
-class="profile-link">Google Scholar</a></p>
-</div>
-</div>
-<div id="news" class="section level2">
-<h2>News</h2>
-<!-- 1. **2026 CNA training workshop**: UC Berkeley, June 8 to 11, 2026. Tentative programme [here](/docs/course_outline26.pdf).
+<div id="key-commands" class="section level2">
+<h2>Key Commands</h2>
+<p>All commands run in R (via <code>Rscript</code> or RStudio
+console).</p>
+<pre class="r"><code># Build the full site (outputs to _site/)
+rmarkdown::render_site()
 
-1. **5th international CNA conference**: UC Berkeley, June 12 to 13, 2026, with support by the Peder Sather Center. Tentative programme [here](/docs/programCNA26.pdf). -->
-<ol style="list-style-type: decimal">
-<li><p><strong>New paper</strong>: M. Baumgartner and T. Lampert
-(forthcoming), <a href="/docs/directionality_final.pdf">Breaking
-Symmetry: A New Directionality Criterion for Regularity Theories of
-Causation</a>, <em>Erkenntnis</em>.</p></li>
-<li><p><strong>New paper</strong>: B. Distel, R. Plattfaut, and
-M. Baumgartner (2026).
-<a href="https://aisel.aisnet.org/cais/vol59/iss1/46">Coincidence
-Analysis: An Alternative Method for Studying Causal Complexity in IS
-Research</a>, <em>Communications of the Association for Information
-Systems</em>, 59.</p></li>
-</ol>
-<!-- 1. **cna 4.0.3 released on CRAN**: The update includes new measures for evaluating sufficiency and necessity in model building.
+# Build a single page (faster iteration)
+rmarkdown::render_site(input = &quot;index.Rmd&quot;)
 
-1. **Humaniora Strategy Grant**: I received a <a href="https://www.uib.no/humaniorastrategien/171693/fem-prosjekter-f%C3%A5r-st%C3%B8tte-fra-uibs-humaniorastrategi">Humaniora Strategy Grant</a> from the University of Bergen to explore the potential of AI models for causal data analysis with CNA.
+# Preview a single page using the preview/ directory
+source(&quot;script.R&quot;)
+preview_homepage(&quot;index.Rmd&quot;)
 
-1. **Preprint on new evaluation measures**: L.\ De Souter and M.\ Baumgartner (2025), <a href="https://doi.org/10.5281/zenodo.13619580">New Sufficiency and Necessity Measures for Model Building with Coincidence Analysis</a>, <em>Zenodo</em>, doi: 10.5281/zenodo.13619580. -->
+# Preview the full site
+render_preview_site()
+
+# Publish to gh-pages (pushes to remote)
+publish_site()
+publish_page(&quot;index.Rmd&quot;)</code></pre>
+</div>
+<div id="architecture" class="section level2">
+<h2>Architecture</h2>
+<ul>
+<li><strong>Source pages</strong>: <code>.Rmd</code> files at root —
+<code>index.Rmd</code>, <code>vita.Rmd</code>,
+<code>publications.Rmd</code>, <code>talks.Rmd</code>,
+<code>research.Rmd</code>, <code>teach.Rmd</code>,
+<code>cna.Rmd</code></li>
+<li><strong>Site config</strong>: <code>_site.yml</code> — navbar
+structure, output theme, output dir (<code>_site</code>), file
+exclusions</li>
+<li><strong>Custom CSS</strong>: <code>basic.css</code> — warm-toned
+academic styling (dark brown links, beige background)</li>
+<li><strong>Bibliography</strong>: <code>bib.bib</code> — BibTeX file
+for publications/citations</li>
+<li><strong>Documents</strong>: <code>docs/</code> — PDFs and images
+(papers, programs, course outlines)</li>
+<li><strong>Helper scripts</strong>: <code>script.R</code> — utility
+functions for rendering, previewing, and publishing</li>
+<li><strong>Preview workflow</strong>: <code>preview/</code> directory
+mirrors the site with symlinks, uses <code>preview-basic.css</code> for
+dev iteration</li>
+<li><strong>Published output</strong>: <code>_site/</code> — rendered
+HTML, then synced to <code>gh-pages</code> branch</li>
+</ul>
+</div>
+<div id="publishing-workflow" class="section level2">
+<h2>Publishing Workflow</h2>
+<p><code>publish_site()</code> in <code>script.R</code>: 1. Renders the
+site via <code>rmarkdown::render_site()</code> 2. Clones/fetches the
+<code>gh-pages</code> branch into <code>.publish-cache/</code> 3. Syncs
+<code>_site/</code> content into the cache 4. Commits and pushes to
+<code>origin/gh-pages</code></p>
+</div>
+<div id="rstudio-project" class="section level2">
+<h2>RStudio Project</h2>
+<p><code>.Rproj</code> file sets <code>BuildType: Website</code>,
+meaning RStudio’s “Build” button runs
+<code>rmarkdown::render_site()</code>.</p>
+</div>
 </div>
 
 

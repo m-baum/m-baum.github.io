@@ -664,7 +664,7 @@ li {
   margin-top: 14px;
 }
 
-#news li:nth-child(-n+2) strong:first-child::before {
+#news li:nth-child(-n+0) strong:first-child::before {
   content: "Featured";
   display: inline-block;
   margin-right: 10px;
