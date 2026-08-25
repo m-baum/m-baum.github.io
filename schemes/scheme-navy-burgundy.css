@@ -1,0 +1,30 @@
+/* Scheme 2: Navy & Burgundy — classic academic; deep navy accents,
+   burgundy links stay readable on warm ivory cards (contrast > 7:1) */
+:root {
+  --bg: #f7f4ee;
+  --text: #23272e;
+  --heading: #1a1e26;
+  --lead: #3c414b;
+  --muted: #6a6f78;
+  --link: #8a1f2d;
+  --link-hover: #6b1420;
+  --link-underline: rgba(138, 31, 45, 0.4);
+  --accent: #1f3a5f;
+  --accent-soft-border: rgba(31, 58, 95, 0.14);
+  --accent-mid-border: rgba(31, 58, 95, 0.22);
+  --card-bg: rgba(255, 255, 255, 0.88);
+  --card-featured-bg: #f3ecdf;
+  --card-shadow: rgba(31, 42, 58, 0.08);
+  --card-shadow-strong: rgba(31, 42, 58, 0.16);
+  --featured-box-bg: #f3ecdf;
+  --featured-box-border: rgba(31, 58, 95, 0.20);
+  --badge-bg: #1f3a5f;
+  --badge-text: #f7f4ee;
+  --button-bg: rgba(255, 255, 255, 0.96);
+  --button-hover-bg: #e9dfd0;
+  --navbar-bg-from: rgba(26, 38, 58, 0.98);
+  --navbar-bg-to: rgba(20, 30, 46, 0.98);
+  --navbar-text: rgba(247, 244, 238, 0.86);
+  --navbar-text-strong: #f7f4ee;
+  --table-head: #1f3a5f;
+}

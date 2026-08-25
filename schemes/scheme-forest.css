@@ -1,0 +1,30 @@
+/* Scheme 3: Forest — warm paper background, deep green accents,
+   links in dark sienna for strong contrast on green-tinted boxes */
+:root {
+  --bg: #f4f3ec;
+  --text: #22301f;
+  --heading: #17240f;
+  --lead: #37452f;
+  --muted: #5f6f5a;
+  --link: #0d4f3c;
+  --link-hover: #093626;
+  --link-underline: rgba(13, 79, 60, 0.4);
+  --accent: #1e5c46;
+  --accent-soft-border: rgba(30, 92, 70, 0.14);
+  --accent-mid-border: rgba(30, 92, 70, 0.22);
+  --card-bg: rgba(255, 255, 255, 0.88);
+  --card-featured-bg: #e9efe4;
+  --card-shadow: rgba(23, 36, 15, 0.08);
+  --card-shadow-strong: rgba(23, 36, 15, 0.16);
+  --featured-box-bg: #e6eee0;
+  --featured-box-border: rgba(30, 92, 70, 0.22);
+  --badge-bg: #1e5c46;
+  --badge-text: #f4f3ec;
+  --button-bg: rgba(255, 255, 255, 0.96);
+  --button-hover-bg: #dbe6d3;
+  --navbar-bg-from: rgba(24, 46, 34, 0.98);
+  --navbar-bg-to: rgba(18, 36, 26, 0.98);
+  --navbar-text: rgba(244, 243, 236, 0.86);
+  --navbar-text-strong: #f4f3ec;
+  --table-head: #2c5a44;
+}

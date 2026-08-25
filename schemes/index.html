@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Color Scheme Preview — Landing Page</title>
+<link rel="stylesheet" href="base.css">
+<link id="scheme-stylesheet" rel="stylesheet" href="scheme-current.css">
+<script>
+const SCHEMES = {
+  current:        "Current (Teal)",
+  "navy-burgundy": "Navy & Burgundy",
+  forest:         "Forest",
+  plum:           "Plum & Slate"
+};
+
+function applyScheme(name) {
+  if (!SCHEMES[name]) name = "current";
+  document.getElementById("scheme-stylesheet").href = "scheme-" + name + ".css";
+  document.querySelectorAll(".scheme-bar a").forEach(a => {
+    a.classList.toggle("active", a.dataset.scheme === name);
+  });
+  const label = document.getElementById("scheme-name");
+  if (label) label.textContent = SCHEMES[name];
+  if (history.replaceState) history.replaceState(null, "", "#" + name);
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  applyScheme(location.hash.replace("#", "") || "current");
+});
+</script>
+</head>
+<body>
+
+<div class="scheme-bar">
+  <strong>Scheme:</strong>
+  <a href="#current" data-scheme="current" onclick="applyScheme('current'); return false;">Current</a>
+  <a href="#navy-burgundy" data-scheme="navy-burgundy" onclick="applyScheme('navy-burgundy'); return false;">Navy &amp; Burgundy</a>
+  <a href="#forest" data-scheme="forest" onclick="applyScheme('forest'); return false;">Forest</a>
+  <a href="#plum" data-scheme="plum" onclick="applyScheme('plum'); return false;">Plum &amp; Slate</a>
+  <span style="margin-left:auto; opacity:.75;">Active: <span id="scheme-name">Current (Teal)</span></span>
+</div>
+
+<div class="navbar-mock">
+  <a class="brand" href="#">Michael Baumgartner</a>
+  <span class="nav-links">
+    <a href="#" class="active">Home</a>
+    <a href="#">Vita</a>
+    <a href="#">Publications</a>
+    <a href="#">Talks</a>
+    <a href="#">Research</a>
+    <a href="#">Teaching</a>
+    <a href="#">CNA</a>
+  </span>
+</div>
+
+<div class="main-container">
+
+  <div class="intro-block">
+    <p class="eyebrow">Philosophy &middot; University of Bergen</p>
+    <h1>Michael Baumgartner</h1>
+    <p class="lead">I am Professor of Philosophy at the
+      <a href="https://www.uib.no/en/rg/clrr">Department of Philosophy</a>,
+      University of Bergen. My research focuses on causal modeling, philosophy of science,
+      and the methodology of the social sciences. I develop
+      <a href="https://cna-method.com/">Coincidence Analysis (CNA)</a>.</p>
+    <p>
+      <a class="nav-button" href="#">Vita</a>
+      <a class="nav-button" href="#">Publications</a>
+      <a class="nav-button" href="#">Talks</a>
+      <a class="nav-button" href="#">CNA</a>
+    </p>
+  </div>
+
+  <div id="news" class="section level2">
+    <h2>News</h2>
+    <ol>
+      <li class="featured">
+        <span class="badge">Featured</span>
+        <strong>Training &middot; Online &middot; KOMEX &middot; Feb 22&ndash;24</strong>
+        <p><a href="https://cna-method.com/training-komex-2027.html">Coincidence Analysis for Causal Learning</a><br>
+        Feb 22&ndash;24, 2027. Links must stay readable on this tinted box background.</p>
+      </li>
+      <li class="featured">
+        <span class="badge">Featured</span>
+        <strong>New paper in <em>Philosophy of Science</em></strong>
+        <p><a href="#">Regularity Theories of Causation Revisited</a> — now available online.
+        A second featured entry to test link contrast on tinted backgrounds.</p>
+      </li>
+      <li>
+        <strong>May 2026:</strong> CNA workshop at
+        <a href="#">UC Berkeley</a>, June 8&ndash;11, 2026.
+      </li>
+      <li>
+        <strong>2025:</strong> <a href="#">cna 4.0.3</a> released on CRAN.
+      </li>
+    </ol>
+  </div>
+
+  <div class="vita-card vita-card-featured">
+    <h2>Featured Card</h2>
+    <p>This card uses the featured background tint. Plain text,
+      <a href="#">a link inside the featured card</a>, and more text to judge readability.</p>
+    <ul>
+      <li><span class="years">2020&ndash;</span> Professor, University of Bergen —
+        <a href="#">project page</a></li>
+      <li><span class="years">2015&ndash;20</span> Professor, University of Osnabr&uuml;ck —
+        <a href="#">archived page</a></li>
+    </ul>
+  </div>
+
+  <div class="vita-card">
+    <h2>Plain Card</h2>
+    <p>Standard card on white-ish background with
+      <a href="#">an inline link</a> for baseline comparison.</p>
+  </div>
+
+  <p class="contrast-note">
+    Reference: the <em>featured</em> boxes are where links were hard to read in the old scheme.
+    Navy &amp; Burgundy, Forest and Plum all use darker link colors with
+    contrast ratios of ~7:1 or better on their tinted backgrounds (WCAG AAA for normal text).
+  </p>
+
+</div>
+
+</body>
+</html>

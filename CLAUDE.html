@@ -11,7 +11,7 @@
 
 
 
-<title>Curriculum Vitae</title>
+<title>CLAUDE</title>
 
 <script src="site_libs/header-attrs-2.31/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
@@ -276,238 +276,109 @@ $(document).ready(function () {
 
 
 
-<h1 class="title toc-ignore">Curriculum Vitae</h1>
 
 </div>
 
 
-<div class="intro-block vita-intro">
-<div class="eyebrow">
-<p>Curriculum Vitae</p>
+<div id="claude.md" class="section level1">
+<h1>CLAUDE.md</h1>
+<p>This file provides guidance to Claude Code (claude.ai/code) when
+working with code in this repository.</p>
+<div id="project-overview" class="section level2">
+<h2>Project Overview</h2>
+<p>Academic personal website for Michael Baumgartner (University of
+Bergen, Philosophy). Built with <strong>R Markdown</strong>
+(<code>rmarkdown::render_site()</code>) using the Bootstrap “sandstone”
+theme. Published to GitHub Pages.</p>
 </div>
-<div class="lead">
-<p>Academic positions, education, and grants across Bergen, Geneva,
-Osnabrueck, Konstanz, Bern, Pittsburgh, and Paris.</p>
+<div id="key-commands" class="section level2">
+<h2>Key Commands</h2>
+<p>All commands run in R (via <code>Rscript</code> or RStudio
+console).</p>
+<pre class="r"><code># Build the full site (outputs to _site/) — docs/ is NOT copied by render_site()
+# (it is in _site.yml&#39;s exclude list), so use the wrapper that also syncs docs/
+# to _site/docs/ (needed for the CNA banner docs/head_cna3.png and PDFs)
+source(&quot;script.R&quot;)
+render_site_with_docs()
+
+# Build the full site without docs/ sync (raw)
+rmarkdown::render_site()
+
+# Build a single page (faster iteration)
+rmarkdown::render_site(input = &quot;index.Rmd&quot;)
+
+# Re-sync docs/ to _site/docs/ after any render (e.g. if images/PDFs are missing)
+sync_docs_to_site()
+
+# Preview a single page using the preview/ directory
+source(&quot;script.R&quot;)
+preview_homepage(&quot;index.Rmd&quot;)
+
+# Preview the full site
+render_preview_site()
+
+# Publish to gh-pages (pushes to remote)
+publish_site()
+publish_page(&quot;index.Rmd&quot;)</code></pre>
 </div>
+<div id="architecture" class="section level2">
+<h2>Architecture</h2>
+<ul>
+<li><strong>Source pages</strong>: <code>.Rmd</code> files at root —
+<code>index.Rmd</code>, <code>vita.Rmd</code>,
+<code>publications.Rmd</code>, <code>talks.Rmd</code>,
+<code>research.Rmd</code>, <code>teach.Rmd</code>,
+<code>cna.Rmd</code></li>
+<li><strong>Site config</strong>: <code>_site.yml</code> — navbar
+structure, output theme, output dir (<code>_site</code>), file
+exclusions</li>
+<li><strong>Custom CSS</strong>: <code>basic.css</code> — Navy &amp;
+Burgundy color scheme (links <code>#8a1f2d</code>, accents
+<code>#1f3a5f</code>, featured/de-highlight tint <code>#f2f0ea</code>).
+Tinted backgrounds are used to <em>de</em>-highlight past/archived
+content (e.g. Past Projects, former teaching posts), not current
+content. Alternative schemes preserved in <code>schemes/</code> (open
+<code>schemes/index.html</code> to compare)</li>
+<li><strong>Bibliography</strong>: <code>bib.bib</code> — BibTeX file
+for publications/citations</li>
+<li><strong>Documents</strong>: <code>docs/</code> — PDFs and images
+(papers, programs, course outlines, CNA banner
+<code>head_cna3.png</code>). <strong>Not copied to <code>_site/</code>
+by <code>render_site()</code></strong> (excluded in
+<code>_site.yml</code>) — run <code>sync_docs_to_site()</code> or use
+<code>render_site_with_docs()</code></li>
+<li><strong>Helper scripts</strong>: <code>script.R</code> — utility
+functions for rendering, previewing, and publishing</li>
+<li><strong>Preview workflow</strong>: <code>preview/</code> directory
+mirrors the site with symlinks, uses <code>preview-basic.css</code> for
+dev iteration</li>
+<li><strong>Published output</strong>: <code>_site/</code> — rendered
+HTML, then synced to <code>gh-pages</code> branch</li>
+</ul>
 </div>
-<div class="vita-grid">
-<div id="positions" class="section level2 vita-card">
-<h2>Positions</h2>
-<table class="vita-position-table">
-<tbody>
-<tr class="vita-position-row-current">
-<td class="vita-position-years">
-2017-
-</td>
-<td>
-<span class="vita-position-status">Current</span> Full Professor at the
-<a href="http://www.uib.no/en/fof#">Department of Philosophy</a>,
-University of Bergen, Norway.
-</td>
-</tr>
-<tr>
-<td class="vita-position-years">
-2014-2017
-</td>
-<td>
-SNSF Professor at the <a
-href="http://www.unige.ch/lettres/philo/">Department of Philosophy</a>,
-University of Geneva, Switzerland.
-</td>
-</tr>
-<tr>
-<td class="vita-position-years">
-2012-2014
-</td>
-<td>
-Juniorprofessor at the <a
-href="http://cogsci.uni-osnabrueck.de/">Institute of Cognitive
-Science</a>, University of Osnabrueck, Germany.
-</td>
-</tr>
-<tr>
-<td class="vita-position-years">
-2009-2012
-</td>
-<td>
-Postdoctoral Research Associate and Lecturer at the <a
-href="https://www.philosophie.uni-konstanz.de/en/">Dept. of
-Philosophy</a>, University of Konstanz, Germany.
-</td>
-</tr>
-<tr>
-<td class="vita-position-years">
-2010
-</td>
-<td>
-Visiting Scholar at the Institut d’Histoire et de Philosophie des
-Sciences et des Techniques, University of Paris 1, France.
-</td>
-</tr>
-<tr>
-<td class="vita-position-years">
-2008-2009
-</td>
-<td>
-Postdoctoral Research Associate and Lecturer at the <a
-href="http://www.philosophie.unibe.ch/content/index_ger.html">Dept. of
-Philosophy</a>, University of Bern, Switzerland.
-</td>
-</tr>
-<tr>
-<td class="vita-position-years">
-2007-2008
-</td>
-<td>
-Visiting Fellow at the <a
-href="https://www.centerphilsci.pitt.edu/">Center for Philosophy of
-Science</a>, University of Pittsburgh, USA.
-</td>
-</tr>
-<tr>
-<td class="vita-position-years">
-2003-2007
-</td>
-<td>
-Lecturer, Department of Philosophy, University of Bern, Switzerland.
-</td>
-</tr>
-<tr>
-<td class="vita-position-years">
-2001-2003
-</td>
-<td>
-Research and Teaching Assistant, Department of Philosophy, University of
-Bern, Switzerland.
-</td>
-</tr>
-</tbody>
-</table>
+<div id="important-claude.md-exclusion" class="section level2">
+<h2>Important: CLAUDE.md Exclusion</h2>
+<p><code>rmarkdown::render_site()</code> processes all <code>.Rmd</code>
+and <code>.md</code> files in the root directory. <strong>CLAUDE.md must
+be listed in the <code>exclude</code> field of
+<code>_site.yml</code></strong>, otherwise it will be rendered as
+<code>CLAUDE.html</code> and pushed to the published site.</p>
 </div>
-<div id="education" class="section level2 vita-card">
-<h2>Education</h2>
-<table class="vita-position-table">
-<tbody>
-<tr>
-<td class="vita-position-years">
-2005
-</td>
-<td>
-Ph.D. (Philosophy), University of Bern.
-</td>
-</tr>
-<tr>
-<td class="vita-position-years">
-2001
-</td>
-<td>
-M.A. (Philosophy), University of Bern.
-</td>
-</tr>
-<tr>
-<td class="vita-position-years">
-1995-2000
-</td>
-<td>
-Studies in Philosophy, History, and German, Universities of Bern,
-Freiburg, and Konstanz.
-</td>
-</tr>
-</tbody>
-</table>
+<div id="publishing-workflow" class="section level2">
+<h2>Publishing Workflow</h2>
+<p><code>publish_site()</code> in <code>script.R</code>: 1. Renders the
+site via <code>rmarkdown::render_site()</code> 2. Clones/fetches the
+<code>gh-pages</code> branch into <code>.publish-cache/</code> 3. Syncs
+<code>_site/</code> content into the cache (uses
+<code>rsync --delete=false</code> — <strong>no files on gh-pages are
+ever deleted</strong>) 4. Syncs <code>docs/</code> directory separately
+5. Commits and pushes to <code>origin/gh-pages</code></p>
 </div>
-<div id="grants-fellowships" class="section level2 vita-card">
-<h2>Grants &amp; Fellowships</h2>
-<table class="vita-position-table">
-<tbody>
-<tr>
-<td class="vita-position-years">
-2024
-</td>
-<td>
-<a href="https://sathercenter.berkeley.edu/">Peder Sather Grant</a>,
-Peder Sather Center, UC Berkeley. Project title: “Coincidence analysis
-workshop and applied health services research comparing coincidence
-analysis with regression analysis”.
-</td>
-</tr>
-<tr>
-<td class="vita-position-years">
-2024
-</td>
-<td>
-<a
-href="https://www.uib.no/humaniorastrategien/171693/fem-prosjekter-f%C3%A5r-st%C3%B8tte-fra-uibs-humaniorastrategi">Humaniora
-Strategy Grant</a>, University of Bergen. Project title: “Exploring the
-Potential of AI Models for Causal Data Analysis with CNA”.
-</td>
-</tr>
-<tr>
-<td class="vita-position-years">
-2021
-</td>
-<td>
-<a href="https://www.uib.no/en/cna/146141/fripro-project-granted">FRIPRO
-project</a>, Research Council of Norway.
-</td>
-</tr>
-<tr>
-<td class="vita-position-years">
-2017
-</td>
-<td>
-<a
-href="http://www.uib.no/forskning/91071/toppforskprogrammet">Toppforskprogrammet</a>,
-Universitetet i Bergen / Trond Mohn Foundation.
-</td>
-</tr>
-<tr>
-<td class="vita-position-years">
-2013
-</td>
-<td>
-<a
-href="https://www.snf.ch/en/qB3Cj7WzYGcqbgVi/funding/funding/discontinued-funding-schemes/snsf-professorships">SNSF
-Professorship</a>, Swiss National Science Foundation.
-</td>
-</tr>
-<tr>
-<td class="vita-position-years">
-2007
-</td>
-<td>
-Visiting Fellowship at the University of Pittsburgh.
-</td>
-</tr>
-<tr>
-<td class="vita-position-years">
-2007
-</td>
-<td>
-Fellowship for Prospective Researchers from the Swiss National Science
-Foundation.
-</td>
-</tr>
-<tr>
-<td class="vita-position-years">
-2001-2003
-</td>
-<td>
-Ph.D. Grant from the Swiss National Science Foundation for a research
-project on regularity theories of causation.
-</td>
-</tr>
-<tr>
-<td class="vita-position-years">
-Various
-</td>
-<td>
-Diverse travel grants from the University of Bern and from the Swiss
-National Science Foundation.
-</td>
-</tr>
-</tbody>
-</table>
+<div id="rstudio-project" class="section level2">
+<h2>RStudio Project</h2>
+<p><code>.Rproj</code> file sets <code>BuildType: Website</code>,
+meaning RStudio’s “Build” button runs
+<code>rmarkdown::render_site()</code>.</p>
 </div>
 </div>
 

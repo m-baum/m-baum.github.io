@@ -1,0 +1,270 @@
+/* Base layout for scheme preview — mirrors basic.css structure,
+   colors are driven by CSS custom properties set per scheme. */
+
+:root {
+  --bg: #f6f5f0;
+  --text: #1e2a32;
+  --heading: #17252d;
+  --lead: #33454c;
+  --muted: #5d7177;
+  --link: #155c73;
+  --link-hover: #0b7689;
+  --link-underline: rgba(21, 92, 115, 0.35);
+  --accent: #155c73;
+  --accent-soft-border: rgba(21, 92, 115, 0.13);
+  --accent-mid-border: rgba(21, 92, 115, 0.20);
+  --card-bg: rgba(255, 255, 255, 0.83);
+  --card-featured-bg: rgba(237, 244, 242, 0.92);
+  --card-shadow: rgba(29, 48, 57, 0.08);
+  --card-shadow-strong: rgba(29, 48, 57, 0.16);
+  --featured-box-bg: #edf5f7;
+  --featured-box-border: rgba(21, 92, 115, 0.20);
+  --badge-bg: #d7e9ee;
+  --badge-text: #155c73;
+  --button-bg: rgba(255, 255, 255, 0.96);
+  --button-hover-bg: #ddeae8;
+  --navbar-bg-from: rgba(38, 62, 74, 0.98);
+  --navbar-bg-to: rgba(29, 48, 57, 0.98);
+  --navbar-text: rgba(244, 247, 245, 0.86);
+  --navbar-text-strong: #f4f7f5;
+  --navbar-active-bg: rgba(221, 234, 232, 0.16);
+  --table-head: #3d606c;
+}
+
+body {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: var(--text);
+  background: var(--bg);
+  margin: 0;
+}
+
+.main-container {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 32px 20px 56px;
+}
+
+h1, h2, h3 {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: var(--heading);
+}
+
+h1 {
+  margin: 0 0 20px;
+  font-size: 2.7rem;
+  line-height: 1.08;
+}
+
+h2 {
+  margin-top: 0;
+  margin-bottom: 28px;
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+p { margin: 0 0 12px; }
+
+a:link, a:visited {
+  color: var(--link);
+  text-decoration-color: var(--link-underline);
+}
+
+a:hover, a:active {
+  color: var(--link-hover);
+}
+
+/* --- scheme switcher bar --- */
+.scheme-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  padding: 10px 16px;
+  background: #17252d;
+  color: #f4f7f5;
+  font-size: 1.3rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+.scheme-bar strong { margin-right: 8px; font-weight: 600; }
+
+.scheme-bar a {
+  display: inline-block;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(244, 247, 245, 0.35);
+  color: #f4f7f5 !important;
+  text-decoration: none;
+}
+
+.scheme-bar a:hover { background: rgba(244, 247, 245, 0.15); }
+
+.scheme-bar a.active {
+  background: #f4f7f5;
+  color: #17252d !important;
+  border-color: #f4f7f5;
+}
+
+/* --- navbar mock --- */
+.navbar-mock {
+  background: linear-gradient(180deg, var(--navbar-bg-from), var(--navbar-bg-to));
+  box-shadow: 0 6px 18px var(--card-shadow-strong);
+  padding: 10px 24px;
+  display: flex;
+  align-items: baseline;
+  gap: 26px;
+  flex-wrap: wrap;
+}
+
+.navbar-mock .brand {
+  color: var(--navbar-text-strong);
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-decoration: none;
+}
+
+.navbar-mock .nav-links a {
+  color: var(--navbar-text);
+  text-decoration: none;
+  margin-right: 18px;
+  font-size: 1.4rem;
+}
+
+.navbar-mock .nav-links a:hover,
+.navbar-mock .nav-links a.active {
+  color: #fff;
+}
+
+/* --- intro block --- */
+.intro-block {
+  display: flow-root;
+  margin-bottom: 34px;
+  padding: 26px 28px 24px;
+  border: 1px solid var(--accent-soft-border);
+  border-radius: 24px;
+  background: var(--card-bg);
+  box-shadow: 0 12px 28px var(--card-shadow);
+}
+
+.eyebrow {
+  margin-bottom: 12px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 1.3rem;
+  font-weight: 550;
+  color: var(--muted);
+}
+
+.lead {
+  font-size: 1.58rem;
+  max-width: 34em;
+  color: var(--lead);
+  line-height: 1.55;
+  margin-bottom: 22px;
+}
+
+/* --- nav buttons --- */
+.nav-button {
+  display: inline-block;
+  margin: 0 10px 10px 0;
+  padding: 11px 17px;
+  border: 1px solid var(--accent-mid-border);
+  border-radius: 999px;
+  background: var(--button-bg);
+  color: var(--link);
+  font-size: 1.22rem;
+  text-decoration: none !important;
+}
+
+.nav-button:hover {
+  background: var(--button-hover-bg);
+  color: var(--link-hover);
+}
+
+/* --- news --- */
+#news {
+  margin-top: 10px;
+  padding: 26px 28px 22px;
+  border: 1px solid var(--accent-soft-border);
+  border-radius: 24px;
+  background: var(--card-bg);
+  box-shadow: 0 12px 28px var(--card-shadow);
+}
+
+#news ol {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+#news li {
+  margin-bottom: 12px;
+  padding: 14px 0 13px;
+  border-top: 1px solid var(--accent-soft-border);
+}
+
+#news li:first-child {
+  border-top: none;
+  padding-top: 2px;
+}
+
+#news li.featured {
+  padding: 16px 18px 15px;
+  border: 1px solid var(--featured-box-border);
+  border-radius: 16px;
+  background: var(--featured-box-bg);
+  box-shadow: 0 8px 18px var(--card-shadow);
+}
+
+#news li.featured .badge {
+  display: inline-block;
+  margin-right: 10px;
+  padding: 2px 9px;
+  border-radius: 999px;
+  background: var(--badge-bg);
+  color: var(--badge-text);
+  font-size: 0.74rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  vertical-align: middle;
+}
+
+/* --- cards --- */
+.vita-card {
+  margin-top: 18px;
+  padding: 26px 28px 22px;
+  border: 1px solid var(--accent-soft-border);
+  border-radius: 24px;
+  background: var(--card-bg);
+  box-shadow: 0 12px 28px var(--card-shadow);
+}
+
+.vita-card-featured {
+  background: var(--card-featured-bg);
+}
+
+.vita-card h2 { margin-bottom: 10px; }
+
+.vita-card ul { padding-left: 20px; margin-bottom: 0; }
+.vita-card li { margin-bottom: 10px; }
+
+.years {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+/* --- contrast meter --- */
+.contrast-note {
+  margin: 26px 0 0;
+  padding: 14px 18px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.05);
+  font-size: 1.25rem;
+  color: var(--muted);
+}

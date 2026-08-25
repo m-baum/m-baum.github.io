@@ -1,0 +1,29 @@
+/* Scheme 1: Current (Teal) — existing site colors for reference */
+:root {
+  --bg: #f6f5f0;
+  --text: #1e2a32;
+  --heading: #17252d;
+  --lead: #33454c;
+  --muted: #5d7177;
+  --link: #155c73;
+  --link-hover: #0b7689;
+  --link-underline: rgba(21, 92, 115, 0.35);
+  --accent: #155c73;
+  --accent-soft-border: rgba(21, 92, 115, 0.13);
+  --accent-mid-border: rgba(21, 92, 115, 0.20);
+  --card-bg: rgba(255, 255, 255, 0.83);
+  --card-featured-bg: rgba(237, 244, 242, 0.92);
+  --card-shadow: rgba(29, 48, 57, 0.08);
+  --card-shadow-strong: rgba(29, 48, 57, 0.16);
+  --featured-box-bg: #edf5f7;
+  --featured-box-border: rgba(21, 92, 115, 0.20);
+  --badge-bg: #d7e9ee;
+  --badge-text: #155c73;
+  --button-bg: rgba(255, 255, 255, 0.96);
+  --button-hover-bg: #ddeae8;
+  --navbar-bg-from: rgba(38, 62, 74, 0.98);
+  --navbar-bg-to: rgba(29, 48, 57, 0.98);
+  --navbar-text: rgba(244, 247, 245, 0.86);
+  --navbar-text-strong: #f4f7f5;
+  --table-head: #3d606c;
+}

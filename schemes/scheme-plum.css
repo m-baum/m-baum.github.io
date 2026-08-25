@@ -1,0 +1,30 @@
+/* Scheme 4: Plum & Slate — modern violet-grey; links in deep plum
+   on cool lavender-grey cards, high contrast, contemporary feel */
+:root {
+  --bg: #f5f4f7;
+  --text: #2a2733;
+  --heading: #1e1b26;
+  --lead: #413d4d;
+  --muted: #6b6676;
+  --link: #5b2a86;
+  --link-hover: #431d64;
+  --link-underline: rgba(91, 42, 134, 0.4);
+  --accent: #4a3a6b;
+  --accent-soft-border: rgba(74, 58, 107, 0.14);
+  --accent-mid-border: rgba(74, 58, 107, 0.22);
+  --card-bg: rgba(255, 255, 255, 0.88);
+  --card-featured-bg: #efecf4;
+  --card-shadow: rgba(30, 27, 38, 0.08);
+  --card-shadow-strong: rgba(30, 27, 38, 0.16);
+  --featured-box-bg: #ece8f3;
+  --featured-box-border: rgba(74, 58, 107, 0.22);
+  --badge-bg: #4a3a6b;
+  --badge-text: #f5f4f7;
+  --button-bg: rgba(255, 255, 255, 0.96);
+  --button-hover-bg: #e2dcee;
+  --navbar-bg-from: rgba(42, 34, 58, 0.98);
+  --navbar-bg-to: rgba(32, 26, 44, 0.98);
+  --navbar-text: rgba(245, 244, 247, 0.86);
+  --navbar-text-strong: #f5f4f7;
+  --table-head: #4a3a6b;
+}
