@@ -99,7 +99,13 @@ a:active {
 }
 
 /* Page-intro boxes on all non-index pages get a faint burgundy wash
-   (links/accents are #8a1f2d), so they read as tinted instead of white. */
+   (links/accents are #8a1f2d), so they read as tinted instead of white.
+   .vita-card sets its own white background AFTER this rule, so the higher
+   specificity below ensures the tint wins even when .tinted-intro is combined
+   with a card (e.g. the Literature box on the CNA page). */
+.intro-block.tinted-intro,
+.vita-card.tinted-intro,
+.cna-card.tinted-intro,
 .tinted-intro {
   background: rgba(138, 31, 45, 0.06);
 }
