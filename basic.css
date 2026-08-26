@@ -98,6 +98,28 @@ a:active {
   box-shadow: 0 12px 28px rgba(31, 42, 58, 0.08);
 }
 
+/* Page-intro boxes on all non-index pages get a faint burgundy wash
+   (links/accents are #8a1f2d), so they read as tinted instead of white. */
+.tinted-intro {
+  background: rgba(138, 31, 45, 0.06);
+}
+
+.tinted-intro .lead {
+  color: #2f343c;
+}
+
+/* Featured box for the upcoming KOMEX training on the CNA page — same faint
+   burgundy wash as the featured news boxes on the index page. */
+.featured-training {
+  margin: 8px 0 18px;
+  padding: 16px 18px 15px;
+  border: 1px solid rgba(31, 58, 95, 0.20);
+  border-radius: 16px;
+  background: rgba(138, 31, 45, 0.06);
+  box-shadow: 0 8px 18px rgba(31, 42, 58, 0.06);
+  color: #2f343c;
+}
+
 #publications-top,
 #research-top {
   scroll-margin-top: 86px;
@@ -653,19 +675,23 @@ li {
   padding-top: 2px;
 }
 
-#news li:nth-child(-n+2) {
+/* --- Featured news boxes ---
+   Mark an entry as featured directly in index.Rmd by giving its <li> the
+   class "featured" (see the News section). Featured entries get a burgundy
+   box and a "Featured" pill. Non-featured entries stay plain. */
+#news li.featured {
   padding: 16px 18px 15px;
   border: 1px solid rgba(31, 58, 95, 0.20);
   border-radius: 16px;
-  background: #f2f0ea;
+  background: rgba(138, 31, 45, 0.06);
   box-shadow: 0 8px 18px rgba(31, 42, 58, 0.06);
 }
 
-#news li:nth-child(2) {
+#news li.featured + li.featured {
   margin-top: 14px;
 }
 
-#news li:nth-child(-n+0) strong:first-child::before {
+#news li.featured strong:first-child::before {
   content: "Featured";
   display: inline-block;
   margin-right: 10px;
